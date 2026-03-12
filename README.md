@@ -13,10 +13,11 @@ Este repositório irá abrigar o projeto final do 3° semestre do curso de Jogos
 <img alt="Static Badge" src="https://img.shields.io/badge/Status-Em%20progresso-orange?style=flat">
 
 ## Ideia Geral
-Um certo dia, o mundo acordou e alguns monumentos históricos haviam sumido e ninguém sabia onde elas tinham ido parar. Durante uma investigação, descobriram uma ilha no meio do Oceano Pacífico e, nesta ilha, as Pirâmides foram encontradas. Para investigar o ocorrido, um historiador altamente especializado foi enviado em uma missão nesta ilha misteriosa.
+Um certo dia, o mundo acordou e alguns monumentos históricos haviam sumido e ninguém sabia onde elas tinham ido parar. Durante uma investigação, descobriram uma ilha no meio do Oceano Pacífico e, nesta ilha, as construções desaparecidas foram encontradas. Para investigar o ocorrido, um historiador altamente especializado foi enviado em uma missão nesta ilha misteriosa.
 
 ## Sumário do Projeto
 Aqui estará o sumário de informações do projeto, que estarão alocadas na página da Wiki do projeto.
 
 ### Wiki
 - <a href="https://github.com/matbrgod/Projeto-3-Semestre/wiki"> Home </a>
+- <a href="https://github.com/matbrgod/Projeto-3-Semestre/wiki/Narrativa-e-Constru%C3%A7%C3%A3o-de-Mundo"> Narrativa </a>
