@@ -1,5 +1,5 @@
 # PROJETO MUNDO ABERTO 3D
-Este repositório irá abrigar o projeto final do 3° semestre do curso de Jogos Digitais da PUC-SP, o qual tem o tema de Mundo Aberto.
+Como parte essencial da formação dos alunos, este projeto é o jogo que o grupo fez para a conclusão do 3° semestre do curso Bacharelado em Jogos Digitais da Pontifícia Universidade Católica de São Paulo (PUC-SP) tendo como tema Mundo Aberto. Desta forma, a seguir estão dispostas todas as informações sobre este projeto e o processo de criação.
 
 ## Integrantes
 <div align="center">
@@ -21,3 +21,4 @@ Aqui estará o sumário de informações do projeto, que estarão alocadas na p�
 ### Wiki
 - <a href="https://github.com/matbrgod/Projeto-3-Semestre/wiki"> Home </a>
 - <a href="https://github.com/matbrgod/Projeto-3-Semestre/wiki/Narrativa-e-Constru%C3%A7%C3%A3o-de-Mundo"> Narrativa </a>
+- <a href="https://github.com/matbrgod/Projeto-3-Semestre/wiki/Arte-e-Level-Design"> Arte e Level Design </a>
