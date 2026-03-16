@@ -16,9 +16,11 @@ Como parte essencial da formação dos alunos, este projeto é o jogo que o grup
 Um certo dia, o mundo acordou e alguns monumentos históricos haviam sumido e ninguém sabia onde elas tinham ido parar. Durante uma investigação, descobriram uma ilha no meio do Oceano Pacífico e, nesta ilha, as construções desaparecidas foram encontradas. Para investigar o ocorrido, um historiador altamente especializado foi enviado em uma missão nesta ilha misteriosa.
 
 ## Sumário do Projeto
-Aqui estará o sumário de informações do projeto, que estarão alocadas na página da Wiki do projeto.
-
+Abaixo está o sumário do projeto, em relação a Wiki do projeto no GitHub, onde estará documentado tudo do projeto.
 ### Wiki
 - <a href="https://github.com/matbrgod/Projeto-3-Semestre/wiki"> Home </a>
 - <a href="https://github.com/matbrgod/Projeto-3-Semestre/wiki/Narrativa-e-Constru%C3%A7%C3%A3o-de-Mundo"> Narrativa </a>
 - <a href="https://github.com/matbrgod/Projeto-3-Semestre/wiki/Arte-e-Level-Design"> Arte e Level Design </a>
+
+## Links Importantes
+Todos os links importantes do projeto, como links de assets ou de acesso para o jogo em alguma plataforma estará disponível nessa seção.
