@@ -29,7 +29,7 @@ public class Jogador : MonoBehaviour
     {
         isGrounded = controller.isGrounded;
 
-        if(isGrounded && verticalVelocity.y <= 0)
+        if(isGrounded && verticalVelocity.y < 0)
         {
             verticalVelocity.y = -2f;
         }
@@ -38,7 +38,7 @@ public class Jogador : MonoBehaviour
         verticalVelocity.y = valorGravidade * Time.deltaTime;
         Vector3 finalVelocity = moveDirection*speed;
 
-        verticalVelocity.y += valorGravidade * Time.deltaTime;
+
         finalVelocity.y = verticalVelocity.y;
         controller.Move(finalVelocity * Time.deltaTime);
     }
@@ -52,7 +52,7 @@ public class Jogador : MonoBehaviour
     {
         if(isGrounded)
         {
-            verticalVelocity.y = Mathf.Sqrt(jumpHeight * -2f * valorGravidade);
+            verticalVelocity.y = Mathf.Sqrt(-2*jumpHeight * valorGravidade);
         }
     } 
 }
