@@ -6,6 +6,9 @@ public class InputManager : MonoBehaviour
 
     public Vector2 moveInput;
 
+    public float verticalInput;
+    public float horizontalInput;
+
     private void OnEnable()
     {
         if (playerControl == null)
@@ -21,5 +24,11 @@ public class InputManager : MonoBehaviour
     private void OnDisable()
     {
         playerControl.Disable();
+    }
+
+    private void HandleMovementInput()
+    {
+        verticalInput = moveInput.y;
+        horizontalInput = moveInput.x;
     }
 }

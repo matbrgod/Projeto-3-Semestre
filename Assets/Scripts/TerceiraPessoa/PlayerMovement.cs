@@ -14,6 +14,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void HandleMovement()
     {
-        moveDirection = cameraObj.forward * inputManager.moveInput;
+        moveDirection = cameraObj.forward * inputManager.verticalInput;
     }
 }
