@@ -100,6 +100,15 @@ public partial class @Player3rdPersonControl: IInputActionCollection2, IDisposab
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Camera"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""25c14c8c-ed64-4bdb-99b4-8ba6a347fa29"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -159,7 +168,7 @@ public partial class @Player3rdPersonControl: IInputActionCollection2, IDisposab
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""JoyStick"",
+                    ""name"": ""Left JoyStick"",
                     ""id"": ""371a1515-d282-42e9-ab5e-9b5b6e80b22b"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
@@ -212,6 +221,72 @@ public partial class @Player3rdPersonControl: IInputActionCollection2, IDisposab
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5045c85f-0831-455e-9b2f-0e40a5a5d6e9"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Camera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Right JoyStick"",
+                    ""id"": ""324dd7d9-47fb-45eb-887c-37eb4b572997"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Camera"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""0c23b585-bf6f-48ae-a572-90c64d3c08f3"",
+                    ""path"": ""<Gamepad>/rightStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Camera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""d28f7eee-e5d0-4723-809d-a3a2d6ec3e90"",
+                    ""path"": ""<Gamepad>/rightStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Camera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""1e63ae60-7e3c-4cb3-a5ac-22c351f68311"",
+                    ""path"": ""<Gamepad>/rightStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Camera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""d722757c-8c2e-4ee5-8db5-86dd38624d6e"",
+                    ""path"": ""<Gamepad>/rightStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Camera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -221,6 +296,7 @@ public partial class @Player3rdPersonControl: IInputActionCollection2, IDisposab
         // PlayerMove
         m_PlayerMove = asset.FindActionMap("PlayerMove", throwIfNotFound: true);
         m_PlayerMove_Movement = m_PlayerMove.FindAction("Movement", throwIfNotFound: true);
+        m_PlayerMove_Camera = m_PlayerMove.FindAction("Camera", throwIfNotFound: true);
     }
 
     ~@Player3rdPersonControl()
@@ -302,6 +378,7 @@ public partial class @Player3rdPersonControl: IInputActionCollection2, IDisposab
     private readonly InputActionMap m_PlayerMove;
     private List<IPlayerMoveActions> m_PlayerMoveActionsCallbackInterfaces = new List<IPlayerMoveActions>();
     private readonly InputAction m_PlayerMove_Movement;
+    private readonly InputAction m_PlayerMove_Camera;
     /// <summary>
     /// Provides access to input actions defined in input action map "PlayerMove".
     /// </summary>
@@ -317,6 +394,10 @@ public partial class @Player3rdPersonControl: IInputActionCollection2, IDisposab
         /// Provides access to the underlying input action "PlayerMove/Movement".
         /// </summary>
         public InputAction @Movement => m_Wrapper.m_PlayerMove_Movement;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerMove/Camera".
+        /// </summary>
+        public InputAction @Camera => m_Wrapper.m_PlayerMove_Camera;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -346,6 +427,9 @@ public partial class @Player3rdPersonControl: IInputActionCollection2, IDisposab
             @Movement.started += instance.OnMovement;
             @Movement.performed += instance.OnMovement;
             @Movement.canceled += instance.OnMovement;
+            @Camera.started += instance.OnCamera;
+            @Camera.performed += instance.OnCamera;
+            @Camera.canceled += instance.OnCamera;
         }
 
         /// <summary>
@@ -360,6 +444,9 @@ public partial class @Player3rdPersonControl: IInputActionCollection2, IDisposab
             @Movement.started -= instance.OnMovement;
             @Movement.performed -= instance.OnMovement;
             @Movement.canceled -= instance.OnMovement;
+            @Camera.started -= instance.OnCamera;
+            @Camera.performed -= instance.OnCamera;
+            @Camera.canceled -= instance.OnCamera;
         }
 
         /// <summary>
@@ -407,5 +494,12 @@ public partial class @Player3rdPersonControl: IInputActionCollection2, IDisposab
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMovement(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Camera" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnCamera(InputAction.CallbackContext context);
     }
 }

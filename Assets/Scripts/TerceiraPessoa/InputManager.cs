@@ -5,6 +5,7 @@ public class InputManager : MonoBehaviour
     Player3rdPersonControl playerControl;
 
     public Vector2 moveInput;
+    public Vector2 camInput;
 
     public float verticalInput;
     public float horizontalInput;
@@ -24,6 +25,12 @@ public class InputManager : MonoBehaviour
     private void OnDisable()
     {
         playerControl.Disable();
+    }
+
+    public void HandleInputs()
+    {
+        HandleMovementInput();
+        //HandleJumpInput();
     }
 
     private void HandleMovementInput()
