@@ -9,6 +9,8 @@ public class InputManager : MonoBehaviour
 
     public float verticalInput;
     public float horizontalInput;
+    public float camXInput;
+    public float camYInput;
 
     private void OnEnable()
     {
@@ -17,6 +19,7 @@ public class InputManager : MonoBehaviour
             playerControl = new Player3rdPersonControl();
 
             playerControl.PlayerMove.Movement.performed += i => moveInput = i.ReadValue<Vector2>();
+            playerControl.PlayerMove.Camera.performed += i => camInput = i.ReadValue<Vector2>();
         }
 
         playerControl.Enable();
@@ -37,5 +40,8 @@ public class InputManager : MonoBehaviour
     {
         verticalInput = moveInput.y;
         horizontalInput = moveInput.x;
+
+        camYInput = camInput.y;
+        camXInput = camInput.x;
     }
 }

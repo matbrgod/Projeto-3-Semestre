@@ -558,7 +558,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraManager
   targetTransform: {fileID: 0}
+  camPivot: {fileID: 625683043}
   followSpeed: 0.2
+  camLookSpeed: 2
+  camPivotSpeed: 2
+  lookAngle: 0
+  pivotAngle: 0
 --- !u!4 &1563817240
 Transform:
   m_ObjectHideFlags: 0

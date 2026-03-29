@@ -8,8 +8,8 @@ public class PlayerMovement : MonoBehaviour
     InputManager inputManager;
     Rigidbody playerRb;
 
-    public float moveSpeed = 7;
-    public float rotationSpeed = 15;
+    public float moveSpeed = 7f;
+    public float rotationSpeed = 15f;
 
     private void Awake()
     {
