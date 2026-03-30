@@ -131,7 +131,6 @@ public class PlayerMovement : MonoBehaviour
             Vector3 playerVel = moveDirection;
             playerVel.y = jumpingVel;
             playerRb.linearVelocity = playerVel;
-            Debug.Log("chamou o handlejump e executou o pulo");
         }
     }
 }
