@@ -3,23 +3,29 @@ using UnityEngine;
 public class CameraManager : MonoBehaviour
 {
     InputManager inputManager;
+
     public Transform targetTransform;
     public Transform camPivot;
+    public Transform camTransform;
 
-    private Vector3 cameraFollowVel = Vector3.zero;
-
-    public float followSpeed = 0.2f;
-    public float camLookSpeed = 2f;
+    public float followSpeed;
+    public float camLookSpeed = 0.5f;
     public float camPivotSpeed = 2f;
     public float lookAngle;
     public float pivotAngle;
-    public float minPivotAngle = -35;
-    public float maxPivotAngle = 35;
+    public float minPivotAngle = -40;
+    public float maxPivotAngle = 55;
+
+    private Vector3 cameraFollowVel = Vector3.zero;
+
+    private float defaultCamPos;
 
     private void Awake()
     {
         targetTransform = FindFirstObjectByType<PlayerManager>().transform;
         inputManager = FindFirstObjectByType<InputManager>();
+
+        camTransform = Camera.main.transform;
     }
 
     public void HandleCamMove()
@@ -36,18 +42,26 @@ public class CameraManager : MonoBehaviour
 
     private void RotateCamera()
     {
+        Quaternion targerRotation;
+        Vector3 rotation;
+
         lookAngle = lookAngle + (inputManager.camXInput * camLookSpeed);
         pivotAngle = pivotAngle - (inputManager.camYInput * camPivotSpeed);
         pivotAngle = Mathf.Clamp(pivotAngle, minPivotAngle, maxPivotAngle);
 
-        Vector3 rotation = Vector3.zero;
+        rotation = Vector3.zero;
         rotation.y = lookAngle;
-        Quaternion targerRotation = Quaternion.Euler(rotation);
+        targerRotation = Quaternion.Euler(rotation);
         transform.rotation = targerRotation;
 
         rotation = Vector3.zero;
         rotation.x = pivotAngle;
         targerRotation = Quaternion.Euler(rotation);
         camPivot.localRotation = targerRotation;
+    }
+
+    private void HandleCamCollision()
+    {
+        float targetPos = defaultCamPos;
     }
 }
