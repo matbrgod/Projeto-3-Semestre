@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     public float inAirTimer;
     public float leapingVel;
     public float fallingVel;
-    public float raycastHeightOffSet = 0.2f;
+    public float raycastHeightOffSet = 0.5f;
     public LayerMask groundLayer;
 
     [Header("Velocidade de Movimento")]
