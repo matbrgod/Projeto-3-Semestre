@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Velocidade de Pulo")]
     public float jumpHeight = 3f;
-    public float gravityIntensity = -15f;
+    public float gravityIntensity = 15f;
 
     private void Awake()
     {
@@ -43,6 +43,9 @@ public class PlayerMovement : MonoBehaviour
 
     public void HandleMoves()
     {
+        if (isJumping)
+            return;
+
         HandleFallAndLand();
 
         if (playerManager.isInteracting)
