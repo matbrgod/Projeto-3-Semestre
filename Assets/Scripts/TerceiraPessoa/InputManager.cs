@@ -1,9 +1,10 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 
 public class InputManager : MonoBehaviour
 {
-    PlayerInputSystem playerControl;
+    public PlayerInputSystem playerControl;
     AnimatorManager animManager;
     PlayerMovement playerMove;
 
@@ -73,6 +74,8 @@ public class InputManager : MonoBehaviour
         if(jumpInput == true)
         {
             playerMove.HandleJump();
+            if (Keyboard.current.spaceKey.wasPressedThisFrame)
+                playerMove.HandleJump();
             jumpInput = false;
         }
     }

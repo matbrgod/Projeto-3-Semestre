@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Flag de Movimento")]
     public bool isGrounded;
     public bool isJumping;
+    public bool doubleJump;
 
     [Header("Queda")]
     public float inAirTimer;
@@ -35,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Velocidade de Pulo e Gravidade")]
     public float jumpHeight = 3f;
-    public float gravityIntensity = 15f;
+    public float gravityIntensity = -15f;
 
     private void Awake()
     {
@@ -51,9 +53,14 @@ public class PlayerMovement : MonoBehaviour
 
     public void HandleMoves()
     {
-        HandleFallAndLand();
         HandleMovement();
+        HandleFallAndLand();
         HandleRotation();
+
+        if (isJumping) return;
+
+        playerVel.y -= fallingVel * 1.5f;
+        playerVel.y = 0;
     }
 
     private void HandleMovement()
@@ -111,8 +118,6 @@ public class PlayerMovement : MonoBehaviour
             inAirTimer += Time.deltaTime;
             playerRb.AddForce(transform.forward * leapingVel);
             playerRb.AddForce(Vector3.down * fallingVel * inAirTimer);
-            playerVel.y -= fallingVel * inAirTimer;
-            playerVel.y = 0;
         }
 
         if (Physics.SphereCast(raycastOrigin, 0.2f, Vector3.down, out hit, 0.5f, groundLayer))
@@ -125,6 +130,7 @@ public class PlayerMovement : MonoBehaviour
             inAirTimer = 0;
             isGrounded = true;
             playerManager.isInteracting = false;
+            jumpCounter = 0;
         }
         else
         {
@@ -134,7 +140,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void HandleJump()
     {
-        if (isGrounded && jumpCounter < maxNumJumps)
+        if (isGrounded)
         {
             animManager.animator.SetBool("isJumping", true);
             animManager.PlayTargetAnimation("Jump", false);
@@ -142,6 +148,18 @@ public class PlayerMovement : MonoBehaviour
             jumpCounter++;
 
             float jumpingVel = Mathf.Sqrt(-2 * gravityIntensity * jumpHeight);
+            playerVel = moveDirection;
+            playerVel.y = jumpingVel;
+            playerRb.linearVelocity = playerVel;
+        }
+        else if (jumpCounter < 2)
+        {
+            animManager.animator.SetBool("isJumping", true);
+            animManager.PlayTargetAnimation("Jump", false);
+
+            jumpCounter++;
+
+            float jumpingVel = Mathf.Sqrt(-2 * gravityIntensity * jumpHeight * 2f);
             playerVel = moveDirection;
             playerVel.y = jumpingVel;
             playerRb.linearVelocity = playerVel;
