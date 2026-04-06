@@ -7,17 +7,16 @@ public class InputManager : MonoBehaviour
     AnimatorManager animManager;
     PlayerMovement playerMove;
 
-    public Vector2 moveInput;
+    public Vector3 moveInput;
     public Vector2 camInput;
 
     public float verticalInput;
     public float horizontalInput;
     public float camXInput;
     public float camYInput;
+    public float moveAmout;
 
     public bool jumpInput;
-
-    private float moveAmout;
 
     private void Awake()
     {
