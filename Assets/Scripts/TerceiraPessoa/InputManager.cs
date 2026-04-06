@@ -17,6 +17,7 @@ public class InputManager : MonoBehaviour
     public float moveAmout;
 
     public bool jumpInput;
+    public bool escInput;
 
     private void Awake()
     {
@@ -36,6 +37,9 @@ public class InputManager : MonoBehaviour
 
             // detecta o input de pulo
             playerControl.PlayerActions.Jump.performed += i => jumpInput = true;
+
+            // detecta o input do esc
+            playerControl.PlayerActions.Escape.performed += i => escInput = true;
         }
 
         playerControl.Enable();
@@ -68,9 +72,8 @@ public class InputManager : MonoBehaviour
     {
         if(jumpInput == true)
         {
-            jumpInput = false;
             playerMove.HandleJump();
-            Debug.Log("player pulou");
+            jumpInput = false;
         }
     }
 }

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -21,6 +22,10 @@ public class PlayerMovement : MonoBehaviour
     public float fallingVel;
     public float raycastHeightOffSet = 0.5f;
     public LayerMask groundLayer;
+
+    [Header("Pulo")]
+    public int jumpCounter = 0;
+    public int maxNumJumps = 2;
 
     [Header("Velocidade de Movimento")]
     public float walkSpeed = 1.5f;
@@ -106,7 +111,7 @@ public class PlayerMovement : MonoBehaviour
             inAirTimer += Time.deltaTime;
             playerRb.AddForce(transform.forward * leapingVel);
             playerRb.AddForce(Vector3.down * fallingVel * inAirTimer);
-            playerVel.y -= fallingVel;
+            playerVel.y -= fallingVel * inAirTimer;
             playerVel.y = 0;
         }
 
@@ -129,10 +134,12 @@ public class PlayerMovement : MonoBehaviour
 
     public void HandleJump()
     {
-        if (isGrounded)
+        if (isGrounded && jumpCounter < maxNumJumps)
         {
             animManager.animator.SetBool("isJumping", true);
             animManager.PlayTargetAnimation("Jump", false);
+
+            jumpCounter++;
 
             float jumpingVel = Mathf.Sqrt(-2 * gravityIntensity * jumpHeight);
             playerVel = moveDirection;

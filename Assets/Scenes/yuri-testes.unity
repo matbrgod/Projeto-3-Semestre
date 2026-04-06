@@ -5830,8 +5830,8 @@ MonoBehaviour:
   camPivot: {fileID: 625683043}
   camTransform: {fileID: 0}
   followSpeed: 0.2
-  camLookSpeed: 2
-  camPivotSpeed: 2
+  camLookSpeed: 0.5
+  camPivotSpeed: 0.5
   lookAngle: 0
   pivotAngle: 0
   minPivotAngle: -35
