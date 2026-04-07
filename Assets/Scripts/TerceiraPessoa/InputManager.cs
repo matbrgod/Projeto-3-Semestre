@@ -1,23 +1,24 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 
 public class InputManager : MonoBehaviour
 {
-    PlayerInputSystem playerControl;
+    public PlayerInputSystem playerControl;
     AnimatorManager animManager;
     PlayerMovement playerMove;
 
-    public Vector2 moveInput;
+    public Vector3 moveInput;
     public Vector2 camInput;
 
     public float verticalInput;
     public float horizontalInput;
     public float camXInput;
     public float camYInput;
+    public float moveAmout;
 
     public bool jumpInput;
-
-    private float moveAmout;
+    public bool escInput;
 
     private void Awake()
     {
@@ -37,6 +38,9 @@ public class InputManager : MonoBehaviour
 
             // detecta o input de pulo
             playerControl.PlayerActions.Jump.performed += i => jumpInput = true;
+
+            // detecta o input do esc
+            playerControl.PlayerActions.Escape.performed += i => escInput = true;
         }
 
         playerControl.Enable();
@@ -69,9 +73,10 @@ public class InputManager : MonoBehaviour
     {
         if(jumpInput == true)
         {
-            jumpInput = false;
             playerMove.HandleJump();
-            Debug.Log("player pulou");
+            if (Keyboard.current.spaceKey.wasPressedThisFrame)
+                playerMove.HandleJump();
+            jumpInput = false;
         }
     }
 }
