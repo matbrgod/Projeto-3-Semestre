@@ -227,7 +227,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Escape",
+                    "name": "Pause",
                     "type": "Button",
                     "id": "4bd58340-4e7c-4e58-84e6-cd46dd722d22",
                     "expectedControlType": "",
@@ -261,12 +261,23 @@
                 },
                 {
                     "name": "",
+                    "id": "b146f546-efb2-4d23-b687-e624f916156e",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Sprint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "aaf698fb-e9e7-4c2a-92a8-fff87c0d710a",
                     "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Escape",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
