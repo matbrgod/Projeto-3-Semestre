@@ -71,6 +71,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (Physics.SphereCast(raycastOrigin, frontRaycastRadius, Vector3.forward, out hit, raycastMaxDistance, wallLayer))
         {
+            moveDirection.x = 0;
+            moveDirection.y = 0;
             moveDirection.z = 0;
         }
 
