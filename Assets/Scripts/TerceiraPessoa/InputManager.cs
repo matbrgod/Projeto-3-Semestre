@@ -17,8 +17,12 @@ public class InputManager : MonoBehaviour
     public float camYInput;
     public float moveAmout;
 
+    // variáveis dos inputs de interação do jogador
     public bool jumpInput;
-    public bool escInput;
+    public bool sprintInput;
+    public bool dashInput;
+    public bool pauseInput;
+    public bool interactInput;
 
     private void Awake()
     {
@@ -36,11 +40,17 @@ public class InputManager : MonoBehaviour
             playerControl.PlayerMove.Movement.performed += i => moveInput = i.ReadValue<Vector2>();
             playerControl.PlayerMove.Camera.performed += i => camInput = i.ReadValue<Vector2>();
 
-            // detecta o input de pulo
+            // detecta os inputs que o jogador fizer
             playerControl.PlayerActions.Jump.performed += i => jumpInput = true;
 
-            // detecta o input do esc
-            playerControl.PlayerActions.Escape.performed += i => escInput = true;
+            playerControl.PlayerActions.Sprint.performed += i => sprintInput = true;
+            playerControl.PlayerActions.Sprint.canceled += i => sprintInput = false;
+
+            playerControl.PlayerActions.Dash.performed += i => dashInput = true;
+
+            playerControl.PlayerActions.Pause.performed += i => pauseInput = true;
+
+            playerControl.PlayerActions.Interact.performed += i => pauseInput = true;
         }
 
         playerControl.Enable();
@@ -55,6 +65,8 @@ public class InputManager : MonoBehaviour
     {
         HandleMovementInput();
         HandleJumpInput();
+        HandleSprintInput();
+        HandleDashInput();
     }
 
     private void HandleMovementInput()
@@ -63,7 +75,7 @@ public class InputManager : MonoBehaviour
         horizontalInput = moveInput.x;
 
         moveAmout = Mathf.Clamp01(Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput));
-        animManager.UpdateAnimatorValues(0, moveAmout);
+        animManager.UpdateAnimatorValues(0, moveAmout, playerMove.isSprinting);
 
         camYInput = camInput.y;
         camXInput = camInput.x;
@@ -78,5 +90,30 @@ public class InputManager : MonoBehaviour
                 playerMove.HandleJump();
             jumpInput = false;
         }
+    }
+
+    private void HandleSprintInput()
+    {
+        if (sprintInput && moveAmout > 0.5f)
+        {
+            playerMove.isSprinting = true;
+        }
+        else
+        {
+            playerMove.isSprinting = false;
+        }
+    }
+
+    private void HandleDashInput()
+    {
+        if (dashInput)
+        {
+            dashInput = false;
+        }
+    }
+
+    private void HandleInteractInput()
+    {
+
     }
 }
