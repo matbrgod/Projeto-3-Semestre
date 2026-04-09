@@ -17,9 +17,12 @@ public class InputManager : MonoBehaviour
     public float camYInput;
     public float moveAmout;
 
+    // variáveis dos inputs de interação do jogador
     public bool jumpInput;
-    public bool escInput;
     public bool sprintInput;
+    public bool dashInput;
+    public bool pauseInput;
+    public bool interactInput;
 
     private void Awake()
     {
@@ -38,12 +41,16 @@ public class InputManager : MonoBehaviour
             playerControl.PlayerMove.Camera.performed += i => camInput = i.ReadValue<Vector2>();
 
             // detecta os inputs que o jogador fizer
+            playerControl.PlayerActions.Jump.performed += i => jumpInput = true;
+
             playerControl.PlayerActions.Sprint.performed += i => sprintInput = true;
             playerControl.PlayerActions.Sprint.canceled += i => sprintInput = false;
 
-            playerControl.PlayerActions.Jump.performed += i => jumpInput = true;
+            playerControl.PlayerActions.Dash.performed += i => dashInput = true;
 
-            playerControl.PlayerActions.Pause.performed += i => escInput = true;
+            playerControl.PlayerActions.Pause.performed += i => pauseInput = true;
+
+            playerControl.PlayerActions.Interact.performed += i => pauseInput = true;
         }
 
         playerControl.Enable();
@@ -59,6 +66,7 @@ public class InputManager : MonoBehaviour
         HandleMovementInput();
         HandleJumpInput();
         HandleSprintInput();
+        HandleDashInput();
     }
 
     private void HandleMovementInput()
@@ -94,5 +102,18 @@ public class InputManager : MonoBehaviour
         {
             playerMove.isSprinting = false;
         }
+    }
+
+    private void HandleDashInput()
+    {
+        if (dashInput)
+        {
+            dashInput = false;
+        }
+    }
+
+    private void HandleInteractInput()
+    {
+
     }
 }

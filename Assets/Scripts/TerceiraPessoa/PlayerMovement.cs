@@ -62,9 +62,17 @@ public class PlayerMovement : MonoBehaviour
 
     public void HandleMoves()
     {
+        RaycastHit hit;
+        Vector3 raycastOrigin = transform.position;
+
         HandleMovement();
         HandleFallAndLand();
         HandleRotation();
+
+        if (Physics.SphereCast(raycastOrigin, frontRaycastRadius, Vector3.forward, out hit, raycastMaxDistance, wallLayer))
+        {
+            moveDirection.z = 0;
+        }
 
         if (isJumping) return;
 
@@ -74,9 +82,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleMovement()
     {
-        RaycastHit hit;
-        Vector3 raycastOrigin = transform.position;
-
         moveDirection = cameraObj.forward * inputManager.verticalInput;
         moveDirection = moveDirection + cameraObj.right * inputManager.horizontalInput;
         moveDirection.Normalize();
@@ -95,11 +100,6 @@ public class PlayerMovement : MonoBehaviour
             {
                 moveDirection = moveDirection * walkSpeed;
             }
-        }
-
-        if (Physics.SphereCast(raycastOrigin, frontRaycastRadius, Vector3.forward, out hit, raycastMaxDistance, wallLayer))
-        {
-            moveDirection.z = 0;
         }
 
         Vector3 moveVelocity = new Vector3(moveDirection.x, playerVel.y, moveDirection.z);

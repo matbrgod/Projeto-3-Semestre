@@ -35,7 +35,7 @@ public class CameraManager : MonoBehaviour
 
     private void Update()
     {
-        if (inputManager.escInput)
+        if (inputManager.pauseInput)
             Cursor.lockState = CursorLockMode.None;
     }
 
