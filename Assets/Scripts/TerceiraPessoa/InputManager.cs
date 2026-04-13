@@ -7,6 +7,7 @@ public class InputManager : MonoBehaviour
     public PlayerInputSystem playerControl;
     AnimatorManager animManager;
     PlayerMovement playerMove;
+    PlayerInteract playerInteract;
 
     public Vector3 moveInput;
     public Vector2 camInput;
@@ -63,10 +64,14 @@ public class InputManager : MonoBehaviour
 
     public void HandleInputs()
     {
+        // inputs de movimento
         HandleMovementInput();
         HandleJumpInput();
         HandleSprintInput();
         HandleDashInput();
+
+        //inputs diversos
+        HandleInteractInput();
     }
 
     private void HandleMovementInput()
@@ -108,12 +113,17 @@ public class InputManager : MonoBehaviour
     {
         if (dashInput)
         {
+            //playerMove.HandleDash();
             dashInput = false;
         }
     }
 
     private void HandleInteractInput()
     {
-
+        if (interactInput)
+        {
+            playerInteract.HandleInteract();
+            interactInput = false;
+        }
     }
 }

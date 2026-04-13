@@ -31,12 +31,16 @@ public class CameraManager : MonoBehaviour
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     private void Update()
     {
         if (inputManager.pauseInput)
+        {
+            Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
+        }
     }
 
     public void HandleCamMove()

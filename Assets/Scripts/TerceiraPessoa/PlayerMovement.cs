@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     Vector3 moveDirection;
     Vector3 playerVel;
 
+    [Header("Referências")]
+    public Transform orientation;
     Transform cameraObj;
     Rigidbody playerRb;
     InputManager inputManager;
@@ -30,6 +32,13 @@ public class PlayerMovement : MonoBehaviour
     [Header("Pulo")]
     public int jumpCounter = 0;
     public int maxNumJumps = 2;
+
+    [Header("Dash")]
+    public float dashForce;
+    public float dashUpForce;
+    public float dashDuration;
+    public float dashCooldown;
+    private float dashCdTimer; // cooldown timer
 
     [Header("Raycast")]
     public float raycastHeightOffSet = 0.5f;
@@ -193,5 +202,19 @@ public class PlayerMovement : MonoBehaviour
             playerVel.y = jumpingVel;
             playerRb.linearVelocity = playerVel;
         }
+    }
+
+    //public void HandleDash()
+    //{
+    //    Vector3 forceToApply = orientation.forward * dashForce + orientation.up * dashUpForce;
+
+    //    playerRb.AddForce(forceToApply, ForceMode.Impulse);
+
+    //    Invoke(nameof(ResetDash), dashDuration);
+    //}
+
+    private void ResetDash()
+    {
+
     }
 }
