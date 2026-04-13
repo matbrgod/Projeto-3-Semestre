@@ -71,7 +71,7 @@ public class InputManager : MonoBehaviour
         HandleDashInput();
 
         //inputs diversos
-        HandleInteractInput();
+        //HandleInteractInput();
     }
 
     private void HandleMovementInput()
@@ -118,12 +118,12 @@ public class InputManager : MonoBehaviour
         }
     }
 
-    private void HandleInteractInput()
-    {
-        if (interactInput)
-        {
-            playerInteract.HandleInteract();
-            interactInput = false;
-        }
-    }
+    //private void HandleInteractInput()
+    //{
+    //    if (interactInput)
+    //    {
+    //        playerInteract.HandleInteract();
+    //        interactInput = false;
+    //    }
+    //}
 }

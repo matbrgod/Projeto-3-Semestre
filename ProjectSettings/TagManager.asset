@@ -5,11 +5,12 @@ TagManager:
   serializedVersion: 3
   tags:
   - NPC
+  - ChaoFalso
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Chao Mata
   - Water
   - UI
   - 

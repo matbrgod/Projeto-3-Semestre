@@ -27,6 +27,8 @@ public class DialogueManager : MonoBehaviour
     public TMP_Text dialogueTxt;
     public Transform btnLocal;
 
+    public static event Action<string> OnDialogueTrigger;
+
     private Dictionary<string, Dictionary<string, NodeDialogue>> dialoguesBase = new Dictionary<string, Dictionary<string, NodeDialogue>>();
     private Dictionary<string, NodeDialogue> npcNode;
 
@@ -36,25 +38,25 @@ public class DialogueManager : MonoBehaviour
 
     private void Start()
     {
-        LoadDialogue();
+        LoadDialogue(); // erro
     }
 
     void LoadDialogue()
     {
-   
-                jsonFile = Resources.Load<TextAsset>("dialogos_PT-BR");
-               
+        jsonFile = Resources.Load<TextAsset>("dialogos_PT-BR");
 
         DatabaseDialogue dbDialogue = JsonUtility.FromJson<DatabaseDialogue>(jsonFile.text);
 
-        foreach(var entry in dbDialogue.dialogues)
+        foreach (var entry in dbDialogue.dialogues)
         {
             var nodeDictionary = new Dictionary<string, NodeDialogue>();
 
-            foreach (var node in entry.node)
+            foreach (var node in entry.node) // erro tambem
             {
                 nodeDictionary[node.nodeId] = node;
             }
+
+            dialoguesBase[entry.npcName] = nodeDictionary;
         }
 
         panelUI.SetActive(false);
@@ -62,7 +64,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(string npcName)
     {
-        if(dialoguesBase.TryGetValue(npcName, out npcNode))
+        if (dialoguesBase.TryGetValue(npcName, out npcNode))
         {
             npcNameTxt.text = npcName;
             panelUI.SetActive(true);
@@ -70,6 +72,10 @@ public class DialogueManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
 
             GoToNode("inicio");
+        }
+        else
+        {
+            Debug.LogWarning($"NPC {npcName} não encontrado no banco de dados.");
         }
     }
 
@@ -85,7 +91,7 @@ public class DialogueManager : MonoBehaviour
     {
         GameObject btnObject;
 
-        if(index >= btnPool.Count)
+        if (index >= btnPool.Count)
         {
             btnObject = Instantiate(btnPrefab, btnLocal);
             btnPool.Add(btnObject);
@@ -105,7 +111,7 @@ public class DialogueManager : MonoBehaviour
 
     void BtnDeactivate()
     {
-        for(int i = 0; i < btnPool.Count; i++)
+        for (int i = 0; i < btnPool.Count; i++)
         {
             btnPool[i].gameObject.SetActive(false);
         }
@@ -113,25 +119,30 @@ public class DialogueManager : MonoBehaviour
 
     public void GoToNode(string nodeId)
     {
-        if(!npcNode.TryGetValue(nodeId, out NodeDialogue targetNode))
+        if (!npcNode.TryGetValue(nodeId, out NodeDialogue targetNode))
         {
-            Debug.LogError("Não achou o node");
+            Debug.LogError($"Não achou o node '{nodeId}'");
             return;
+        }
+
+        if (!string.IsNullOrEmpty(targetNode.choiceTrigger))
+        {
+            OnDialogueTrigger?.Invoke(targetNode.choiceTrigger);
         }
 
         dialogueTxt.text = targetNode.npcTxt;
         BtnDeactivate();
 
-        if(targetNode.choices == null || targetNode.choices.Length == 0)
+        if (targetNode.choices == null || targetNode.choices.Length == 0)
         {
             BtnConfig(0, "Sair", EndDialogue);
         }
-        for(int i = 0; i < targetNode.choices.Length; i++)
+        for (int i = 0; i < targetNode.choices.Length; i++)
         {
             string choiceTxt = targetNode.choices[i].choiceTxt;
             string nextId = targetNode.choices[i].nextNodeId;
 
-            BtnConfig(i, choiceTxt, ()=>GoToNode(nextId));
+            BtnConfig(i, choiceTxt, () => GoToNode(nextId));
         }
     }
 }

@@ -22,7 +22,7 @@ public class PlayerInteract : MonoBehaviour
 
     public void HandleInteract()
     {
-        if(npcGameObj != null)
+        if (npcGameObj != null)
         {
             npcGameObj.GetComponentInParent<NpcActions>().Interact();
         }

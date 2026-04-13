@@ -9,7 +9,7 @@ public class NpcActions : MonoBehaviour
 
     void Start()
     {
-        if(npcName == null)
+        if (npcName == null)
             npcName = gameObject.name;
     }
 
