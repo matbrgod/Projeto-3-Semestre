@@ -1,12 +1,16 @@
 using System.Collections;
+using Unity.Hierarchy;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 public class PlayerMovement : MonoBehaviour
 {
     Vector3 moveDirection;
     Vector3 playerVel;
 
+    [Header("Referências")]
+    public Transform orientation;
     Transform cameraObj;
     Rigidbody playerRb;
     InputManager inputManager;
@@ -16,18 +20,32 @@ public class PlayerMovement : MonoBehaviour
     [Header("Flag de Movimento")]
     public bool isGrounded;
     public bool isJumping;
+    public bool isSprinting;
     public bool doubleJump;
 
     [Header("Queda")]
     public float inAirTimer;
     public float leapingVel;
     public float fallingVel;
-    public float raycastHeightOffSet = 0.5f;
     public LayerMask groundLayer;
 
     [Header("Pulo")]
     public int jumpCounter = 0;
     public int maxNumJumps = 2;
+
+    [Header("Dash")]
+    public float dashForce;
+    public float dashUpForce;
+    public float dashDuration;
+    public float dashCooldown;
+    private float dashCdTimer; // cooldown timer
+
+    [Header("Raycast")]
+    public float raycastHeightOffSet = 0.5f;
+    public float raycastRadius = 0.2f;
+    public float raycastMaxDistance = 0.5f;
+    public float frontRaycastRadius = 0.2f;
+    public LayerMask wallLayer;
 
     [Header("Velocidade de Movimento")]
     public float walkSpeed = 1.5f;
@@ -53,9 +71,19 @@ public class PlayerMovement : MonoBehaviour
 
     public void HandleMoves()
     {
+        RaycastHit hit;
+        Vector3 raycastOrigin = transform.position;
+
         HandleMovement();
         HandleFallAndLand();
         HandleRotation();
+
+        if (Physics.SphereCast(raycastOrigin, frontRaycastRadius, Vector3.forward, out hit, raycastMaxDistance, wallLayer))
+        {
+            moveDirection.x = 0;
+            moveDirection.y = 0;
+            moveDirection.z = 0;
+        }
 
         if (isJumping) return;
 
@@ -69,13 +97,20 @@ public class PlayerMovement : MonoBehaviour
         moveDirection = moveDirection + cameraObj.right * inputManager.horizontalInput;
         moveDirection.Normalize();
 
-        if (inputManager.moveAmout >= 0.5f)
+        if (isSprinting)
         {
-            moveDirection = moveDirection * runSpeed;
+            moveDirection = moveDirection * sprintSpeed;
         }
         else
         {
-            moveDirection = moveDirection * walkSpeed;
+            if (inputManager.moveAmout >= 0.5f)
+            {
+                moveDirection = moveDirection * runSpeed;
+            }
+            else
+            {
+                moveDirection = moveDirection * walkSpeed;
+            }
         }
 
         Vector3 moveVelocity = new Vector3(moveDirection.x, playerVel.y, moveDirection.z);
@@ -84,7 +119,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleRotation()
     {
-        if (isJumping) return;
+        if (isJumping || doubleJump) return;
 
         Vector3 targetDirection = Vector3.zero;
 
@@ -120,7 +155,7 @@ public class PlayerMovement : MonoBehaviour
             playerRb.AddForce(Vector3.down * fallingVel * inAirTimer);
         }
 
-        if (Physics.SphereCast(raycastOrigin, 0.2f, Vector3.down, out hit, 0.5f, groundLayer))
+        if (Physics.SphereCast(raycastOrigin, raycastRadius, Vector3.down, out hit, raycastMaxDistance, groundLayer))
         {
             if (!isGrounded && playerManager.isInteracting)
             {
@@ -131,6 +166,7 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = true;
             playerManager.isInteracting = false;
             jumpCounter = 0;
+            doubleJump = false;
         }
         else
         {
@@ -154,6 +190,8 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (jumpCounter < 2)
         {
+            doubleJump = true;
+
             animManager.animator.SetBool("isJumping", true);
             animManager.PlayTargetAnimation("Jump", false);
 
@@ -164,5 +202,19 @@ public class PlayerMovement : MonoBehaviour
             playerVel.y = jumpingVel;
             playerRb.linearVelocity = playerVel;
         }
+    }
+
+    //public void HandleDash()
+    //{
+    //    Vector3 forceToApply = orientation.forward * dashForce + orientation.up * dashUpForce;
+
+    //    playerRb.AddForce(forceToApply, ForceMode.Impulse);
+
+    //    Invoke(nameof(ResetDash), dashDuration);
+    //}
+
+    private void ResetDash()
+    {
+
     }
 }

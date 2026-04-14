@@ -20,7 +20,7 @@ public class AnimatorManager : MonoBehaviour
         animator.CrossFade(targetAnimation, 0.2f);
     }
 
-    public void UpdateAnimatorValues(float horizontalMove, float verticalMove)
+    public void UpdateAnimatorValues(float horizontalMove, float verticalMove, bool isSprinting)
     {
         // Snap de animação
         float snappedHorizontal = 0;
@@ -42,6 +42,7 @@ public class AnimatorManager : MonoBehaviour
         {
             snappedHorizontal = -1f;
         }
+
         if (verticalMove > 0f && verticalMove < 0.55f)
         {
             snappedVertical = 0.5f;
@@ -57,6 +58,12 @@ public class AnimatorManager : MonoBehaviour
         else if (verticalMove < -0.55f)
         {
             snappedVertical = -1f;
+        }
+
+        if (isSprinting)
+        {
+            snappedHorizontal = horizontalMove;
+            snappedVertical = 2;
         }
 
         animator.SetFloat(horizontal, snappedHorizontal, 0.1f, Time.deltaTime);
