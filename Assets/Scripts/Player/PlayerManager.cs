@@ -15,11 +15,14 @@ public class PlayerManager : MonoBehaviour
         inputManager = GetComponent<InputManager>();
         playerMove = GetComponent<PlayerMovement>();
         camManager = FindFirstObjectByType<CameraManager>();
+
+        DontDestroyOnLoad(this.gameObject);
     }
 
     void Start()
     {
-        
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     void Update()

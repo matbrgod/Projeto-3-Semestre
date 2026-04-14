@@ -28,21 +28,6 @@ public class CameraManager : MonoBehaviour
         camTransform = Camera.main.transform;
     }
 
-    private void Start()
-    {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-    }
-
-    private void Update()
-    {
-        if (inputManager.pauseInput)
-        {
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-        }
-    }
-
     public void HandleCamMove()
     {
         FollowTarget();

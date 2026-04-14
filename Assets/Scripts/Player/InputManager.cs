@@ -7,6 +7,7 @@ public class InputManager : MonoBehaviour
     public PlayerInputSystem playerControl;
     AnimatorManager animManager;
     PlayerMovement playerMove;
+    PlayerRespawn playerRespawn;
     PlayerInteract playerInteract;
 
     public Vector3 moveInput;
@@ -25,10 +26,14 @@ public class InputManager : MonoBehaviour
     public bool pauseInput;
     public bool interactInput;
 
+    bool isPaused;
+
     private void Awake()
     {
         animManager = GetComponent<AnimatorManager>();
         playerMove = GetComponent<PlayerMovement>();
+
+        isPaused = false;
     }
 
     private void OnEnable()
@@ -71,6 +76,7 @@ public class InputManager : MonoBehaviour
         HandleDashInput();
 
         //inputs diversos
+        HandlePauseInput();
         HandleInteractInput();
     }
 
@@ -118,15 +124,26 @@ public class InputManager : MonoBehaviour
         }
     }
 
+    private void HandlePauseInput()
+    {
+        if (pauseInput && !isPaused)
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else if(pauseInput && isPaused)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+    }
+
     private void HandleInteractInput()
     {
         if (interactInput)
         {
             Debug.Log("A tecla de input foi pressionada!");
-            //if(playerInteract.npcGameObj != null)
-            //{
-            //    playerInteract.HandleNpcInteract();
-            //}
+            
             interactInput = false;
         }
     }
