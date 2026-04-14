@@ -4,8 +4,8 @@ using UnityEngine.InputSystem;
 public class PlayerInteract : MonoBehaviour
 {
     InputManager input;
-    GameObject npcGameObj;
 
+    public GameObject npcGameObj;
     public GameObject dialogBox;
 
     public bool canInteract = false;
@@ -20,7 +20,7 @@ public class PlayerInteract : MonoBehaviour
         }
     }
 
-    public void HandleInteract()
+    public void HandleNpcInteract()
     {
         if (npcGameObj != null)
         {

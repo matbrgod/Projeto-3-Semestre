@@ -51,7 +51,7 @@ public class InputManager : MonoBehaviour
 
             playerControl.PlayerActions.Pause.performed += i => pauseInput = true;
 
-            playerControl.PlayerActions.Interact.performed += i => pauseInput = true;
+            playerControl.PlayerActions.Interact.performed += i => interactInput = true;
         }
 
         playerControl.Enable();
@@ -71,7 +71,7 @@ public class InputManager : MonoBehaviour
         HandleDashInput();
 
         //inputs diversos
-        //HandleInteractInput();
+        HandleInteractInput();
     }
 
     private void HandleMovementInput()
@@ -118,12 +118,16 @@ public class InputManager : MonoBehaviour
         }
     }
 
-    //private void HandleInteractInput()
-    //{
-    //    if (interactInput)
-    //    {
-    //        playerInteract.HandleInteract();
-    //        interactInput = false;
-    //    }
-    //}
+    private void HandleInteractInput()
+    {
+        if (interactInput)
+        {
+            Debug.Log("A tecla de input foi pressionada!");
+            //if(playerInteract.npcGameObj != null)
+            //{
+            //    playerInteract.HandleNpcInteract();
+            //}
+            interactInput = false;
+        }
+    }
 }
