@@ -7,6 +7,7 @@ public class InputManager : MonoBehaviour
     public PlayerInputSystem playerControl;
     AnimatorManager animManager;
     PlayerMovement playerMove;
+    PlayerInteract playerInteract;
 
     public Vector3 moveInput;
     public Vector2 camInput;
@@ -50,7 +51,7 @@ public class InputManager : MonoBehaviour
 
             playerControl.PlayerActions.Pause.performed += i => pauseInput = true;
 
-            playerControl.PlayerActions.Interact.performed += i => pauseInput = true;
+            playerControl.PlayerActions.Interact.performed += i => interactInput = true;
         }
 
         playerControl.Enable();
@@ -63,10 +64,14 @@ public class InputManager : MonoBehaviour
 
     public void HandleInputs()
     {
+        // inputs de movimento
         HandleMovementInput();
         HandleJumpInput();
         HandleSprintInput();
         HandleDashInput();
+
+        //inputs diversos
+        HandleInteractInput();
     }
 
     private void HandleMovementInput()
@@ -108,12 +113,21 @@ public class InputManager : MonoBehaviour
     {
         if (dashInput)
         {
+            //playerMove.HandleDash();
             dashInput = false;
         }
     }
 
     private void HandleInteractInput()
     {
-
+        if (interactInput)
+        {
+            Debug.Log("A tecla de input foi pressionada!");
+            //if(playerInteract.npcGameObj != null)
+            //{
+            //    playerInteract.HandleNpcInteract();
+            //}
+            interactInput = false;
+        }
     }
 }
