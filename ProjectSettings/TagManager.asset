@@ -6,6 +6,7 @@ TagManager:
   tags:
   - NPC
   - ChaoFalso
+  - ChaoMata
   layers:
   - Default
   - TransparentFX
