@@ -62,6 +62,12 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a561d389ffc4c3041b0c4fbd7c544a89, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 3166529742947315572}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a561d389ffc4c3041b0c4fbd7c544a89, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -7319177595005357204}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a561d389ffc4c3041b0c4fbd7c544a89, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 89867936039907649}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a561d389ffc4c3041b0c4fbd7c544a89, type: 3}
       insertIndex: -1
@@ -71,12 +77,6 @@ PrefabInstance:
       addedObject: {fileID: -472138165093898138}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a561d389ffc4c3041b0c4fbd7c544a89, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3166529742947315572}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a561d389ffc4c3041b0c4fbd7c544a89, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: -7319177595005357204}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a561d389ffc4c3041b0c4fbd7c544a89, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 4486886033533941630}
   m_SourcePrefab: {fileID: 100100000, guid: a561d389ffc4c3041b0c4fbd7c544a89, type: 3}
 --- !u!1 &3455407979062369972 stripped
@@ -84,63 +84,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a561d389ffc4c3041b0c4fbd7c544a89, type: 3}
   m_PrefabInstance: {fileID: 2537069128756044773}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &89867936039907649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3455407979062369972}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99b02e16737054846ba38e93a0f87f25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InputManager
-  moveInput: {x: 0, y: 0}
-  camInput: {x: 0, y: 0}
-  verticalInput: 0
-  horizontalInput: 0
-  camXInput: 0
-  camYInput: 0
-  jumpInput: 0
---- !u!114 &4521880604035119665
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3455407979062369972}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 186f4bfd2ea46c04e8563841846802e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerManager
-  isInteracting: 0
---- !u!114 &-472138165093898138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3455407979062369972}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3332ba71c33eff84da695787cb48d29a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  isGrounded: 0
-  isJumping: 0
-  inAirTimer: 0
-  leapingVel: 0
-  fallingVel: 0
-  raycastHeightOffSet: 0.5
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  moveSpeed: 7
-  rotationSpeed: 15
-  jumpHeight: 3
-  gravityIntensity: -15
 --- !u!54 &3166529742947315572
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -191,6 +134,85 @@ CapsuleCollider:
   m_Height: 1.8
   m_Direction: 1
   m_Center: {x: 0, y: 0.9, z: 0}
+--- !u!114 &89867936039907649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3455407979062369972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99b02e16737054846ba38e93a0f87f25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InputManager
+  moveInput: {x: 0, y: 0, z: 0}
+  camInput: {x: 0, y: 0}
+  verticalInput: 0
+  horizontalInput: 0
+  camXInput: 0
+  camYInput: 0
+  moveAmout: 0
+  jumpInput: 0
+  sprintInput: 0
+  dashInput: 0
+  pauseInput: 0
+  interactInput: 0
+--- !u!114 &4521880604035119665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3455407979062369972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 186f4bfd2ea46c04e8563841846802e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerManager
+  isInteracting: 0
+--- !u!114 &-472138165093898138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3455407979062369972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3332ba71c33eff84da695787cb48d29a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
+  orientation: {fileID: 0}
+  isGrounded: 0
+  isJumping: 0
+  isSprinting: 0
+  doubleJump: 0
+  inAirTimer: 0
+  leapingVel: 0
+  fallingVel: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  jumpCounter: 0
+  maxNumJumps: 2
+  dashForce: 0
+  dashUpForce: 0
+  dashDuration: 0
+  dashCooldown: 0
+  raycastHeightOffSet: 0.5
+  raycastRadius: 0.2
+  raycastMaxDistance: 0.5
+  frontRaycastRadius: 0.2
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  walkSpeed: 1.5
+  runSpeed: 5
+  sprintSpeed: 7
+  rotationSpeed: 15
+  jumpHeight: 3
+  gravityIntensity: -15
 --- !u!114 &4486886033533941630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,3 +225,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6efc5a357e594c14c95be4fc7d30a656, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AnimatorManager
+  animator: {fileID: 0}
