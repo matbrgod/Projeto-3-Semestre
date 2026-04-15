@@ -1075,6 +1075,11 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!1 &29376543 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 634379258684739987, guid: 3453f4498156e1449959c313f62a905c, type: 3}
+  m_PrefabInstance: {fileID: 1112903957}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &29472154
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2959,6 +2964,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 253912692030950185, guid: 3453f4498156e1449959c313f62a905c, type: 3}
   m_PrefabInstance: {fileID: 1112903957}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &94388705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29376543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7b43b0c54e4b064ca1bf36e41d4bf19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovementGismoz
+  gizmoColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &99168128
 GameObject:
   m_ObjectHideFlags: 0
@@ -63428,8 +63446,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Jogador 3\xB0 Pessoa"
       objectReference: {fileID: 0}
+    - target: {fileID: 634379258684739987, guid: 3453f4498156e1449959c313f62a905c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1897759505308483617, guid: 3453f4498156e1449959c313f62a905c, type: 3}
       propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2916219799300734955, guid: 3453f4498156e1449959c313f62a905c, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2916219799300734955, guid: 3453f4498156e1449959c313f62a905c, type: 3}
@@ -63447,6 +63473,10 @@ PrefabInstance:
     - target: {fileID: 2916219799300734955, guid: 3453f4498156e1449959c313f62a905c, type: 3}
       propertyPath: gravityIntensity
       value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2916219799300734955, guid: 3453f4498156e1449959c313f62a905c, type: 3}
+      propertyPath: wallLayer.m_Bits
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2916219799300734955, guid: 3453f4498156e1449959c313f62a905c, type: 3}
       propertyPath: frontRaycastRadius
@@ -63479,7 +63509,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 634379258684739987, guid: 3453f4498156e1449959c313f62a905c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 94388705}
   m_SourcePrefab: {fileID: 100100000, guid: 3453f4498156e1449959c313f62a905c, type: 3}
 --- !u!1 &1114911149
 GameObject:
