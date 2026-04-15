@@ -12,45 +12,38 @@ public class BreakPlatform : MonoBehaviour
     public GameObject lastPlatform;
 
     bool isPLatformBroke = false;
+    bool isPlatformTriggered = false;
 
     private void Update()
     {
-        //Debug.Log($"floorTimer tem {floorTimer} segundos");
         if (isPLatformBroke)
         {
             HandlePlatformAppear();
         }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.CompareTag("ChaoFalso"))
+        if (isPlatformTriggered)
         {
-            platform = other.gameObject;
             HandlePlatformBreak();
         }
     }
 
-    //private void OnCollisionStay(Collision collision)
-    //{
-    //    if (collision.gameObject.CompareTag("ChaoTemp"))
-    //    {
-    //        plataforma = collision.gameObject;
-    //        HandlePlatformBreak();
-    //    }
-    //}
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("ChaoFalso"))
+        {
+            platform = other.gameObject;
+            isPlatformTriggered = true;
+        }
+    }
 
     private void HandlePlatformBreak()
     {
-        //Debug.Log("Chamou HandlePlatformBreak");
         floorTimer += Time.deltaTime;
         if (floorTimer >= maxTimeInFloor)
         {
-            //Debug.Log("Chamou a condicionado do handle");
+            floorTimer = 0f;
             platform.SetActive(false);
             lastPlatform = platform;
             platform = null;
-            floorTimer = 0f;
             isPLatformBroke = true;
         }
     }
