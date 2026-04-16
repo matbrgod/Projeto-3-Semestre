@@ -78,6 +78,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a561d389ffc4c3041b0c4fbd7c544a89, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4486886033533941630}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a561d389ffc4c3041b0c4fbd7c544a89, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3834308678397574820}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a561d389ffc4c3041b0c4fbd7c544a89, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2373990132957667198}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a561d389ffc4c3041b0c4fbd7c544a89, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9173196210971183348}
   m_SourcePrefab: {fileID: 100100000, guid: a561d389ffc4c3041b0c4fbd7c544a89, type: 3}
 --- !u!1 &3455407979062369972 stripped
 GameObject:
@@ -226,3 +235,45 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AnimatorManager
   animator: {fileID: 0}
+--- !u!114 &3834308678397574820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3455407979062369972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 137631260c3bfe4438da6efbce8f99eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerRespawn
+  respawnPoint: {fileID: 0}
+  spawnValue: 10
+--- !u!114 &2373990132957667198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3455407979062369972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6690394c7a52449438b7c73b6c096d1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeathPlatform
+--- !u!114 &9173196210971183348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3455407979062369972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5867d2644c053e24799194235e922c7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BreakPlatform
+  maxTimeInFloor: 2
+  maxTimeToAppear: 5
+  platform: {fileID: 0}
+  lastPlatform: {fileID: 0}
