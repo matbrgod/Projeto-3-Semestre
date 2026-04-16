@@ -26,14 +26,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2634143309066934704}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 41.98517, y: -13.54538, z: -65.6001}
-  m_LocalScale: {x: 2, y: 0.5, z: 3}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 41.98517, y: -14.206511, z: -65.13558}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3961593211225309284}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!65 &2923548400246304508
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -53,8 +53,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.3757095, y: 2.505019, z: 0.368925}
+  m_Center: {x: -0.130867, y: -0.50363755, z: -0.90730715}
 --- !u!114 &39606114962339067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,7 +81,7 @@ GameObject:
   - component: {fileID: 3961593211225309284}
   - component: {fileID: 8804982346686380587}
   - component: {fileID: 5083478181455573229}
-  - component: {fileID: 827242078995355119}
+  - component: {fileID: 1957035795028552565}
   m_Layer: 0
   m_Name: "pedra flutuante (TEMPOR\xC1RIA)"
   m_TagString: ChaoFalso
@@ -99,7 +99,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.41997716, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 81.59052, y: 81.59052, z: 81.59052}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4432029995272082988}
@@ -111,7 +111,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8662730924882557500}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: -5495902117074765545, guid: 4ba08f38c95a8a54e83bf8ddc6b8820f, type: 3}
 --- !u!23 &5083478181455573229
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -161,8 +161,8 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &827242078995355119
-BoxCollider:
+--- !u!64 &1957035795028552565
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -179,6 +179,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5495902117074765545, guid: 4ba08f38c95a8a54e83bf8ddc6b8820f, type: 3}
