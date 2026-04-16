@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LowPolyMan
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a561d389ffc4c3041b0c4fbd7c544a89, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: a561d389ffc4c3041b0c4fbd7c544a89, type: 3}
       propertyPath: m_Controller
       value: 
@@ -275,5 +279,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BreakPlatform
   maxTimeInFloor: 2
   maxTimeToAppear: 5
-  platform: {fileID: 0}
-  lastPlatform: {fileID: 0}
