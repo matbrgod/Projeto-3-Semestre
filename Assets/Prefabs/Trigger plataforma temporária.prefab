@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4432029995272082988}
   - component: {fileID: 2923548400246304508}
+  - component: {fileID: 39606114962339067}
   m_Layer: 0
   m_Name: "Trigger plataforma tempor\xE1ria"
   m_TagString: ChaoFalso
@@ -25,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2634143309066934704}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1112134, y: 0.36930966, z: -0.020375198, w: 0.92240274}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 41.98517, y: -13.54538, z: -65.6001}
   m_LocalScale: {x: 2, y: 0.5, z: 3}
   m_ConstrainProportionsScale: 0
@@ -54,6 +55,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &39606114962339067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2634143309066934704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5867d2644c053e24799194235e922c7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BreakPlatform
+  maxTimeInFloor: 2
+  maxTimeToAppear: 5
+  platform: {fileID: 8662730924882557500}
 --- !u!1 &8662730924882557500
 GameObject:
   m_ObjectHideFlags: 0

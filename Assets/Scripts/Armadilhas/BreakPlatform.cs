@@ -3,16 +3,15 @@ using UnityEngine;
 public class BreakPlatform : MonoBehaviour
 {
     float floorTimer = 0f;
-    public float maxTimeInFloor = 2f;
+    public float maxTimeInFloor;
 
     float timerFloorAppear;
-    public float maxTimeToAppear = 5f;
-
-    public GameObject platform;
-    public GameObject lastPlatform;
+    public float maxTimeToAppear;
 
     bool isPLatformBroke = false;
     bool isPlatformTriggered = false;
+
+    public GameObject platform;
 
     private void Update()
     {
@@ -28,9 +27,8 @@ public class BreakPlatform : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("ChaoFalso"))
+        if (other.gameObject.CompareTag("Player"))
         {
-            platform = other.gameObject;
             isPlatformTriggered = true;
         }
     }
@@ -42,20 +40,20 @@ public class BreakPlatform : MonoBehaviour
         {
             floorTimer = 0f;
             platform.SetActive(false);
-            lastPlatform = platform;
-            platform = null;
             isPLatformBroke = true;
+            isPlatformTriggered = false;
         }
     }
 
     private void HandlePlatformAppear()
     {
         timerFloorAppear += Time.deltaTime;
+        Debug.Log($"tempo para aparecer a plataforma: {timerFloorAppear}");
         if(timerFloorAppear >= maxTimeToAppear)
         {
-            lastPlatform.SetActive(true);
-            timerFloorAppear = 0f;
+            platform.SetActive(true);
             isPLatformBroke = false;
+            timerFloorAppear = 0f;
         }
     }
 }
