@@ -197,7 +197,7 @@ public class PlayerMovement : MonoBehaviour
 
             jumpCounter++;
 
-            float jumpingVel = Mathf.Sqrt(-2 * gravityIntensity * jumpHeight * 2f);
+            float jumpingVel = Mathf.Sqrt(-2 * gravityIntensity * (jumpHeight * 2f));
             playerVel = moveDirection;
             playerVel.y = jumpingVel;
             playerRb.linearVelocity = playerVel;

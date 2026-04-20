@@ -3,66 +3,57 @@ using UnityEngine;
 public class BreakPlatform : MonoBehaviour
 {
     float floorTimer = 0f;
-    public float maxTimeInFloor = 2f;
+    public float maxTimeInFloor;
 
     float timerFloorAppear;
-    public float maxTimeToAppear = 5f;
-
-    public GameObject platform;
-    public GameObject lastPlatform;
+    public float maxTimeToAppear;
 
     bool isPLatformBroke = false;
+    bool isPlatformTriggered = false;
+
+    public GameObject platform;
 
     private void Update()
     {
-        //Debug.Log($"floorTimer tem {floorTimer} segundos");
         if (isPLatformBroke)
         {
             HandlePlatformAppear();
         }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.CompareTag("ChaoFalso"))
+        if (isPlatformTriggered)
         {
-            platform = other.gameObject;
             HandlePlatformBreak();
         }
     }
 
-    //private void OnCollisionStay(Collision collision)
-    //{
-    //    if (collision.gameObject.CompareTag("ChaoTemp"))
-    //    {
-    //        plataforma = collision.gameObject;
-    //        HandlePlatformBreak();
-    //    }
-    //}
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            isPlatformTriggered = true;
+        }
+    }
 
     private void HandlePlatformBreak()
     {
-        //Debug.Log("Chamou HandlePlatformBreak");
         floorTimer += Time.deltaTime;
         if (floorTimer >= maxTimeInFloor)
         {
-            //Debug.Log("Chamou a condicionado do handle");
-            platform.SetActive(false);
-            lastPlatform = platform;
-            platform = null;
             floorTimer = 0f;
+            platform.SetActive(false);
             isPLatformBroke = true;
+            isPlatformTriggered = false;
         }
     }
 
     private void HandlePlatformAppear()
     {
         timerFloorAppear += Time.deltaTime;
+        Debug.Log($"tempo para aparecer a plataforma: {timerFloorAppear}");
         if(timerFloorAppear >= maxTimeToAppear)
         {
-            lastPlatform.SetActive(true);
-            timerFloorAppear = 0f;
+            platform.SetActive(true);
             isPLatformBroke = false;
+            timerFloorAppear = 0f;
         }
     }
 }
