@@ -2,29 +2,50 @@ using UnityEngine;
 
 public class MovePlatform : MonoBehaviour
 {
-    public Transform pointA;
-    public Transform pointB;
+    [Header("Waypoints")]
+    [SerializeField] private Transform waypoints;
 
-    public float moveVel; // velocidade da plataforma de se mexer
-    float step;
+    [Header("Velocidade")]
+    [SerializeField] private float speed;
+
+    private float timeToWaypoint;
+    private float elapsedTime;
+
+    private int targetWaypointIndex;
+
+    WaypointPath waypointPath;
+    private Transform previousWaypoint;
+    private Transform targetWaypoint;
 
     private void Start()
     {
-        step = moveVel * 0.5f;
+        TargetNextWaypoint();
     }
 
     void Update()
     {
-        MoveToPointA();
+        elapsedTime += Time.deltaTime;
+
+        float elapsedPercentage = elapsedTime / timeToWaypoint;
+        elapsedPercentage = Mathf.SmoothStep(0, 1, elapsedPercentage);
+        transform.position = Vector3.Lerp(previousWaypoint.position, targetWaypoint.position, elapsedPercentage);
+        //transform.rotation = Quaternion.Lerp(previousWaypoint.rotation, targetWaypoint.rotation, elapsedPercentage);
+
+        if (elapsedPercentage >= 1)
+        {
+            TargetNextWaypoint();
+        }
     }
 
-    private void MoveToPointA()
+    private void TargetNextWaypoint()
     {
-        transform.position = Vector3.MoveTowards(transform.position, pointA.position, step);
-    }
+        previousWaypoint = waypointPath.HandleWaypoint(targetWaypointIndex);
+        targetWaypointIndex = waypointPath.HandleNextWaypointIndex(targetWaypointIndex);
+        targetWaypoint = waypointPath.HandleWaypoint(targetWaypointIndex);
 
-    private void MoveToPointB()
-    {
-        transform.position = Vector3.MoveTowards(transform.position, pointB.position, step);
+        elapsedTime = 0;
+
+        float distanceToWaypoint = Vector3.Distance(previousWaypoint.position, targetWaypoint.position);
+        timeToWaypoint = distanceToWaypoint / speed;
     }
 }
