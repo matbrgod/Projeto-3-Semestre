@@ -48,7 +48,6 @@ public class BreakPlatform : MonoBehaviour
     private void HandlePlatformAppear()
     {
         timerFloorAppear += Time.deltaTime;
-        Debug.Log($"tempo para aparecer a plataforma: {timerFloorAppear}");
         if(timerFloorAppear >= maxTimeToAppear)
         {
             platform.SetActive(true);
