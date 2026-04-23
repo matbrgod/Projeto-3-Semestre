@@ -1,51 +1,41 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class MovePlatform : MonoBehaviour
 {
     [Header("Waypoints")]
-    [SerializeField] private Transform waypoints;
+    [SerializeField] private List<Transform> waypoints;
 
     [Header("Velocidade")]
     [SerializeField] private float speed;
 
-    private float timeToWaypoint;
-    private float elapsedTime;
+    private int currentWaypoint = 0;
 
-    private int targetWaypointIndex;
+    private Vector3 currentTarget => waypoints[currentWaypoint].position;
 
-    WaypointPath waypointPath;
-    private Transform previousWaypoint;
-    private Transform targetWaypoint;
-
-    private void Start()
+    private void OnEnable()
     {
-        TargetNextWaypoint();
+        currentWaypoint = 0;
+        transform.position = waypoints[0].position;
     }
 
     void Update()
     {
-        elapsedTime += Time.deltaTime;
+        Move();
+    }
 
-        float elapsedPercentage = elapsedTime / timeToWaypoint;
-        elapsedPercentage = Mathf.SmoothStep(0, 1, elapsedPercentage);
-        transform.position = Vector3.Lerp(previousWaypoint.position, targetWaypoint.position, elapsedPercentage);
-        //transform.rotation = Quaternion.Lerp(previousWaypoint.rotation, targetWaypoint.rotation, elapsedPercentage);
-
-        if (elapsedPercentage >= 1)
-        {
-            TargetNextWaypoint();
-        }
+    void Move()
+    {
+        float time = Time.deltaTime * speed;
+        time = Mathf.SmoothStep(0, 1, time);
+        transform.position = Vector3.MoveTowards(transform.position, currentTarget, time);
+        if (transform.position == currentTarget) TargetNextWaypoint();
     }
 
     private void TargetNextWaypoint()
     {
-        previousWaypoint = waypointPath.HandleWaypoint(targetWaypointIndex);
-        targetWaypointIndex = waypointPath.HandleNextWaypointIndex(targetWaypointIndex);
-        targetWaypoint = waypointPath.HandleWaypoint(targetWaypointIndex);
-
-        elapsedTime = 0;
-
-        float distanceToWaypoint = Vector3.Distance(previousWaypoint.position, targetWaypoint.position);
-        timeToWaypoint = distanceToWaypoint / speed;
+        currentWaypoint++;
+        if(currentWaypoint >= waypoints.Count)
+            currentWaypoint = 0;
     }
 }
