@@ -279,3 +279,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BreakPlatform
   maxTimeInFloor: 2
   maxTimeToAppear: 5
+  platform: {fileID: 0}
