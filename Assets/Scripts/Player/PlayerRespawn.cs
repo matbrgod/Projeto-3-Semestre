@@ -28,12 +28,11 @@ public class PlayerRespawn : MonoBehaviour
         }
     }
 
-    //private void OnTriggerEnter(Collider collision)
-    //{
-    //    if (collision.gameObject.CompareTag("Checkpoint"))
-    //    {
-    //        respawnPoint = collision.gameObject.transform;
-    //        collision.gameObject.GetChild(0).gameObject.SetActive(false);
-    //    }
-    //}
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.CompareTag("Checkpoint"))
+        {
+            respawnPoint = collision.gameObject.transform;
+        }
+    }
 }

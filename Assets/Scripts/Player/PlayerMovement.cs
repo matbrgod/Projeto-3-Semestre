@@ -1,5 +1,6 @@
 using System.Collections;
 using Unity.Hierarchy;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
@@ -43,7 +44,8 @@ public class PlayerMovement : MonoBehaviour
     [Header("Raycast")]
     public float raycastHeightOffSet = 0.5f;
     public float raycastRadius = 0.2f;
-    public float raycastMaxDistance = 0.5f;
+    public float spherecastMaxDistance = 0.5f; // distância pra queda
+    public float raycastMaxDistance = 0.5f; // distância pra andar
     public float frontRaycastRadius = 0.2f;
     public LayerMask wallLayer;
 
@@ -71,10 +73,21 @@ public class PlayerMovement : MonoBehaviour
 
     public void HandleMoves()
     {
+        RaycastHit hitFloor;
         RaycastHit hit;
         Vector3 raycastOrigin = transform.position;
 
         HandleMovement();
+
+        if (Physics.Raycast(raycastOrigin, -Vector3.up, out hitFloor, raycastMaxDistance))
+        {
+            Debug.DrawLine(transform.position, hitFloor.collider.transform.position);
+            if (hitFloor.distance < 0.46 && !isJumping && !playerManager.isInteracting)
+            {
+                isGrounded = true;
+            }
+        }
+
         HandleFallAndLand();
         HandleRotation();
 
@@ -155,7 +168,7 @@ public class PlayerMovement : MonoBehaviour
             playerRb.AddForce(Vector3.down * fallingVel * inAirTimer);
         }
 
-        if (Physics.SphereCast(raycastOrigin, raycastRadius, Vector3.down, out hit, raycastMaxDistance, groundLayer))
+        if (Physics.SphereCast(raycastOrigin, raycastRadius, Vector3.down, out hit, spherecastMaxDistance, groundLayer))
         {
             if (!isGrounded && playerManager.isInteracting)
             {
