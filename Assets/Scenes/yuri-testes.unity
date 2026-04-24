@@ -5978,7 +5978,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2.69, y: 3.0927896, z: -1.92}
-  m_LocalScale: {x: 1, y: 0.17787, z: 1}
+  m_LocalScale: {x: 2.365554, y: 0.3649359, z: 2.5321896}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1908632373}
@@ -5995,8 +5995,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dea2aa7a635f75a4eaf35aa7190af29c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovePlatform
-  waypoints: {fileID: 712127506}
-  speed: 1
+  waypoints:
+  - {fileID: 1110159777}
+  - {fileID: 1164690506}
+  speed: 5
 --- !u!1 &1032727300
 GameObject:
   m_ObjectHideFlags: 0
@@ -6498,7 +6500,7 @@ Transform:
   m_GameObject: {fileID: 1164690505}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.69, y: 3.0927896, z: -5.22457}
+  m_LocalPosition: {x: 2.69, y: 3.0927896, z: -19.03}
   m_LocalScale: {x: 1, y: 0.17787, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8194,7 +8196,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1908632373
 Transform:
   m_ObjectHideFlags: 0
