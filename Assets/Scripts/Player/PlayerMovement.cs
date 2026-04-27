@@ -74,6 +74,9 @@ public class PlayerMovement : MonoBehaviour
 
         dashCdTimer = dashCooldown;
 
+        canDash = true;
+        canDoubleJump = true;
+
         isGrounded = true;
     }
 
@@ -113,6 +116,7 @@ public class PlayerMovement : MonoBehaviour
         if(dash) HandleDashCd();
 
         if (isJumping) return;
+        if (dash) return;
 
         playerVel.y -= fallingVel * 1.5f;
         playerVel.y = 0;
@@ -215,7 +219,7 @@ public class PlayerMovement : MonoBehaviour
             playerVel.y = jumpingVel;
             playerRb.linearVelocity = playerVel;
         }
-        else if (jumpCounter < 2)
+        else if (jumpCounter < 2 && canDoubleJump)
         {
             doubleJump = true;
 
@@ -233,14 +237,15 @@ public class PlayerMovement : MonoBehaviour
 
     public void HandleDash()
     {
-        if (dashCdTimer >= dashCooldown && !dash)
+        if (canDash) 
         {
-            dash = true;
+            if (dashCdTimer >= dashCooldown && !dash)
+            {
+                dash = true;
 
-            //Vector3 direction = transform.TransformDirection(new Vector3(moveDirection.x, 0, moveDirection.y));
-            Vector3 direction = transform.forward;
-
-            impact += direction.normalized * dashForce;
+                Vector3 direction = transform.forward;
+                impact += direction.normalized * dashForce;
+            }
         }
     }
 

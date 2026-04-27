@@ -11,7 +11,7 @@ public class InteractMiniShrine : MonoBehaviour
     [SerializeField] TextMeshProUGUI shrineCounterTxt;
     [SerializeField] GameObject shrineCounterUi;
 
-    int shrineCounter;
+    int shrineCounter = 0;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -33,9 +33,9 @@ public class InteractMiniShrine : MonoBehaviour
 
     public void MiniShrineInteract()
     {
-        Debug.Log("Chamou MiniShrineInteract");
         shrineCounterUi.SetActive(true);
         shrineCounter++;
+        shrineCounterTxt.text = shrineCounter.ToString();
         shrineObj.tag = "Untagged";
     }
 }
