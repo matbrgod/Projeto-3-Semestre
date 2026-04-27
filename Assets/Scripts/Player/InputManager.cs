@@ -9,6 +9,7 @@ public class InputManager : MonoBehaviour
     PlayerMovement playerMove;
     PlayerRespawn playerRespawn;
     PlayerInteract playerInteract;
+    InteractMiniShrine miniShrineInteract;
 
     public Vector3 moveInput;
     public Vector2 camInput;
@@ -32,6 +33,7 @@ public class InputManager : MonoBehaviour
     {
         animManager = GetComponent<AnimatorManager>();
         playerMove = GetComponent<PlayerMovement>();
+        miniShrineInteract = GetComponent<InteractMiniShrine>();
 
         isPaused = false;
     }
@@ -119,7 +121,7 @@ public class InputManager : MonoBehaviour
     {
         if (dashInput)
         {
-            //playerMove.HandleDash();
+            playerMove.HandleDash();
             dashInput = false;
         }
     }
@@ -142,8 +144,10 @@ public class InputManager : MonoBehaviour
     {
         if (interactInput)
         {
-            Debug.Log("A tecla de input foi pressionada!");
-            
+            if (miniShrineInteract.miniShrine)
+            {
+                miniShrineInteract.MiniShrineInteract();
+            }
             interactInput = false;
         }
     }
