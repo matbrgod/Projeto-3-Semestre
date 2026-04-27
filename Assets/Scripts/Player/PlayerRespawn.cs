@@ -7,6 +7,11 @@ public class PlayerRespawn : MonoBehaviour
     public Transform respawnPoint;
     public float spawnValue;
 
+    private void Start()
+    {
+        RespawnPlayer();
+    }
+
     private void Update()
     {
         if (transform.position.y < -spawnValue)

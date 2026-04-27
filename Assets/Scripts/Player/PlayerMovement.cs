@@ -36,8 +36,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Dash")]
     public float dashForce;
-    public float dashUpForce;
-    public float dashDuration;
+    //public float dashDuration;
     public float dashCooldown;
     private float dashCdTimer; // cooldown timer
 
@@ -97,6 +96,8 @@ public class PlayerMovement : MonoBehaviour
             moveDirection.y = 0;
             moveDirection.z = 0;
         }
+
+        HandleDash();
 
         if (isJumping) return;
 
@@ -217,17 +218,10 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    //public void HandleDash()
-    //{
-    //    Vector3 forceToApply = orientation.forward * dashForce + orientation.up * dashUpForce;
-
-    //    playerRb.AddForce(forceToApply, ForceMode.Impulse);
-
-    //    Invoke(nameof(ResetDash), dashDuration);
-    //}
-
-    private void ResetDash()
+    public void HandleDash()
     {
+        Vector3 direction = transform.forward;
 
+        playerRb.AddForce(direction, ForceMode.Impulse);
     }
 }
