@@ -97,8 +97,6 @@ public class PlayerMovement : MonoBehaviour
             moveDirection.z = 0;
         }
 
-        HandleDash();
-
         if (isJumping) return;
 
         playerVel.y -= fallingVel * 1.5f;
