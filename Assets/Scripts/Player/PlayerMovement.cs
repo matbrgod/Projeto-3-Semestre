@@ -235,7 +235,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (dashCdTimer >= dashCooldown && !dash)
         {
-            Debug.Log("Chamou HandleDash");
             dash = true;
 
             //Vector3 direction = transform.TransformDirection(new Vector3(moveDirection.x, 0, moveDirection.y));
