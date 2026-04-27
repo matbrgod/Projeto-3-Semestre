@@ -119,7 +119,7 @@ public class InputManager : MonoBehaviour
     {
         if (dashInput)
         {
-            //playerMove.HandleDash();
+            playerMove.HandleDash();
             dashInput = false;
         }
     }

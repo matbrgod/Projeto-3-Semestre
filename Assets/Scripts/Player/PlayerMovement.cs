@@ -3,6 +3,7 @@ using Unity.Hierarchy;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.XR;
 using UnityEngine.Rendering;
 
 public class PlayerMovement : MonoBehaviour
@@ -22,7 +23,10 @@ public class PlayerMovement : MonoBehaviour
     public bool isGrounded;
     public bool isJumping;
     public bool isSprinting;
+    public bool dash;
     public bool doubleJump;
+    public bool canDoubleJump;
+    public bool canDash;
 
     [Header("Queda")]
     public float inAirTimer;
@@ -36,9 +40,10 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Dash")]
     public float dashForce;
-    //public float dashDuration;
+    public float drag = 5f;
     public float dashCooldown;
     private float dashCdTimer; // cooldown timer
+    private Vector3 impact;
 
     [Header("Raycast")]
     public float raycastHeightOffSet = 0.5f;
@@ -67,6 +72,8 @@ public class PlayerMovement : MonoBehaviour
 
         cameraObj = Camera.main.transform;
 
+        dashCdTimer = dashCooldown;
+
         isGrounded = true;
     }
 
@@ -75,6 +82,12 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit hitFloor;
         RaycastHit hit;
         Vector3 raycastOrigin = transform.position;
+
+        if (impact.magnitude > 0.2f)
+        {
+            transform.position += impact * Time.deltaTime;
+        }
+        impact = Vector3.Lerp(impact, Vector3.zero, drag * Time.deltaTime);
 
         HandleMovement();
 
@@ -96,6 +109,8 @@ public class PlayerMovement : MonoBehaviour
             moveDirection.y = 0;
             moveDirection.z = 0;
         }
+
+        if(dash) HandleDashCd();
 
         if (isJumping) return;
 
@@ -218,8 +233,28 @@ public class PlayerMovement : MonoBehaviour
 
     public void HandleDash()
     {
-        Vector3 direction = transform.forward;
+        if (dashCdTimer >= dashCooldown && !dash)
+        {
+            Debug.Log("Chamou HandleDash");
+            dash = true;
 
-        playerRb.AddForce(direction, ForceMode.Impulse);
+            //Vector3 direction = transform.TransformDirection(new Vector3(moveDirection.x, 0, moveDirection.y));
+            Vector3 direction = transform.forward;
+
+            impact += direction.normalized * dashForce;
+        }
+    }
+
+    public void HandleDashCd()
+    {
+        if (dashCdTimer > 0)
+        {
+            dashCdTimer -= Time.deltaTime;
+        }
+        if(dashCdTimer <= 0)
+        {
+            dashCdTimer = dashCooldown;
+            dash = false;
+        }
     }
 }
