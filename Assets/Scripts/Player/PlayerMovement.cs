@@ -103,6 +103,8 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        if(dash) HandleDashCd();
+
         HandleFallAndLand();
         HandleRotation();
 
@@ -112,8 +114,6 @@ public class PlayerMovement : MonoBehaviour
             moveDirection.y = 0;
             moveDirection.z = 0;
         }
-
-        if(dash) HandleDashCd();
 
         if (isJumping) return;
         if (dash) return;
@@ -243,7 +243,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 dash = true;
 
-                Vector3 direction = transform.forward;
+                Vector3 direction = cameraObj.forward;
                 impact += direction.normalized * dashForce;
             }
         }

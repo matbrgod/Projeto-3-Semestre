@@ -7,10 +7,10 @@ public class PlayerRespawn : MonoBehaviour
     public Transform respawnPoint;
     public float spawnValue;
 
-    private void Start()
-    {
-        RespawnPlayer();
-    }
+    //private void Start()
+    //{
+    //    RespawnPlayer();
+    //}
 
     private void Update()
     {

@@ -5828,6 +5828,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5724775511864581272, guid: b158505bfa0286b4485353dab2454b06, type: 3}
+      propertyPath: shrineCounterUi
+      value: 
+      objectReference: {fileID: 1183397019}
+    - target: {fileID: 5724775511864581272, guid: b158505bfa0286b4485353dab2454b06, type: 3}
+      propertyPath: shrineCounterTxt
+      value: 
+      objectReference: {fileID: 494310156}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9961,6 +9969,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5724775511864581272, guid: b158505bfa0286b4485353dab2454b06, type: 3}
+      propertyPath: shrineCounterUi
+      value: 
+      objectReference: {fileID: 1183397019}
+    - target: {fileID: 5724775511864581272, guid: b158505bfa0286b4485353dab2454b06, type: 3}
+      propertyPath: shrineCounterTxt
+      value: 
+      objectReference: {fileID: 494310156}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
