@@ -60,6 +60,7 @@ public class CameraManager : MonoBehaviour
         camPivot.localRotation = targerRotation;
     }
 
+    // função incompleta de colisão da câmera
     private void HandleCamCollision()
     {
         float targetPos = defaultCamPos;

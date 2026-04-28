@@ -4,6 +4,7 @@ using UnityEngine.Rendering;
 
 public class InputManager : MonoBehaviour
 {
+    // manager dos inputs
     public PlayerInputSystem playerControl;
     AnimatorManager animManager;
     PlayerMovement playerMove;
@@ -49,19 +50,20 @@ public class InputManager : MonoBehaviour
             playerControl.PlayerMove.Camera.performed += i => camInput = i.ReadValue<Vector2>();
 
             // detecta os inputs que o jogador fizer
-            playerControl.PlayerActions.Jump.performed += i => jumpInput = true;
+            playerControl.PlayerActions.Jump.performed += i => jumpInput = true; // input de pulo
 
-            playerControl.PlayerActions.Sprint.performed += i => sprintInput = true;
-            playerControl.PlayerActions.Sprint.canceled += i => sprintInput = false;
+            // input do sprint
+            playerControl.PlayerActions.Sprint.performed += i => sprintInput = true; // detecta se o botão foi pressionado
+            playerControl.PlayerActions.Sprint.canceled += i => sprintInput = false; // detecta se ele deixou de ser pressionado
 
-            playerControl.PlayerActions.Dash.performed += i => dashInput = true;
+            playerControl.PlayerActions.Dash.performed += i => dashInput = true; // input do dash
 
-            playerControl.PlayerActions.Pause.performed += i => pauseInput = true;
+            playerControl.PlayerActions.Pause.performed += i => pauseInput = true; // input de pause
 
-            playerControl.PlayerActions.Interact.performed += i => interactInput = true;
+            playerControl.PlayerActions.Interact.performed += i => interactInput = true; // input de interação
         }
 
-        playerControl.Enable();
+        playerControl.Enable(); // habilita o input system do jogador
     }
 
     private void OnDisable()

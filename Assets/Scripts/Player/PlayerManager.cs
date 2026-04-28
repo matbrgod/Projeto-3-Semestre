@@ -27,18 +27,19 @@ public class PlayerManager : MonoBehaviour
 
     void Update()
     {
-        inputManager.HandleInputs();
+        inputManager.HandleInputs(); // detecta os inputs do jogador
     }
 
     private void FixedUpdate()
     {
-        playerMove.HandleMoves();
+        playerMove.HandleMoves(); // detecta a movimentação
     }
 
     private void LateUpdate()
     {
-        camManager.HandleCamMove();
+        camManager.HandleCamMove(); // detecta a movimentação da câmera
 
+        // set dos bools do animator
         isInteracting = animator.GetBool("isInteracting");
 
         playerMove.isJumping = animator.GetBool("isJumping");

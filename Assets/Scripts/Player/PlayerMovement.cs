@@ -12,7 +12,6 @@ public class PlayerMovement : MonoBehaviour
     Vector3 playerVel;
 
     [Header("Referências")]
-    public Transform orientation;
     Transform cameraObj;
     Rigidbody playerRb;
     InputManager inputManager;
@@ -41,16 +40,16 @@ public class PlayerMovement : MonoBehaviour
     [Header("Dash")]
     public float dashForce;
     public float drag = 5f;
-    public float dashCooldown;
+    public float dashCooldown; // valor base do cooldown
     private float dashCdTimer; // cooldown timer
     private Vector3 impact;
 
     [Header("Raycast")]
     public float raycastHeightOffSet = 0.5f;
     public float raycastRadius = 0.2f;
-    public float spherecastMaxDistance = 0.5f; // distância pra queda
-    public float raycastMaxDistance = 0.5f; // distância pra andar
-    public float frontRaycastRadius = 0.2f;
+    public float spherecastMaxDistance = 0.5f; // distância que verifica pra queda
+    public float raycastMaxDistance = 0.5f; // distância que verifica pra andar (tentativa de mexer no bug da animação)
+    public float frontRaycastRadius = 0.2f; // raio do raycast da colisão com paredes
     public LayerMask wallLayer;
 
     [Header("Velocidade de Movimento")]
@@ -86,6 +85,7 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit hit;
         Vector3 raycastOrigin = transform.position;
 
+        // dash
         if (impact.magnitude > 0.2f)
         {
             transform.position += impact * Time.deltaTime;
@@ -94,6 +94,7 @@ public class PlayerMovement : MonoBehaviour
 
         HandleMovement();
 
+        // raycast para tentar impedir que a animação de queda acontecese quando o jogador andava em uma descida
         if (Physics.Raycast(raycastOrigin, -Vector3.up, out hitFloor, raycastMaxDistance))
         {
             Debug.DrawLine(transform.position, hitFloor.collider.transform.position);
@@ -103,11 +104,13 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        // cooldown do dash
         if(dash) HandleDashCd();
 
         HandleFallAndLand();
         HandleRotation();
 
+        // raycast para detecção de parede
         if (Physics.SphereCast(raycastOrigin, frontRaycastRadius, Vector3.forward, out hit, raycastMaxDistance, wallLayer))
         {
             moveDirection.x = 0;
@@ -115,6 +118,7 @@ public class PlayerMovement : MonoBehaviour
             moveDirection.z = 0;
         }
 
+        // gravidade para sempre jogar o personagem para baixo quando não tá pulando ou dando dash
         if (isJumping) return;
         if (dash) return;
 
@@ -124,10 +128,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleMovement()
     {
+        // usa a direção da câmera para determinar a direção que o jogador vai andar
         moveDirection = cameraObj.forward * inputManager.verticalInput;
         moveDirection = moveDirection + cameraObj.right * inputManager.horizontalInput;
         moveDirection.Normalize();
 
+        // sprint e andando/correndo (essa variação usa o analógico do controle)
         if (isSprinting)
         {
             moveDirection = moveDirection * sprintSpeed;
@@ -150,7 +156,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleRotation()
     {
-        if (isJumping || doubleJump) return;
+        // rotação do personagem com a movimentação da câmera
+        if (isJumping || doubleJump) return; // impeditivo do personagem rodar caso ele esteja pulando e o jogador mova a câmera
 
         Vector3 targetDirection = Vector3.zero;
 
@@ -170,10 +177,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleFallAndLand()
     {
+        // função para queda do personagem caso ele detecte que não tem chão abaixo do jogador
         RaycastHit hit;
         Vector3 raycastOrigin = transform.position;
         raycastOrigin.y = raycastOrigin.y + raycastHeightOffSet;
 
+        // queda
         if (!isGrounded && !isJumping)
         {
             if (!playerManager.isInteracting)
@@ -186,6 +195,7 @@ public class PlayerMovement : MonoBehaviour
             playerRb.AddForce(Vector3.down * fallingVel * inAirTimer);
         }
 
+        // pouso
         if (Physics.SphereCast(raycastOrigin, raycastRadius, Vector3.down, out hit, spherecastMaxDistance, groundLayer))
         {
             if (!isGrounded && playerManager.isInteracting)
@@ -207,7 +217,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void HandleJump()
     {
-        if (isGrounded)
+        if (isGrounded) // condicional do pulo simples
         {
             animManager.animator.SetBool("isJumping", true);
             animManager.PlayTargetAnimation("Jump", false);
@@ -219,7 +229,7 @@ public class PlayerMovement : MonoBehaviour
             playerVel.y = jumpingVel;
             playerRb.linearVelocity = playerVel;
         }
-        else if (jumpCounter < 2 && canDoubleJump)
+        else if (jumpCounter < 2 && canDoubleJump) // condicional do pulo duplo
         {
             doubleJump = true;
 
@@ -237,25 +247,27 @@ public class PlayerMovement : MonoBehaviour
 
     public void HandleDash()
     {
-        if (canDash) 
+        // função de dash
+        if (canDash) // verificação se o jogador pode usar o dash
         {
-            if (dashCdTimer >= dashCooldown && !dash)
+            if (dashCdTimer >= dashCooldown && !dash) // verificação se dash 
             {
-                dash = true;
+                dash = true; // bool para rodar o cooldown do dash
 
-                Vector3 direction = cameraObj.forward;
-                impact += direction.normalized * dashForce;
+                Vector3 direction = cameraObj.forward; // determina a direção do dash sendo a da câmera
+                impact += direction.normalized * dashForce; // dash
             }
         }
     }
 
     public void HandleDashCd()
     {
-        if (dashCdTimer > 0)
+        // função para o cooldown do dash
+        if (dashCdTimer > 0) // verifica se o timer tem tempo restante, se sim, ele inicia o countdown
         {
             dashCdTimer -= Time.deltaTime;
         }
-        if(dashCdTimer <= 0)
+        if(dashCdTimer <= 0) // verifica se o timer zerou, se sim, ele iguala o timer com o tempo total do cooldown e libera o jogador a usar o dash novamente
         {
             dashCdTimer = dashCooldown;
             dash = false;
