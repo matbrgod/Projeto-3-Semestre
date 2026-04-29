@@ -1,20 +1,15 @@
 using System.Collections;
-using Unity.Hierarchy;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.XR;
-using UnityEngine.Rendering;
 
 public class PlayerMovement : MonoBehaviour
 {
     Vector3 moveDirection;
     Vector3 playerVel;
 
-    [Header("Referências")]
-    public Transform orientation;
+    [Header("Referï¿½ncias")]
     Transform cameraObj;
     Rigidbody playerRb;
+
     InputManager inputManager;
     PlayerManager playerManager;
     AnimatorManager animManager;
@@ -31,7 +26,9 @@ public class PlayerMovement : MonoBehaviour
     [Header("Queda")]
     public float inAirTimer;
     public float leapingVel;
-    public float fallingVel;
+    public float fallingVel;//passou a ser um multiplicador na intensidade da gravidade
+    //em funï¿½ï¿½o linear do inAirTimer (quando inAirTimer sobe, ele sobe junto multiplicando
+    //a forï¿½a extra vertical)
     public LayerMask groundLayer;
 
     [Header("Pulo")]
@@ -41,16 +38,16 @@ public class PlayerMovement : MonoBehaviour
     [Header("Dash")]
     public float dashForce;
     public float drag = 5f;
-    public float dashCooldown;
+    public float dashCooldown; // valor base do cooldown
     private float dashCdTimer; // cooldown timer
     private Vector3 impact;
 
     [Header("Raycast")]
     public float raycastHeightOffSet = 0.5f;
-    public float raycastRadius = 0.2f;
-    public float spherecastMaxDistance = 0.5f; // distância pra queda
-    public float raycastMaxDistance = 0.5f; // distância pra andar
-    public float frontRaycastRadius = 0.2f;
+    public float sphereCastRadius = 0.2f;
+    public float spherecastMaxDistance = 0.5f; // distï¿½ncia que verifica pra queda
+    public float raycastMaxDistance = 0.5f; // distï¿½ncia que verifica pra andar (tentativa de mexer no bug da animaï¿½ï¿½o)
+    public float frontRaycastRadius = 0.2f; // raio do raycast da colisï¿½o com paredes
     public LayerMask wallLayer;
 
     [Header("Velocidade de Movimento")]
@@ -86,6 +83,7 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit hit;
         Vector3 raycastOrigin = transform.position;
 
+        // dash
         if (impact.magnitude > 0.2f)
         {
             transform.position += impact * Time.deltaTime;
@@ -96,16 +94,19 @@ public class PlayerMovement : MonoBehaviour
 
         if (Physics.Raycast(raycastOrigin, -Vector3.up, out hitFloor, raycastMaxDistance))
         {
-            Debug.DrawLine(transform.position, hitFloor.collider.transform.position);
             if (hitFloor.distance < 0.46 && !isJumping && !playerManager.isInteracting)
             {
                 isGrounded = true;
             }
         }
 
+        // cooldown do dash
+        if (dash) HandleDashCd();
+
         HandleFallAndLand();
         HandleRotation();
 
+        // raycast para detecï¿½ï¿½o de parede
         if (Physics.SphereCast(raycastOrigin, frontRaycastRadius, Vector3.forward, out hit, raycastMaxDistance, wallLayer))
         {
             moveDirection.x = 0;
@@ -113,21 +114,27 @@ public class PlayerMovement : MonoBehaviour
             moveDirection.z = 0;
         }
 
-        if(dash) HandleDashCd();
+        //removido a manipulaï¿½ï¿½o do vetor da gravidade manual e substituï¿½da no fallAndJump pela gravidade
+        //da Unity + a forï¿½a extra de gravidade
 
-        if (isJumping) return;
-        if (dash) return;
+        //if (isJumping) return;
+        //if (dash) return;
 
-        playerVel.y -= fallingVel * 1.5f;
-        playerVel.y = 0;
+        // gravidade para sempre jogar o personagem para baixo quando nï¿½o tï¿½ pulando ou dando dash
+        //playerVel.y -= fallingVel * 1.5f;
+
+        //playerRb.linearVelocity = new Vector3(playerRb.linearVelocity.x, fallingVel * 1.5f, playerRb.linearVelocity.z);
+        //playerVel.y = 0;
     }
 
     private void HandleMovement()
     {
+        // usa a direï¿½ï¿½o da cï¿½mera para determinar a direï¿½ï¿½o que o jogador vai andar
         moveDirection = cameraObj.forward * inputManager.verticalInput;
         moveDirection = moveDirection + cameraObj.right * inputManager.horizontalInput;
         moveDirection.Normalize();
 
+        // sprint e andando/correndo (essa variaï¿½ï¿½o usa o analï¿½gico do controle)
         if (isSprinting)
         {
             moveDirection = moveDirection * sprintSpeed;
@@ -144,13 +151,21 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        Vector3 moveVelocity = new Vector3(moveDirection.x, playerVel.y, moveDirection.z);
+        //Vector3 moveVelocity = new Vector3(moveDirection.x, playerVel.y, moveDirection.z);
+        Vector3 moveVelocity = new Vector3(moveDirection.x, playerRb.linearVelocity.y, moveDirection.z);
+        if (inputManager.moveInput == Vector3.zero && !isGrounded)
+        {
+            moveVelocity = new Vector3(0f, playerRb.linearVelocity.y, 0f);
+        }
+        //reconstruï¿½ï¿½o parcial da interrupï¿½ï¿½o do movimento
+
         playerRb.linearVelocity = moveVelocity;
     }
 
     private void HandleRotation()
     {
-        if (isJumping || doubleJump) return;
+        // rotaï¿½ï¿½o do personagem com a movimentaï¿½ï¿½o da cï¿½mera
+        if (isJumping || doubleJump) return; // impeditivo do personagem rodar caso ele esteja pulando e o jogador mova a cï¿½mera
 
         Vector3 targetDirection = Vector3.zero;
 
@@ -159,7 +174,7 @@ public class PlayerMovement : MonoBehaviour
         targetDirection.Normalize();
         targetDirection.y = 0;
 
-        if(targetDirection == Vector3.zero)
+        if (targetDirection == Vector3.zero)
             targetDirection = transform.forward;
 
         Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
@@ -170,10 +185,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleFallAndLand()
     {
+        // funï¿½ï¿½o para queda do personagem caso ele detecte que nï¿½o tem chï¿½o abaixo do jogador
         RaycastHit hit;
         Vector3 raycastOrigin = transform.position;
         raycastOrigin.y = raycastOrigin.y + raycastHeightOffSet;
 
+        // queda
         if (!isGrounded && !isJumping)
         {
             if (!playerManager.isInteracting)
@@ -182,11 +199,18 @@ public class PlayerMovement : MonoBehaviour
             }
 
             inAirTimer += Time.deltaTime;
-            playerRb.AddForce(transform.forward * leapingVel);
-            playerRb.AddForce(Vector3.down * fallingVel * inAirTimer);
+            //reconstruï¿½ï¿½o da forï¿½a que aumenta a intensidade da gravidade durante o tempo no ar
+            //e aplicaï¿½ï¿½o dela somente apï¿½s o segundo pulo ou passado determinado tempo caindo
+            //playerRb.AddForce(transform.forward * leapingVel);
+            //playerRb.AddForce(Vector3.down * fallingVel * inAirTimer);
+            if (jumpCounter > 1 || inAirTimer > 0.3f)
+            {
+                playerRb.AddForce(Physics.gravity * inAirTimer * fallingVel);
+            }
         }
 
-        if (Physics.SphereCast(raycastOrigin, raycastRadius, Vector3.down, out hit, spherecastMaxDistance, groundLayer))
+        // pouso
+        if (Physics.SphereCast(raycastOrigin, sphereCastRadius, Vector3.down, out hit, spherecastMaxDistance, groundLayer))
         {
             if (!isGrounded && playerManager.isInteracting)
             {
@@ -207,7 +231,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void HandleJump()
     {
-        if (isGrounded)
+        if (isGrounded) // condicional do pulo simples
         {
             animManager.animator.SetBool("isJumping", true);
             animManager.PlayTargetAnimation("Jump", false);
@@ -215,11 +239,12 @@ public class PlayerMovement : MonoBehaviour
             jumpCounter++;
 
             float jumpingVel = Mathf.Sqrt(-2 * gravityIntensity * jumpHeight);
+
             playerVel = moveDirection;
             playerVel.y = jumpingVel;
             playerRb.linearVelocity = playerVel;
         }
-        else if (jumpCounter < 2 && canDoubleJump)
+        else if (jumpCounter < 2 && canDoubleJump) // condicional do pulo duplo
         {
             doubleJump = true;
 
@@ -228,7 +253,10 @@ public class PlayerMovement : MonoBehaviour
 
             jumpCounter++;
 
-            float jumpingVel = Mathf.Sqrt(-2 * gravityIntensity * (jumpHeight * 2f));
+            float jumpingVel = Mathf.Sqrt(-2 * gravityIntensity * (jumpHeight * 1.5f));
+            //alterado o multiplicador de intensidade do segundo pulo para aumentar
+            //menos a discrepï¿½ncia de altura entre os dois saltos
+
             playerVel = moveDirection;
             playerVel.y = jumpingVel;
             playerRb.linearVelocity = playerVel;
@@ -237,28 +265,37 @@ public class PlayerMovement : MonoBehaviour
 
     public void HandleDash()
     {
-        if (canDash) 
+        // funï¿½ï¿½o de dash
+        if (canDash) // verificaï¿½ï¿½o se o jogador pode usar o dash
         {
-            if (dashCdTimer >= dashCooldown && !dash)
+            if (dashCdTimer >= dashCooldown && !dash) // verificaï¿½ï¿½o se dash 
             {
-                dash = true;
+                dash = true; // bool para rodar o cooldown do dash
 
-                Vector3 direction = transform.forward;
-                impact += direction.normalized * dashForce;
+                Vector3 direction = cameraObj.forward; // determina a direï¿½ï¿½o do dash sendo a da cï¿½mera
+                impact += direction.normalized * dashForce; // dash
             }
         }
     }
 
     public void HandleDashCd()
     {
-        if (dashCdTimer > 0)
+        // funï¿½ï¿½o para o cooldown do dash
+        if (dashCdTimer > 0) // verifica se o timer tem tempo restante, se sim, ele inicia o countdown
         {
             dashCdTimer -= Time.deltaTime;
         }
-        if(dashCdTimer <= 0)
+        if (dashCdTimer <= 0) // verifica se o timer zerou, se sim, ele iguala o timer com o tempo total do cooldown e libera o jogador a usar o dash novamente
         {
             dashCdTimer = dashCooldown;
             dash = false;
         }
     }
+
+    //private void OnDrawGizmos()//gizmo para visualizar as esferas de colisï¿½o
+    //{
+    //    Gizmos.color = Color.yellow;
+    //    Gizmos.DrawWireSphere(transform.position, sphereCastRadius);
+    //    //Gizmos.DrawWireSphere(transform.position, frontRaycastRadius);
+    //}
 }

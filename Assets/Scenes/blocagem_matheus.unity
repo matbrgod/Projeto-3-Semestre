@@ -74511,11 +74511,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2916219799300734955, guid: 3453f4498156e1449959c313f62a905c, type: 3}
       propertyPath: fallingVel
-      value: 800
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2916219799300734955, guid: 3453f4498156e1449959c313f62a905c, type: 3}
       propertyPath: jumpHeight
-      value: 2.5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2916219799300734955, guid: 3453f4498156e1449959c313f62a905c, type: 3}
       propertyPath: dashCooldown
@@ -74530,12 +74530,24 @@ PrefabInstance:
       value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 2916219799300734955, guid: 3453f4498156e1449959c313f62a905c, type: 3}
+      propertyPath: sphereCastRadius
+      value: 0.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 2916219799300734955, guid: 3453f4498156e1449959c313f62a905c, type: 3}
       propertyPath: wallLayer.m_Bits
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2916219799300734955, guid: 3453f4498156e1449959c313f62a905c, type: 3}
       propertyPath: frontRaycastRadius
-      value: 0.2
+      value: 0.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 2916219799300734955, guid: 3453f4498156e1449959c313f62a905c, type: 3}
+      propertyPath: raycastMaxDistance
+      value: 0.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 2916219799300734955, guid: 3453f4498156e1449959c313f62a905c, type: 3}
+      propertyPath: raycastHeightOffSet
+      value: 0.65
       objectReference: {fileID: 0}
     - target: {fileID: 8424218856494974907, guid: 3453f4498156e1449959c313f62a905c, type: 3}
       propertyPath: m_Height

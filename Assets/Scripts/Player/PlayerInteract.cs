@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerInteract : MonoBehaviour
 {
+    // código de diálogo do gilles que eu preciso rever
     InputManager input;
 
     public GameObject npcGameObj;

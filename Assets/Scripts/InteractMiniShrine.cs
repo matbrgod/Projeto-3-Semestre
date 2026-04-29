@@ -20,6 +20,20 @@ public class InteractMiniShrine : MonoBehaviour
             miniShrine = true;
             shrineObj = other.gameObject;
         }
+        else
+        {
+            miniShrine = false;
+            shrineObj = null;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Untagged"))
+        {
+            miniShrine = false;
+            shrineObj = null;
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -28,6 +42,10 @@ public class InteractMiniShrine : MonoBehaviour
         {
             miniShrine = false;
             shrineObj = null;
+        }
+        else
+        {
+            miniShrine = false;
         }
     }
 
