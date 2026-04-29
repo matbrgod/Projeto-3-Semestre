@@ -14,6 +14,6 @@ public class MovementGismoz : MonoBehaviour
     {
         Vector3 gizmoPosition = new Vector3(playerMovement.transform.position.x, playerMovement.raycastHeightOffSet, playerMovement.transform.position.z);
         Gizmos.color = gizmoColor;
-        Gizmos.DrawWireSphere(transform.position, playerMovement.raycastRadius);
+        //Gizmos.DrawWireSphere(transform.position, playerMovement.raycastRadius);
     }
 }

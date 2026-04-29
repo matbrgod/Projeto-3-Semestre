@@ -8,6 +8,10 @@ TagManager:
   - ChaoFalso
   - ChaoMata
   - Checkpoint
+  - MiniShrine
+  - PedraJapao
+  - PedraCidade
+  - PedraCatedral
   layers:
   - Default
   - TransparentFX

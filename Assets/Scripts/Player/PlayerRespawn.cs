@@ -4,8 +4,16 @@ using UnityEngine;
 
 public class PlayerRespawn : MonoBehaviour
 {
+    // script de respawn e checkpoint do jogador
     public Transform respawnPoint;
+    GameObject newRespawn;
+    GameObject oldRespawn;
     public float spawnValue;
+
+    //private void Start()
+    //{
+    //    RespawnPlayer();
+    //}
 
     private void Update()
     {
@@ -33,6 +41,10 @@ public class PlayerRespawn : MonoBehaviour
         if (collision.gameObject.CompareTag("Checkpoint"))
         {
             respawnPoint = collision.gameObject.transform;
+            oldRespawn = newRespawn;
+            if (oldRespawn != null) oldRespawn.SetActive(true);
+            newRespawn = collision.transform.GetChild(0).gameObject;
+            newRespawn.SetActive(false);
         }
     }
 }

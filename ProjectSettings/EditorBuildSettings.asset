@@ -8,12 +8,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/menu.unity
     guid: 6a3ca5f31add010419c4e65faef48ef8
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Terreno.unity
     guid: 456e4caf22a8ee14fbeb021ae6a74d9e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Blocagem.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/blocagem_matheus.unity
+    guid: 6b04d272be8b64c418d1ab94ff925c4e
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 8874c6d1c8d3ca7459f4b6972e871f14, type: 3}
   m_UseUCBPForAssetBundles: 0
