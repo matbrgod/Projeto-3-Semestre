@@ -4,7 +4,7 @@ using UnityEngine.Rendering;
 
 public class InputManager : MonoBehaviour
 {
-    // manager dos inputs
+    [Header("Refs")]
     public PlayerInputSystem playerControl;
     AnimatorManager animManager;
     PlayerMovement playerMove;
@@ -12,16 +12,18 @@ public class InputManager : MonoBehaviour
     PlayerInteract playerInteract;
     InteractMiniShrine miniShrineInteract;
 
+    [Header("Vetores dos Inputs")]
     public Vector3 moveInput;
     public Vector2 camInput;
 
+    [Header("Valores dos Inputs")]
     public float verticalInput;
     public float horizontalInput;
     public float camXInput;
     public float camYInput;
     public float moveAmout;
 
-    // variáveis dos inputs de interação do jogador
+    [Header("Flags dos Inputs")]
     public bool jumpInput;
     public bool sprintInput;
     public bool dashInput;
