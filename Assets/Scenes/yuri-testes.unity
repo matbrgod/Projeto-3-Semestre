@@ -3132,27 +3132,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0974be9496b660c4aa7d50fe412cf67c, type: 3}
---- !u!1 &588493073 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3455407979062369972, guid: e7cca1d02c565394f8418ec93c115b68, type: 3}
-  m_PrefabInstance: {fileID: 1917810236}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &588493086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 588493073}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1005eceebe266e40aa503b564cf374c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractMiniShrine
-  miniShrine: 0
-  shrineObj: {fileID: 0}
-  shrineCounterTxt: {fileID: 494310156}
-  shrineCounterUi: {fileID: 1183397019}
 --- !u!1 &610646167
 GameObject:
   m_ObjectHideFlags: 0
@@ -7713,12 +7692,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3455407979062369972, guid: e7cca1d02c565394f8418ec93c115b68, type: 3}
       propertyPath: m_Name
-      value: LowPolyMan
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 3834308678397574820, guid: e7cca1d02c565394f8418ec93c115b68, type: 3}
       propertyPath: respawnPoint
       value: 
       objectReference: {fileID: 1612557455}
+    - target: {fileID: 3942657657963958957, guid: e7cca1d02c565394f8418ec93c115b68, type: 3}
+      propertyPath: shrineCounterUi
+      value: 
+      objectReference: {fileID: 1183397019}
+    - target: {fileID: 3942657657963958957, guid: e7cca1d02c565394f8418ec93c115b68, type: 3}
+      propertyPath: shrineCounterTxt
+      value: 
+      objectReference: {fileID: 494310156}
     - target: {fileID: 8241568934652649076, guid: e7cca1d02c565394f8418ec93c115b68, type: 3}
       propertyPath: m_CullingMode
       value: 0
@@ -7733,12 +7720,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9173196210971183348, guid: e7cca1d02c565394f8418ec93c115b68, type: 3}
+    - {fileID: 2780812875058505912, guid: e7cca1d02c565394f8418ec93c115b68, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3455407979062369972, guid: e7cca1d02c565394f8418ec93c115b68, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 588493086}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7cca1d02c565394f8418ec93c115b68, type: 3}
 --- !u!1 &1938091162
 GameObject:
