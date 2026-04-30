@@ -10,7 +10,6 @@ public class InputManager : MonoBehaviour
     PlayerMovement playerMove;
     PlayerRespawn playerRespawn;
     PlayerInteract playerInteract;
-    InteractMiniShrine miniShrineInteract;
 
     [Header("Vetores dos Inputs")]
     public Vector3 moveInput;
@@ -36,7 +35,6 @@ public class InputManager : MonoBehaviour
     {
         animManager = GetComponent<AnimatorManager>();
         playerMove = GetComponent<PlayerMovement>();
-        miniShrineInteract = GetComponent<InteractMiniShrine>();
 
         isPaused = false;
     }
@@ -148,9 +146,9 @@ public class InputManager : MonoBehaviour
     {
         if (interactInput)
         {
-            if (miniShrineInteract.miniShrine)
+            if (playerInteract.miniShrine)
             {
-                miniShrineInteract.MiniShrineInteract();
+                playerInteract.MiniShrineInteract();
             }
             interactInput = false;
         }
