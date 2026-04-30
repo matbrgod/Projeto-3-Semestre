@@ -70,32 +70,28 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 19f071d4feb392a4e88c5affa97dec2c, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -1427089561566838424}
+      addedObject: {fileID: -96272738018100085}
   m_SourcePrefab: {fileID: 100100000, guid: 19f071d4feb392a4e88c5affa97dec2c, type: 3}
 --- !u!1 &6704919821717185905 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 19f071d4feb392a4e88c5affa97dec2c, type: 3}
   m_PrefabInstance: {fileID: 5894579539914299424}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &-1427089561566838424
-MeshCollider:
+--- !u!205 &-96272738018100085
+LODGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6704919821717185905}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
+  m_Size: 1
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.029036433
+    fadeTransitionWidth: 0
+    renderers: []
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 1378573419706940331, guid: 19f071d4feb392a4e88c5affa97dec2c, type: 3}
