@@ -48,9 +48,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6524208549162800479, guid: 976da9ea0d8e7464b9314f768c5ba402, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 976da9ea0d8e7464b9314f768c5ba402, type: 3}
       propertyPath: m_Name
       value: pedra3gg (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 976da9ea0d8e7464b9314f768c5ba402, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5799940749365372550, guid: 976da9ea0d8e7464b9314f768c5ba402, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7280807135575984430, guid: 976da9ea0d8e7464b9314f768c5ba402, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
