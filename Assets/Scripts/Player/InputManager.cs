@@ -150,6 +150,10 @@ public class InputManager : MonoBehaviour
             {
                 playerInteract.MiniShrineInteract();
             }
+            //if (playerInteract.canInteract)
+            //{
+            //    playerInteract.HandleStoneInteract();
+            //}
             interactInput = false;
         }
     }
