@@ -5,11 +5,11 @@ OcclusionCullingSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_OcclusionBakeSettings:
-    smallestOccluder: 5
+    smallestOccluder: 3
     smallestHole: 0.25
     backfaceThreshold: 100
-  m_SceneGUID: 00000000000000000000000000000000
-  m_OcclusionCullingData: {fileID: 0}
+  m_SceneGUID: 6b04d272be8b64c418d1ab94ff925c4e
+  m_OcclusionCullingData: {fileID: 36300000, guid: 205a9cc8525df6f4b8345e852245ac93, type: 2}
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
@@ -861,6 +861,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Trigger plataforma tempor\xE1ria (3)"
       objectReference: {fileID: 0}
+    - target: {fileID: 2634143309066934704, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.86
@@ -900,6 +904,10 @@ PrefabInstance:
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8662730924882557500, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1046,7 +1054,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!135 &24098029
 SphereCollider:
@@ -1934,9 +1942,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5556006532613215676, guid: 9fe64b4b6f8bc754dbda83ef1fee0b41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -558599400892490575, guid: 9fe64b4b6f8bc754dbda83ef1fee0b41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9fe64b4b6f8bc754dbda83ef1fee0b41, type: 3}
       propertyPath: m_Name
       value: pedra1g (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9fe64b4b6f8bc754dbda83ef1fee0b41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2418883498010258277, guid: 9fe64b4b6f8bc754dbda83ef1fee0b41, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2409,9 +2433,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1161867239}
     m_Modifications:
+    - target: {fileID: 78250482666474603, guid: b158505bfa0286b4485353dab2454b06, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 512351726437553409, guid: b158505bfa0286b4485353dab2454b06, type: 3}
       propertyPath: m_Name
       value: Mini Templo (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 512351726437553409, guid: b158505bfa0286b4485353dab2454b06, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 757684948834971373, guid: b158505bfa0286b4485353dab2454b06, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 889440596797558715, guid: b158505bfa0286b4485353dab2454b06, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2452,6 +2488,10 @@ PrefabInstance:
     - target: {fileID: 889440596797558715, guid: b158505bfa0286b4485353dab2454b06, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070770899854754164, guid: b158505bfa0286b4485353dab2454b06, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3433,6 +3473,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: ChaoMata
       objectReference: {fileID: 0}
+    - target: {fileID: 538444315843698227, guid: 7738f0a7efcec014198f4f99d2d56100, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6879480438014370132, guid: 7738f0a7efcec014198f4f99d2d56100, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -3631,7 +3675,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &80859011
 Transform:
@@ -3920,6 +3964,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1717009705}
     m_Modifications:
+    - target: {fileID: 2684983540952385812, guid: 2da22c6e9c7521442b37a81d13bf3309, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2873042801784143772, guid: 2da22c6e9c7521442b37a81d13bf3309, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160863947406987231, guid: 2da22c6e9c7521442b37a81d13bf3309, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3539255714907921236, guid: 2da22c6e9c7521442b37a81d13bf3309, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3960,9 +4016,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3815165371718692875, guid: 2da22c6e9c7521442b37a81d13bf3309, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4203590177562280430, guid: 2da22c6e9c7521442b37a81d13bf3309, type: 3}
       propertyPath: m_Name
       value: POSTE COM LAMPAD (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4203590177562280430, guid: 2da22c6e9c7521442b37a81d13bf3309, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7143441553008756087, guid: 2da22c6e9c7521442b37a81d13bf3309, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7291700967716411407, guid: 2da22c6e9c7521442b37a81d13bf3309, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8053406208449468154, guid: 2da22c6e9c7521442b37a81d13bf3309, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8631011780102787424, guid: 2da22c6e9c7521442b37a81d13bf3309, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 9127914081483828486, guid: 2da22c6e9c7521442b37a81d13bf3309, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3977,9 +4061,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 539797742}
     m_Modifications:
+    - target: {fileID: 1265955341052371237, guid: d45d65183fff79747984667d4bae0d58, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521883786430195801, guid: d45d65183fff79747984667d4bae0d58, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891791959727599798, guid: d45d65183fff79747984667d4bae0d58, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6286221581679706455, guid: d45d65183fff79747984667d4bae0d58, type: 3}
       propertyPath: m_Name
       value: Torii simples (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6651391876895408705, guid: d45d65183fff79747984667d4bae0d58, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6662782721621335021, guid: d45d65183fff79747984667d4bae0d58, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4041,7 +4141,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &97408089
 Transform:
@@ -4579,7 +4679,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &101860247
 Transform:
@@ -4690,7 +4790,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!4 &104156501
 Transform:
@@ -4944,7 +5044,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!4 &111422117
 Transform:
@@ -5072,7 +5172,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &114034417
 Transform:
@@ -5298,6 +5398,10 @@ PrefabInstance:
     - target: {fileID: 538444315843698227, guid: 7738f0a7efcec014198f4f99d2d56100, type: 3}
       propertyPath: m_TagString
       value: ChaoMata
+      objectReference: {fileID: 0}
+    - target: {fileID: 538444315843698227, guid: 7738f0a7efcec014198f4f99d2d56100, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6879480438014370132, guid: 7738f0a7efcec014198f4f99d2d56100, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -5529,6 +5633,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pedra2g (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 19f071d4feb392a4e88c5affa97dec2c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5556,7 +5664,7 @@ GameObject:
   m_TagString: ChaoFalso
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &136930036
 Transform:
@@ -5664,6 +5772,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Trigger plataforma tempor\xE1ria"
       objectReference: {fileID: 0}
+    - target: {fileID: 2634143309066934704, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 43.65
@@ -5703,6 +5815,10 @@ PrefabInstance:
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8662730924882557500, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6255,9 +6371,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6524208549162800479, guid: 976da9ea0d8e7464b9314f768c5ba402, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 976da9ea0d8e7464b9314f768c5ba402, type: 3}
       propertyPath: m_Name
       value: pedra3gg
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 976da9ea0d8e7464b9314f768c5ba402, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5799940749365372550, guid: 976da9ea0d8e7464b9314f768c5ba402, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7280807135575984430, guid: 976da9ea0d8e7464b9314f768c5ba402, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6789,7 +6921,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!4 &160391781
 Transform:
@@ -7415,7 +7547,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &168049487
 Transform:
@@ -8280,7 +8412,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!4 &190953695
 Transform:
@@ -9013,7 +9145,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &205342966
 Transform:
@@ -9125,7 +9257,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &208517853
 Transform:
@@ -9232,6 +9364,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Trigger plataforma tempor\xE1ria (8)"
       objectReference: {fileID: 0}
+    - target: {fileID: 2634143309066934704, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -81.04001
@@ -9271,6 +9407,10 @@ PrefabInstance:
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8662730924882557500, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9656,6 +9796,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pedra flutuante pequena
       objectReference: {fileID: 0}
+    - target: {fileID: 4426523544032906000, guid: 2883306f650b11c45becbbda1e761f37, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5625024789482590063, guid: 2883306f650b11c45becbbda1e761f37, type: 3}
       propertyPath: m_LocalPosition.x
       value: 54.377502
@@ -9949,9 +10093,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1161867239}
     m_Modifications:
+    - target: {fileID: 78250482666474603, guid: b158505bfa0286b4485353dab2454b06, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 512351726437553409, guid: b158505bfa0286b4485353dab2454b06, type: 3}
       propertyPath: m_Name
       value: Mini Templo (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 512351726437553409, guid: b158505bfa0286b4485353dab2454b06, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 757684948834971373, guid: b158505bfa0286b4485353dab2454b06, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 889440596797558715, guid: b158505bfa0286b4485353dab2454b06, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9992,6 +10148,10 @@ PrefabInstance:
     - target: {fileID: 889440596797558715, guid: b158505bfa0286b4485353dab2454b06, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070770899854754164, guid: b158505bfa0286b4485353dab2454b06, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10136,6 +10296,10 @@ PrefabInstance:
     - target: {fileID: 3196520295971357160, guid: f492f2bd78b3a4d4f8a80b343654abad, type: 3}
       propertyPath: m_Name
       value: pedra longa (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3196520295971357160, guid: f492f2bd78b3a4d4f8a80b343654abad, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8965397573929193340, guid: f492f2bd78b3a4d4f8a80b343654abad, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10305,6 +10469,10 @@ PrefabInstance:
     - target: {fileID: 4426523544032906000, guid: 2883306f650b11c45becbbda1e761f37, type: 3}
       propertyPath: m_Name
       value: pedra flutuante pequena (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4426523544032906000, guid: 2883306f650b11c45becbbda1e761f37, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5625024789482590063, guid: 2883306f650b11c45becbbda1e761f37, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10856,6 +11024,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Trigger plataforma tempor\xE1ria (8)"
       objectReference: {fileID: 0}
+    - target: {fileID: 2634143309066934704, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 23.34
@@ -10895,6 +11067,10 @@ PrefabInstance:
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8662730924882557500, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11437,6 +11613,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Trigger plataforma tempor\xE1ria (1)"
       objectReference: {fileID: 0}
+    - target: {fileID: 2634143309066934704, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -11488,6 +11668,10 @@ PrefabInstance:
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8662730924882557500, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12085,7 +12269,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &296154069
 Transform:
@@ -12382,7 +12566,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!4 &304321326
 Transform:
@@ -12505,6 +12689,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Trigger plataforma tempor\xE1ria (9)"
       objectReference: {fileID: 0}
+    - target: {fileID: 2634143309066934704, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -83.610016
@@ -12544,6 +12732,10 @@ PrefabInstance:
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8662730924882557500, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13544,7 +13736,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &327314917
 Transform:
@@ -13650,6 +13842,10 @@ PrefabInstance:
     - target: {fileID: 4426523544032906000, guid: 2883306f650b11c45becbbda1e761f37, type: 3}
       propertyPath: m_Name
       value: pedra flutuante pequena (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4426523544032906000, guid: 2883306f650b11c45becbbda1e761f37, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5625024789482590063, guid: 2883306f650b11c45becbbda1e761f37, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13834,6 +14030,10 @@ PrefabInstance:
     - target: {fileID: 3196520295971357160, guid: f492f2bd78b3a4d4f8a80b343654abad, type: 3}
       propertyPath: m_Name
       value: pedra longa (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3196520295971357160, guid: f492f2bd78b3a4d4f8a80b343654abad, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8965397573929193340, guid: f492f2bd78b3a4d4f8a80b343654abad, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14869,6 +15069,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Trigger plataforma tempor\xE1ria (11)"
       objectReference: {fileID: 0}
+    - target: {fileID: 2634143309066934704, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 41.46
@@ -14909,6 +15113,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8662730924882557500, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14935,7 +15143,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!4 &359503243
 Transform:
@@ -15067,7 +15275,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!4 &366469848
 Transform:
@@ -15748,7 +15956,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!4 &384891194
 Transform:
@@ -16434,7 +16642,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &393091184
 Transform:
@@ -17531,7 +17739,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &415098142
 Transform:
@@ -17774,7 +17982,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &417477412
 Transform:
@@ -18084,7 +18292,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!4 &425333680
 Transform:
@@ -18339,7 +18547,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &427323225
 Transform:
@@ -18920,7 +19128,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &437163539
 Transform:
@@ -19214,6 +19422,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pedra longa (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 3196520295971357160, guid: f492f2bd78b3a4d4f8a80b343654abad, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8965397573929193340, guid: f492f2bd78b3a4d4f8a80b343654abad, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.217529
@@ -19384,6 +19596,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Parede de Pedra Flutuante (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 538444315843698227, guid: 7738f0a7efcec014198f4f99d2d56100, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7055840450241234268, guid: 7738f0a7efcec014198f4f99d2d56100, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.847534
@@ -19445,7 +19661,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!4 &449426320
 Transform:
@@ -19567,6 +19783,10 @@ PrefabInstance:
     - target: {fileID: 3196520295971357160, guid: f492f2bd78b3a4d4f8a80b343654abad, type: 3}
       propertyPath: m_Name
       value: pedra longa (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3196520295971357160, guid: f492f2bd78b3a4d4f8a80b343654abad, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8965397573929193340, guid: f492f2bd78b3a4d4f8a80b343654abad, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19864,6 +20084,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pedra flutuante pequena (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 4426523544032906000, guid: 2883306f650b11c45becbbda1e761f37, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5625024789482590063, guid: 2883306f650b11c45becbbda1e761f37, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.89
@@ -20052,7 +20276,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!4 &471054845
 Transform:
@@ -20180,7 +20404,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &471318115
 Transform:
@@ -20291,7 +20515,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!4 &472228188
 Transform:
@@ -20419,6 +20643,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torii simples (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1265955341052371237, guid: d45d65183fff79747984667d4bae0d58, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1934932659308280735, guid: d45d65183fff79747984667d4bae0d58, type: 3}
       propertyPath: m_LocalPosition.x
       value: 65.62683
@@ -20458,6 +20686,18 @@ PrefabInstance:
     - target: {fileID: 1934932659308280735, guid: d45d65183fff79747984667d4bae0d58, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521883786430195801, guid: d45d65183fff79747984667d4bae0d58, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891791959727599798, guid: d45d65183fff79747984667d4bae0d58, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6651391876895408705, guid: d45d65183fff79747984667d4bae0d58, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21287,6 +21527,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: ChaoMata
       objectReference: {fileID: 0}
+    - target: {fileID: 538444315843698227, guid: 7738f0a7efcec014198f4f99d2d56100, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6879480438014370132, guid: 7738f0a7efcec014198f4f99d2d56100, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -21470,7 +21714,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!4 &506322898
 Transform:
@@ -21814,8 +22058,8 @@ ParticleSystem:
         m_RotationOrder: 4
     startSpeed:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 7.2
+      minMaxState: 3
+      scalar: 0.1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -22310,7 +22554,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 4
+    type: 5
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -22318,7 +22562,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 1, y: 1, z: 1}
+    m_Scale: {x: 106.72, y: 101.05, z: 87.76}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -22954,8 +23198,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 1, b: 1, a: 1}
-        key1: {r: 1, g: 1, b: 1, a: 1}
+        key0: {r: 0, g: 0, b: 0, a: 0}
+        key1: {r: 0, g: 0, b: 0, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -22971,17 +23215,17 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 65535
-        atime2: 0
+        atime1: 31418
+        atime2: 65535
         atime3: 0
         atime4: 0
         atime5: 0
         atime6: 0
         atime7: 0
         m_Mode: 0
-        m_ColorSpace: -1
+        m_ColorSpace: 0
         m_NumColorKeys: 2
-        m_NumAlphaKeys: 2
+        m_NumAlphaKeys: 3
       minGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -24331,7 +24575,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
   NoiseModule:
-    enabled: 0
+    enabled: 1
     strength:
       serializedVersion: 2
       minMaxState: 0
@@ -24491,7 +24735,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    separateAxes: 0
+    separateAxes: 1
     frequency: 0.5
     damping: 1
     octaves: 1
@@ -24501,7 +24745,7 @@ ParticleSystem:
     scrollSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 2.7
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -26411,7 +26655,7 @@ Transform:
   m_GameObject: {fileID: 507391879}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 97.099976, y: 197.1, z: 131.5}
+  m_LocalPosition: {x: 97.099976, y: 27, z: 131}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -27025,7 +27269,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &524288120
 Transform:
@@ -27135,7 +27379,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &528297827
 Transform:
@@ -27354,6 +27598,10 @@ PrefabInstance:
     - target: {fileID: 538444315843698227, guid: 7738f0a7efcec014198f4f99d2d56100, type: 3}
       propertyPath: m_TagString
       value: ChaoMata
+      objectReference: {fileID: 0}
+    - target: {fileID: 538444315843698227, guid: 7738f0a7efcec014198f4f99d2d56100, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6879480438014370132, guid: 7738f0a7efcec014198f4f99d2d56100, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -33394,7 +33642,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &569693665
 Transform:
@@ -33505,7 +33753,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!4 &571599019
 Transform:
@@ -33868,9 +34116,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1161867239}
     m_Modifications:
+    - target: {fileID: 78250482666474603, guid: b158505bfa0286b4485353dab2454b06, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 512351726437553409, guid: b158505bfa0286b4485353dab2454b06, type: 3}
       propertyPath: m_Name
       value: Mini Templo (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 512351726437553409, guid: b158505bfa0286b4485353dab2454b06, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 757684948834971373, guid: b158505bfa0286b4485353dab2454b06, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 889440596797558715, guid: b158505bfa0286b4485353dab2454b06, type: 3}
       propertyPath: m_LocalPosition.x
@@ -33912,6 +34172,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9070770899854754164, guid: b158505bfa0286b4485353dab2454b06, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -33934,7 +34198,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &585610124
 Transform:
@@ -34406,7 +34670,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!4 &589971882
 Transform:
@@ -35186,7 +35450,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &608013682
 Transform:
@@ -35448,7 +35712,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &619006678
 Transform:
@@ -35543,6 +35807,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 619006677}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &623237461 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -6593003710799871936, guid: ac2c7cc0fe4c50f47ae1f888c94343c9, type: 3}
+  m_PrefabInstance: {fileID: 959500836}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &628896382
 GameObject:
   m_ObjectHideFlags: 0
@@ -36204,7 +36473,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &649161399
 Transform:
@@ -36310,6 +36579,10 @@ PrefabInstance:
     - target: {fileID: 4426523544032906000, guid: 2883306f650b11c45becbbda1e761f37, type: 3}
       propertyPath: m_Name
       value: pedra flutuante pequena (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4426523544032906000, guid: 2883306f650b11c45becbbda1e761f37, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5625024789482590063, guid: 2883306f650b11c45becbbda1e761f37, type: 3}
       propertyPath: m_LocalPosition.x
@@ -37115,9 +37388,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 539797742}
     m_Modifications:
+    - target: {fileID: 1265955341052371237, guid: d45d65183fff79747984667d4bae0d58, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521883786430195801, guid: d45d65183fff79747984667d4bae0d58, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891791959727599798, guid: d45d65183fff79747984667d4bae0d58, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6286221581679706455, guid: d45d65183fff79747984667d4bae0d58, type: 3}
       propertyPath: m_Name
       value: Torii simples (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6651391876895408705, guid: d45d65183fff79747984667d4bae0d58, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6662782721621335021, guid: d45d65183fff79747984667d4bae0d58, type: 3}
       propertyPath: m_LocalPosition.x
@@ -37181,7 +37470,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &665330902
 Transform:
@@ -37292,7 +37581,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!4 &666400168
 Transform:
@@ -37670,7 +37959,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &674974119
 Transform:
@@ -37959,7 +38248,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &682718546
 Transform:
@@ -38193,6 +38482,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Trigger plataforma tempor\xE1ria (3)"
       objectReference: {fileID: 0}
+    - target: {fileID: 2634143309066934704, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -38244,6 +38537,10 @@ PrefabInstance:
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8662730924882557500, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -38441,6 +38738,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pedra2gg (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ea196cc9cc53f8f4e9983991e91d9287, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -38598,7 +38899,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &700308741
 Transform:
@@ -43773,7 +44074,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!4 &714357734
 Transform:
@@ -44267,6 +44568,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Trigger plataforma tempor\xE1ria (6)"
       objectReference: {fileID: 0}
+    - target: {fileID: 2634143309066934704, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -76.64
@@ -44307,6 +44612,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8662730924882557500, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -44328,6 +44637,10 @@ PrefabInstance:
     - target: {fileID: 3196520295971357160, guid: f492f2bd78b3a4d4f8a80b343654abad, type: 3}
       propertyPath: m_Name
       value: pedra longa (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3196520295971357160, guid: f492f2bd78b3a4d4f8a80b343654abad, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8965397573929193340, guid: f492f2bd78b3a4d4f8a80b343654abad, type: 3}
       propertyPath: m_LocalPosition.x
@@ -44386,6 +44699,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Trigger plataforma tempor\xE1ria (5)"
       objectReference: {fileID: 0}
+    - target: {fileID: 2634143309066934704, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -91.35
@@ -44425,6 +44742,10 @@ PrefabInstance:
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8662730924882557500, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -44822,7 +45143,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &733299781
 Transform:
@@ -45681,7 +46002,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!4 &750108962
 Transform:
@@ -46354,6 +46675,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Trigger plataforma tempor\xE1ria (5)"
       objectReference: {fileID: 0}
+    - target: {fileID: 2634143309066934704, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.75
@@ -46393,6 +46718,10 @@ PrefabInstance:
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8662730924882557500, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -51247,6 +51576,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pedra longa (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3196520295971357160, guid: f492f2bd78b3a4d4f8a80b343654abad, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8965397573929193340, guid: f492f2bd78b3a4d4f8a80b343654abad, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.897522
@@ -51428,7 +51761,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &771148220
 Transform:
@@ -52370,6 +52703,10 @@ PrefabInstance:
     - target: {fileID: 4426523544032906000, guid: 2883306f650b11c45becbbda1e761f37, type: 3}
       propertyPath: m_Name
       value: pedra flutuante pequena (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4426523544032906000, guid: 2883306f650b11c45becbbda1e761f37, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5625024789482590063, guid: 2883306f650b11c45becbbda1e761f37, type: 3}
       propertyPath: m_LocalPosition.x
@@ -53334,6 +53671,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: ChaoMata
       objectReference: {fileID: 0}
+    - target: {fileID: 538444315843698227, guid: 7738f0a7efcec014198f4f99d2d56100, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6879480438014370132, guid: 7738f0a7efcec014198f4f99d2d56100, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -53408,6 +53749,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Trigger plataforma tempor\xE1ria (9)"
       objectReference: {fileID: 0}
+    - target: {fileID: 2634143309066934704, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 18.73
@@ -53447,6 +53792,10 @@ PrefabInstance:
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8662730924882557500, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -54222,7 +54571,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &827153348
 Transform:
@@ -54437,6 +54786,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1717009705}
     m_Modifications:
+    - target: {fileID: 2684983540952385812, guid: 2da22c6e9c7521442b37a81d13bf3309, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2873042801784143772, guid: 2da22c6e9c7521442b37a81d13bf3309, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160863947406987231, guid: 2da22c6e9c7521442b37a81d13bf3309, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3539255714907921236, guid: 2da22c6e9c7521442b37a81d13bf3309, type: 3}
       propertyPath: m_LocalPosition.x
       value: 29.17
@@ -54477,9 +54838,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3815165371718692875, guid: 2da22c6e9c7521442b37a81d13bf3309, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4203590177562280430, guid: 2da22c6e9c7521442b37a81d13bf3309, type: 3}
       propertyPath: m_Name
       value: POSTE COM LAMPAD (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4203590177562280430, guid: 2da22c6e9c7521442b37a81d13bf3309, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7143441553008756087, guid: 2da22c6e9c7521442b37a81d13bf3309, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7291700967716411407, guid: 2da22c6e9c7521442b37a81d13bf3309, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8053406208449468154, guid: 2da22c6e9c7521442b37a81d13bf3309, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8631011780102787424, guid: 2da22c6e9c7521442b37a81d13bf3309, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 9127914081483828486, guid: 2da22c6e9c7521442b37a81d13bf3309, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -55406,7 +55795,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &845702956
 Transform:
@@ -56120,7 +56509,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &865338485
 Transform:
@@ -56223,9 +56612,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 539797742}
     m_Modifications:
+    - target: {fileID: 1265955341052371237, guid: d45d65183fff79747984667d4bae0d58, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521883786430195801, guid: d45d65183fff79747984667d4bae0d58, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891791959727599798, guid: d45d65183fff79747984667d4bae0d58, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6286221581679706455, guid: d45d65183fff79747984667d4bae0d58, type: 3}
       propertyPath: m_Name
       value: Torii simples (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6651391876895408705, guid: d45d65183fff79747984667d4bae0d58, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6662782721621335021, guid: d45d65183fff79747984667d4bae0d58, type: 3}
       propertyPath: m_LocalPosition.x
@@ -61553,6 +61958,10 @@ PrefabInstance:
     - target: {fileID: 4426523544032906000, guid: 2883306f650b11c45becbbda1e761f37, type: 3}
       propertyPath: m_Name
       value: pedra flutuante pequena (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4426523544032906000, guid: 2883306f650b11c45becbbda1e761f37, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5625024789482590063, guid: 2883306f650b11c45becbbda1e761f37, type: 3}
       propertyPath: m_LocalPosition.x
@@ -67311,7 +67720,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &906453141
 Transform:
@@ -67906,7 +68315,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &930812921
 Transform:
@@ -68644,9 +69053,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6080240857703349616, guid: ac2c7cc0fe4c50f47ae1f888c94343c9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ac2c7cc0fe4c50f47ae1f888c94343c9, type: 3}
       propertyPath: m_Name
       value: templo grande pra lod
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ac2c7cc0fe4c50f47ae1f888c94343c9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3188652208165625652, guid: ac2c7cc0fe4c50f47ae1f888c94343c9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3511263223726862642, guid: ac2c7cc0fe4c50f47ae1f888c94343c9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4742473837712756890, guid: ac2c7cc0fe4c50f47ae1f888c94343c9, type: 3}
       propertyPath: m_LODs.Array.data[0].screenRelativeHeight
@@ -68656,6 +69081,14 @@ PrefabInstance:
       propertyPath: m_LODs.Array.data[1].screenRelativeHeight
       value: 0.27113312
       objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: ac2c7cc0fe4c50f47ae1f888c94343c9, type: 3}
+      propertyPath: m_LODs.Array.data[2].renderers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: ac2c7cc0fe4c50f47ae1f888c94343c9, type: 3}
+      propertyPath: m_LODs.Array.data[2].renderers.Array.data[1].renderer
+      value: 
+      objectReference: {fileID: 623237461}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 7869873546869171050, guid: ac2c7cc0fe4c50f47ae1f888c94343c9, type: 3}
@@ -69067,7 +69500,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!4 &973905363
 Transform:
@@ -69326,7 +69759,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!4 &981683409
 Transform:
@@ -69903,7 +70336,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &993544986
 Transform:
@@ -70115,9 +70548,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 539797742}
     m_Modifications:
+    - target: {fileID: 1265955341052371237, guid: d45d65183fff79747984667d4bae0d58, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521883786430195801, guid: d45d65183fff79747984667d4bae0d58, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891791959727599798, guid: d45d65183fff79747984667d4bae0d58, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6286221581679706455, guid: d45d65183fff79747984667d4bae0d58, type: 3}
       propertyPath: m_Name
       value: Torii simples (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6651391876895408705, guid: d45d65183fff79747984667d4bae0d58, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6662782721621335021, guid: d45d65183fff79747984667d4bae0d58, type: 3}
       propertyPath: m_LocalPosition.x
@@ -71083,6 +71532,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torii simples
       objectReference: {fileID: 0}
+    - target: {fileID: 1265955341052371237, guid: d45d65183fff79747984667d4bae0d58, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1934932659308280735, guid: d45d65183fff79747984667d4bae0d58, type: 3}
       propertyPath: m_LocalPosition.x
       value: 21.534302
@@ -71123,6 +71576,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2521883786430195801, guid: d45d65183fff79747984667d4bae0d58, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891791959727599798, guid: d45d65183fff79747984667d4bae0d58, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6651391876895408705, guid: d45d65183fff79747984667d4bae0d58, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -71150,7 +71615,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1016098741
 Transform:
@@ -71852,7 +72317,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!4 &1035348952
 Transform:
@@ -72199,6 +72664,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Trigger plataforma tempor\xE1ria"
       objectReference: {fileID: 0}
+    - target: {fileID: 2634143309066934704, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -65.682495
@@ -72238,6 +72707,10 @@ PrefabInstance:
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8662730924882557500, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -72818,7 +73291,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!4 &1062889685
 Transform:
@@ -72946,7 +73419,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1063326932
 Transform:
@@ -73188,6 +73661,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Trigger plataforma tempor\xE1ria (6)"
       objectReference: {fileID: 0}
+    - target: {fileID: 2634143309066934704, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.66
@@ -73227,6 +73704,10 @@ PrefabInstance:
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8662730924882557500, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -73911,7 +74392,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!4 &1093699674
 Transform:
@@ -74042,6 +74523,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Trigger plataforma tempor\xE1ria (2)"
       objectReference: {fileID: 0}
+    - target: {fileID: 2634143309066934704, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.209931
@@ -74081,6 +74566,10 @@ PrefabInstance:
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8662730924882557500, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -74155,6 +74644,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 19f071d4feb392a4e88c5affa97dec2c, type: 3}
       propertyPath: m_Name
       value: pedra2g (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 19f071d4feb392a4e88c5affa97dec2c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -74313,6 +74806,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Trigger plataforma tempor\xE1ria (1)"
       objectReference: {fileID: 0}
+    - target: {fileID: 2634143309066934704, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.75
@@ -74352,6 +74849,10 @@ PrefabInstance:
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8662730924882557500, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -74570,6 +75071,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pedra longa (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 3196520295971357160, guid: f492f2bd78b3a4d4f8a80b343654abad, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8965397573929193340, guid: f492f2bd78b3a4d4f8a80b343654abad, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.67749
@@ -74759,7 +75264,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1105420186
 Transform:
@@ -74998,7 +75503,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1108855273
 Transform:
@@ -75981,6 +76486,10 @@ PrefabInstance:
     - target: {fileID: 4426523544032906000, guid: 2883306f650b11c45becbbda1e761f37, type: 3}
       propertyPath: m_Name
       value: pedra flutuante pequena
+      objectReference: {fileID: 0}
+    - target: {fileID: 4426523544032906000, guid: 2883306f650b11c45becbbda1e761f37, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5625024789482590063, guid: 2883306f650b11c45becbbda1e761f37, type: 3}
       propertyPath: m_LocalPosition.x
@@ -82059,7 +82568,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1161867239
 Transform:
@@ -82498,6 +83007,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Trigger plataforma tempor\xE1ria (2)"
       objectReference: {fileID: 0}
+    - target: {fileID: 2634143309066934704, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -55.83252
@@ -82537,6 +83050,10 @@ PrefabInstance:
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -84.104
+      objectReference: {fileID: 0}
+    - target: {fileID: 8662730924882557500, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -88568,7 +89085,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1207349679
 Transform:
@@ -93765,6 +94282,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pedra longa (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 3196520295971357160, guid: f492f2bd78b3a4d4f8a80b343654abad, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8965397573929193340, guid: f492f2bd78b3a4d4f8a80b343654abad, type: 3}
       propertyPath: m_LocalPosition.x
       value: 25.748352
@@ -93938,7 +94459,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!4 &1230447723
 Transform:
@@ -95629,7 +96150,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1278508910
 Transform:
@@ -95741,7 +96262,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1279098120
 Transform:
@@ -95857,7 +96378,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!4 &1281131630
 Transform:
@@ -97286,7 +97807,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1314620288
 Transform:
@@ -98472,7 +98993,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!4 &1346309009
 Transform:
@@ -99932,7 +100453,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1380901761
 Transform:
@@ -100054,7 +100575,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1384332888
 Transform:
@@ -100526,6 +101047,10 @@ PrefabInstance:
     - target: {fileID: 3196520295971357160, guid: f492f2bd78b3a4d4f8a80b343654abad, type: 3}
       propertyPath: m_Name
       value: pedra longa (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3196520295971357160, guid: f492f2bd78b3a4d4f8a80b343654abad, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8965397573929193340, guid: f492f2bd78b3a4d4f8a80b343654abad, type: 3}
       propertyPath: m_LocalPosition.x
@@ -101209,6 +101734,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pedra flutuante pequena (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 4426523544032906000, guid: 2883306f650b11c45becbbda1e761f37, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5625024789482590063, guid: 2883306f650b11c45becbbda1e761f37, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.26
@@ -101520,6 +102049,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pedra flutuante pequena (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 4426523544032906000, guid: 2883306f650b11c45becbbda1e761f37, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5625024789482590063, guid: 2883306f650b11c45becbbda1e761f37, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.21
@@ -101703,6 +102236,10 @@ PrefabInstance:
     - target: {fileID: 3196520295971357160, guid: f492f2bd78b3a4d4f8a80b343654abad, type: 3}
       propertyPath: m_Name
       value: pedra longa
+      objectReference: {fileID: 0}
+    - target: {fileID: 3196520295971357160, guid: f492f2bd78b3a4d4f8a80b343654abad, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8965397573929193340, guid: f492f2bd78b3a4d4f8a80b343654abad, type: 3}
       propertyPath: m_LocalPosition.x
@@ -102607,7 +103144,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1433160498
 Transform:
@@ -105171,6 +105708,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1717009705}
     m_Modifications:
+    - target: {fileID: 2684983540952385812, guid: 2da22c6e9c7521442b37a81d13bf3309, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2873042801784143772, guid: 2da22c6e9c7521442b37a81d13bf3309, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160863947406987231, guid: 2da22c6e9c7521442b37a81d13bf3309, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3539255714907921236, guid: 2da22c6e9c7521442b37a81d13bf3309, type: 3}
       propertyPath: m_LocalPosition.x
       value: 25.95459
@@ -105211,9 +105760,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3815165371718692875, guid: 2da22c6e9c7521442b37a81d13bf3309, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4203590177562280430, guid: 2da22c6e9c7521442b37a81d13bf3309, type: 3}
       propertyPath: m_Name
       value: POSTE COM LAMPAD (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4203590177562280430, guid: 2da22c6e9c7521442b37a81d13bf3309, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7143441553008756087, guid: 2da22c6e9c7521442b37a81d13bf3309, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7291700967716411407, guid: 2da22c6e9c7521442b37a81d13bf3309, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8053406208449468154, guid: 2da22c6e9c7521442b37a81d13bf3309, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8631011780102787424, guid: 2da22c6e9c7521442b37a81d13bf3309, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 9127914081483828486, guid: 2da22c6e9c7521442b37a81d13bf3309, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -106177,6 +106754,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Trigger plataforma tempor\xE1ria (2)"
       objectReference: {fileID: 0}
+    - target: {fileID: 2634143309066934704, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 37.33
@@ -106216,6 +106797,10 @@ PrefabInstance:
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8662730924882557500, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -106282,14 +106867,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6010874264643602699, guid: 2aafa7d6d111fe04c822b9f46dec9521, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -1346668915696284420, guid: 2aafa7d6d111fe04c822b9f46dec9521, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2aafa7d6d111fe04c822b9f46dec9521, type: 3}
       propertyPath: m_Name
       value: Pedra_Escritas
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2aafa7d6d111fe04c822b9f46dec9521, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1929901517954255198, guid: 2aafa7d6d111fe04c822b9f46dec9521, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 8119b12c59d679248ad8f6f1484670c0, type: 2}
+    - target: {fileID: 2028052544209835374, guid: 2aafa7d6d111fe04c822b9f46dec9521, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3749246323846767603, guid: 2aafa7d6d111fe04c822b9f46dec9521, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -106339,7 +106940,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1533312936
 Transform:
@@ -107497,6 +108098,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pedra longa
       objectReference: {fileID: 0}
+    - target: {fileID: 3196520295971357160, guid: f492f2bd78b3a4d4f8a80b343654abad, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8965397573929193340, guid: f492f2bd78b3a4d4f8a80b343654abad, type: 3}
       propertyPath: m_LocalPosition.x
       value: 71.19751
@@ -107667,7 +108272,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!4 &1566829080
 Transform:
@@ -108161,7 +108766,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1572537568
 Transform:
@@ -108799,7 +109404,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1580507735
 Transform:
@@ -109323,7 +109928,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1592654163
 Transform:
@@ -110213,9 +110818,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1161867239}
     m_Modifications:
+    - target: {fileID: 78250482666474603, guid: b158505bfa0286b4485353dab2454b06, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 512351726437553409, guid: b158505bfa0286b4485353dab2454b06, type: 3}
       propertyPath: m_Name
       value: Mini Templo (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 512351726437553409, guid: b158505bfa0286b4485353dab2454b06, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 757684948834971373, guid: b158505bfa0286b4485353dab2454b06, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 889440596797558715, guid: b158505bfa0286b4485353dab2454b06, type: 3}
       propertyPath: m_LocalPosition.x
@@ -110256,6 +110873,10 @@ PrefabInstance:
     - target: {fileID: 889440596797558715, guid: b158505bfa0286b4485353dab2454b06, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070770899854754164, guid: b158505bfa0286b4485353dab2454b06, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -110533,6 +111154,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pedra longa (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 3196520295971357160, guid: f492f2bd78b3a4d4f8a80b343654abad, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8965397573929193340, guid: f492f2bd78b3a4d4f8a80b343654abad, type: 3}
       propertyPath: m_LocalPosition.x
       value: 25.137512
@@ -110706,7 +111331,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!4 &1635827394
 Transform:
@@ -111344,13 +111969,13 @@ Terrain:
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
   m_TreeMaximumFullLODCount: 50
-  m_DetailObjectDistance: 80
-  m_DetailObjectDensity: 1
+  m_DetailObjectDistance: 42
+  m_DetailObjectDensity: 0.411
   m_HeightmapPixelError: 5
   m_SplatMapDistance: 1000
   m_HeightmapMinimumLODSimplification: 0
   m_HeightmapMaximumLOD: 0
-  m_ShadowCastingMode: 2
+  m_ShadowCastingMode: 1
   m_DrawHeightmap: 1
   m_DrawInstanced: 0
   m_DrawTreesAndFoliage: 1
@@ -111367,7 +111992,7 @@ Terrain:
   m_GroupingID: 0
   m_RenderingLayerMask: 1
   m_AllowAutoConnect: 1
-  m_EnableHeightmapRayTracing: 1
+  m_EnableHeightmapRayTracing: 0
   m_EnableTreesAndDetailsRayTracing: 0
   m_TreeMotionVectorModeOverride: 3
 --- !u!4 &1648630491
@@ -111752,7 +112377,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!4 &1655144824
 Transform:
@@ -112110,7 +112735,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1658109953
 Transform:
@@ -112222,7 +112847,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1660094543
 Transform:
@@ -112325,9 +112950,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1161867239}
     m_Modifications:
+    - target: {fileID: 78250482666474603, guid: b158505bfa0286b4485353dab2454b06, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 512351726437553409, guid: b158505bfa0286b4485353dab2454b06, type: 3}
       propertyPath: m_Name
       value: Mini Templo (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 512351726437553409, guid: b158505bfa0286b4485353dab2454b06, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 757684948834971373, guid: b158505bfa0286b4485353dab2454b06, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 889440596797558715, guid: b158505bfa0286b4485353dab2454b06, type: 3}
       propertyPath: m_LocalPosition.x
@@ -112368,6 +113005,10 @@ PrefabInstance:
     - target: {fileID: 889440596797558715, guid: b158505bfa0286b4485353dab2454b06, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070770899854754164, guid: b158505bfa0286b4485353dab2454b06, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -112513,6 +113154,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pedra flutuante pequena (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4426523544032906000, guid: 2883306f650b11c45becbbda1e761f37, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5625024789482590063, guid: 2883306f650b11c45becbbda1e761f37, type: 3}
       propertyPath: m_LocalPosition.x
       value: 23.11
@@ -112585,7 +113230,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1670702671
 Transform:
@@ -113040,7 +113685,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1682539615
 Transform:
@@ -113328,7 +113973,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!4 &1685181713
 Transform:
@@ -113680,7 +114325,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1691646971
 Transform:
@@ -113786,6 +114431,10 @@ PrefabInstance:
     - target: {fileID: 3196520295971357160, guid: f492f2bd78b3a4d4f8a80b343654abad, type: 3}
       propertyPath: m_Name
       value: pedra longa (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3196520295971357160, guid: f492f2bd78b3a4d4f8a80b343654abad, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8965397573929193340, guid: f492f2bd78b3a4d4f8a80b343654abad, type: 3}
       propertyPath: m_LocalPosition.x
@@ -114756,7 +115405,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!4 &1714886252
 Transform:
@@ -114994,7 +115643,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1717009705
 Transform:
@@ -115703,6 +116352,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: ChaoMata
       objectReference: {fileID: 0}
+    - target: {fileID: 538444315843698227, guid: 7738f0a7efcec014198f4f99d2d56100, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6879480438014370132, guid: 7738f0a7efcec014198f4f99d2d56100, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -115763,6 +116416,10 @@ PrefabInstance:
     - target: {fileID: 3196520295971357160, guid: f492f2bd78b3a4d4f8a80b343654abad, type: 3}
       propertyPath: m_Name
       value: pedra longa (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3196520295971357160, guid: f492f2bd78b3a4d4f8a80b343654abad, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8965397573929193340, guid: f492f2bd78b3a4d4f8a80b343654abad, type: 3}
       propertyPath: m_LocalPosition.x
@@ -116512,7 +117169,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1771437622
 Transform:
@@ -116731,6 +117388,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Trigger plataforma tempor\xE1ria (1)"
       objectReference: {fileID: 0}
+    - target: {fileID: 2634143309066934704, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -66.20758
@@ -116770,6 +117431,10 @@ PrefabInstance:
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8662730924882557500, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -116915,6 +117580,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pedra longa (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 3196520295971357160, guid: f492f2bd78b3a4d4f8a80b343654abad, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8965397573929193340, guid: f492f2bd78b3a4d4f8a80b343654abad, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.897522
@@ -116976,7 +117645,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!4 &1782942095
 Transform:
@@ -117322,7 +117991,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1796888769
 Transform:
@@ -117429,6 +118098,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Trigger plataforma tempor\xE1ria (7)"
       objectReference: {fileID: 0}
+    - target: {fileID: 2634143309066934704, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -87.07
@@ -117468,6 +118141,10 @@ PrefabInstance:
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8662730924882557500, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -117990,7 +118667,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1822928635
 Transform:
@@ -118102,7 +118779,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1829400327
 Transform:
@@ -118214,7 +118891,7 @@ GameObject:
   m_TagString: ChaoFalso
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1831845932
 Transform:
@@ -118778,7 +119455,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1844980341
 Transform:
@@ -119353,6 +120030,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pedra flutuante pequena (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 4426523544032906000, guid: 2883306f650b11c45becbbda1e761f37, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5625024789482590063, guid: 2883306f650b11c45becbbda1e761f37, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.94
@@ -119705,6 +120386,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torii simples (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1265955341052371237, guid: d45d65183fff79747984667d4bae0d58, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1934932659308280735, guid: d45d65183fff79747984667d4bae0d58, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -119744,6 +120429,18 @@ PrefabInstance:
     - target: {fileID: 1934932659308280735, guid: d45d65183fff79747984667d4bae0d58, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521883786430195801, guid: d45d65183fff79747984667d4bae0d58, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891791959727599798, guid: d45d65183fff79747984667d4bae0d58, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6651391876895408705, guid: d45d65183fff79747984667d4bae0d58, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -120016,6 +120713,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torii simples (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1265955341052371237, guid: d45d65183fff79747984667d4bae0d58, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1934932659308280735, guid: d45d65183fff79747984667d4bae0d58, type: 3}
       propertyPath: m_LocalPosition.x
       value: -48.075684
@@ -120055,6 +120756,18 @@ PrefabInstance:
     - target: {fileID: 1934932659308280735, guid: d45d65183fff79747984667d4bae0d58, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521883786430195801, guid: d45d65183fff79747984667d4bae0d58, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891791959727599798, guid: d45d65183fff79747984667d4bae0d58, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6651391876895408705, guid: d45d65183fff79747984667d4bae0d58, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -120543,7 +121256,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1889551364
 Transform:
@@ -120654,7 +121367,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1892023604
 Transform:
@@ -121163,6 +121876,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Trigger plataforma tempor\xE1ria (1)"
       objectReference: {fileID: 0}
+    - target: {fileID: 2634143309066934704, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 39.08
@@ -121202,6 +121919,10 @@ PrefabInstance:
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8662730924882557500, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -121732,7 +122453,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!4 &1906751624
 Transform:
@@ -121860,7 +122581,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1907976910
 Transform:
@@ -122766,6 +123487,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Trigger plataforma tempor\xE1ria (4)"
       objectReference: {fileID: 0}
+    - target: {fileID: 2634143309066934704, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -82.42
@@ -122805,6 +123530,10 @@ PrefabInstance:
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8662730924882557500, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -122955,7 +123684,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1936523026
 Transform:
@@ -123415,7 +124144,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1982948983
 Transform:
@@ -123527,7 +124256,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1986156616
 Transform:
@@ -123749,6 +124478,10 @@ PrefabInstance:
     - target: {fileID: 2634143309066934704, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_Name
       value: "Trigger plataforma tempor\xE1ria (10)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2634143309066934704, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -129029,6 +129762,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Trigger plataforma tempor\xE1ria"
       objectReference: {fileID: 0}
+    - target: {fileID: 2634143309066934704, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.83
@@ -129068,6 +129805,10 @@ PrefabInstance:
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8662730924882557500, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -129379,7 +130120,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2021557777
 Transform:
@@ -130470,6 +131211,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Trigger plataforma tempor\xE1ria (4)"
       objectReference: {fileID: 0}
+    - target: {fileID: 2634143309066934704, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.07
@@ -130510,6 +131255,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8662730924882557500, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -130536,7 +131285,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2055646660
 Transform:
@@ -131035,7 +131784,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2072481641
 Transform:
@@ -131265,9 +132014,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1161867239}
     m_Modifications:
+    - target: {fileID: 78250482666474603, guid: b158505bfa0286b4485353dab2454b06, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 512351726437553409, guid: b158505bfa0286b4485353dab2454b06, type: 3}
       propertyPath: m_Name
       value: Mini Templo (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 512351726437553409, guid: b158505bfa0286b4485353dab2454b06, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 757684948834971373, guid: b158505bfa0286b4485353dab2454b06, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 889440596797558715, guid: b158505bfa0286b4485353dab2454b06, type: 3}
       propertyPath: m_LocalPosition.x
@@ -131308,6 +132069,10 @@ PrefabInstance:
     - target: {fileID: 889440596797558715, guid: b158505bfa0286b4485353dab2454b06, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070770899854754164, guid: b158505bfa0286b4485353dab2454b06, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -136505,6 +137270,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Trigger plataforma tempor\xE1ria (7)"
       objectReference: {fileID: 0}
+    - target: {fileID: 2634143309066934704, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 23.34
@@ -136545,6 +137314,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8662730924882557500, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -136570,7 +137343,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2093374720
 Transform:
@@ -136624,6 +137397,10 @@ PrefabInstance:
     - target: {fileID: 3196520295971357160, guid: f492f2bd78b3a4d4f8a80b343654abad, type: 3}
       propertyPath: m_Name
       value: pedra longa (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3196520295971357160, guid: f492f2bd78b3a4d4f8a80b343654abad, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8965397573929193340, guid: f492f2bd78b3a4d4f8a80b343654abad, type: 3}
       propertyPath: m_LocalPosition.x
@@ -136687,7 +137464,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2101509705
 Transform:
@@ -137154,7 +137931,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!4 &2107030036
 Transform:
@@ -137281,7 +138058,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!4 &2109918712
 Transform:
@@ -137959,7 +138736,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2120068222
 Transform:
@@ -138309,6 +139086,10 @@ PrefabInstance:
     - target: {fileID: 4426523544032906000, guid: 2883306f650b11c45becbbda1e761f37, type: 3}
       propertyPath: m_Name
       value: pedra flutuante pequena (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4426523544032906000, guid: 2883306f650b11c45becbbda1e761f37, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5625024789482590063, guid: 2883306f650b11c45becbbda1e761f37, type: 3}
       propertyPath: m_LocalPosition.x
@@ -139032,6 +139813,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pedra flutuante (42)
       objectReference: {fileID: 0}
+    - target: {fileID: 4426523544032906000, guid: 2883306f650b11c45becbbda1e761f37, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5625024789482590063, guid: 2883306f650b11c45becbbda1e761f37, type: 3}
       propertyPath: m_LocalPosition.x
       value: -45.02994
@@ -139281,6 +140066,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pedra flutuante (41)
       objectReference: {fileID: 0}
+    - target: {fileID: 3196520295971357160, guid: f492f2bd78b3a4d4f8a80b343654abad, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8965397573929193340, guid: f492f2bd78b3a4d4f8a80b343654abad, type: 3}
       propertyPath: m_LocalPosition.x
       value: -58.32
@@ -139334,6 +140123,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1717009705}
     m_Modifications:
+    - target: {fileID: 2684983540952385812, guid: 2da22c6e9c7521442b37a81d13bf3309, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2873042801784143772, guid: 2da22c6e9c7521442b37a81d13bf3309, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160863947406987231, guid: 2da22c6e9c7521442b37a81d13bf3309, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3539255714907921236, guid: 2da22c6e9c7521442b37a81d13bf3309, type: 3}
       propertyPath: m_LocalPosition.x
       value: 13.211914
@@ -139374,9 +140175,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3815165371718692875, guid: 2da22c6e9c7521442b37a81d13bf3309, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4203590177562280430, guid: 2da22c6e9c7521442b37a81d13bf3309, type: 3}
       propertyPath: m_Name
       value: POSTE COM LAMPAD
+      objectReference: {fileID: 0}
+    - target: {fileID: 4203590177562280430, guid: 2da22c6e9c7521442b37a81d13bf3309, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7143441553008756087, guid: 2da22c6e9c7521442b37a81d13bf3309, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7291700967716411407, guid: 2da22c6e9c7521442b37a81d13bf3309, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8053406208449468154, guid: 2da22c6e9c7521442b37a81d13bf3309, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8631011780102787424, guid: 2da22c6e9c7521442b37a81d13bf3309, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 9127914081483828486, guid: 2da22c6e9c7521442b37a81d13bf3309, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -139394,6 +140223,10 @@ PrefabInstance:
     - target: {fileID: 2634143309066934704, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_Name
       value: "Trigger plataforma tempor\xE1ria"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2634143309066934704, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -139434,6 +140267,10 @@ PrefabInstance:
     - target: {fileID: 4432029995272082988, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8662730924882557500, guid: 6fa076de72f69e540a0334831f2793b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -139583,9 +140420,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1161867239}
     m_Modifications:
+    - target: {fileID: 78250482666474603, guid: b158505bfa0286b4485353dab2454b06, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 512351726437553409, guid: b158505bfa0286b4485353dab2454b06, type: 3}
       propertyPath: m_Name
       value: Mini Templo
+      objectReference: {fileID: 0}
+    - target: {fileID: 512351726437553409, guid: b158505bfa0286b4485353dab2454b06, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 757684948834971373, guid: b158505bfa0286b4485353dab2454b06, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 889440596797558715, guid: b158505bfa0286b4485353dab2454b06, type: 3}
       propertyPath: m_LocalPosition.x
@@ -139626,6 +140475,10 @@ PrefabInstance:
     - target: {fileID: 889440596797558715, guid: b158505bfa0286b4485353dab2454b06, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070770899854754164, guid: b158505bfa0286b4485353dab2454b06, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -139751,6 +140604,10 @@ PrefabInstance:
     - target: {fileID: 538444315843698227, guid: 7738f0a7efcec014198f4f99d2d56100, type: 3}
       propertyPath: m_Name
       value: Parede de Pedra Flutuante (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 538444315843698227, guid: 7738f0a7efcec014198f4f99d2d56100, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7055840450241234268, guid: 7738f0a7efcec014198f4f99d2d56100, type: 3}
       propertyPath: m_LocalPosition.x
@@ -140063,9 +140920,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 539797742}
     m_Modifications:
+    - target: {fileID: 1265955341052371237, guid: d45d65183fff79747984667d4bae0d58, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521883786430195801, guid: d45d65183fff79747984667d4bae0d58, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891791959727599798, guid: d45d65183fff79747984667d4bae0d58, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6286221581679706455, guid: d45d65183fff79747984667d4bae0d58, type: 3}
       propertyPath: m_Name
       value: Torii simples
+      objectReference: {fileID: 0}
+    - target: {fileID: 6651391876895408705, guid: d45d65183fff79747984667d4bae0d58, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6662782721621335021, guid: d45d65183fff79747984667d4bae0d58, type: 3}
       propertyPath: m_LocalPosition.x
@@ -140124,6 +140997,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torii simples
       objectReference: {fileID: 0}
+    - target: {fileID: 1265955341052371237, guid: d45d65183fff79747984667d4bae0d58, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1934932659308280735, guid: d45d65183fff79747984667d4bae0d58, type: 3}
       propertyPath: m_LocalPosition.x
       value: 166.61432
@@ -140163,6 +141040,18 @@ PrefabInstance:
     - target: {fileID: 1934932659308280735, guid: d45d65183fff79747984667d4bae0d58, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521883786430195801, guid: d45d65183fff79747984667d4bae0d58, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891791959727599798, guid: d45d65183fff79747984667d4bae0d58, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6651391876895408705, guid: d45d65183fff79747984667d4bae0d58, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -64,9 +64,21 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: 1f1bb1cc1fdff4b43a0709f5ff8fc89f, type: 2}
+    - target: {fileID: -926785289688175160, guid: a6b8493cb658c7145a60c343874e6582, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -838525925583541039, guid: a6b8493cb658c7145a60c343874e6582, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a6b8493cb658c7145a60c343874e6582, type: 3}
       propertyPath: m_Name
       value: BAMBU RETO LOD
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a6b8493cb658c7145a60c343874e6582, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4742473837712756890, guid: a6b8493cb658c7145a60c343874e6582, type: 3}
       propertyPath: m_LODs.Array.data[0].screenRelativeHeight
@@ -79,6 +91,10 @@ PrefabInstance:
     - target: {fileID: 4742473837712756890, guid: a6b8493cb658c7145a60c343874e6582, type: 3}
       propertyPath: m_LODs.Array.data[2].screenRelativeHeight
       value: 0.20369852
+      objectReference: {fileID: 0}
+    - target: {fileID: 7112729177019720056, guid: a6b8493cb658c7145a60c343874e6582, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8692271165361682635, guid: a6b8493cb658c7145a60c343874e6582, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
