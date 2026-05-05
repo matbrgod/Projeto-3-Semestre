@@ -1,33 +1,18 @@
 using UnityEngine;
 
 public class WindBlow : MonoBehaviour
-{
-    GameObject wind;
-    Rigidbody playerRb;
+{public float windForce;
 
-    public float windForce;
-
+    public Vector3 direction = Vector3.forward;
     Vector3 impact;
-
-    void Start()
-    {
-        playerRb = GetComponent<Rigidbody>();
-    }
-
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Vento"))
+        if (other.gameObject.CompareTag("Player") && other.attachedRigidbody != null)
         {
-            wind = other.gameObject;
-            Vector3 direction = -wind.transform.up;
+            //wind = other.gameObject;
             impact += direction.normalized * windForce;
-            //transform.position += impact * Time.deltaTime;
-            playerRb.AddForce(impact, ForceMode.Force);
+            other.attachedRigidbody.AddForce(impact, ForceMode.Force);
         }
     }
 }
