@@ -8,7 +8,8 @@ public class PlayerInteract : MonoBehaviour
 
     [Header("Refs")]
     InputManager input;
-    //public GameObject npcGameObj; // npc
+    //DialogueManager dialogueManager;
+    public GameObject stoneGameObj; // npc
     public GameObject shrineObj; // mini templo
 
     [Header("Flags de Interação")]
@@ -18,18 +19,17 @@ public class PlayerInteract : MonoBehaviour
     [Header("UI")]
     [SerializeField] TextMeshProUGUI shrineCounterTxt; // contador de conhecimento
     [SerializeField] GameObject shrineCounterUi; // UI do contador de conhecimento
-    //public GameObject dialogBox; // caixa de diálogo do npc
 
-    int shrineCounter = 0;
+    public int shrineCounter = 0;
 
     private void OnTriggerEnter(Collider other)
     {
-        //if (other.gameObject.CompareTag("NPC"))
-        //{
-        //    other.transform.GetChild(0).gameObject.SetActive(true);
-        //    npcGameObj = other.gameObject;
-        //    canInteract = true;
-        //}
+        if (other.gameObject.CompareTag("PedraJapao"))
+        {
+            other.transform.GetChild(0).gameObject.SetActive(true);
+            stoneGameObj = other.gameObject;
+            canInteract = true;
+        }
 
         if (other.gameObject.CompareTag("MiniShrine"))
         {
@@ -49,12 +49,12 @@ public class PlayerInteract : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        //if (other.gameObject.CompareTag("NPC"))
-        //{
-        //    other.transform.GetChild(0).gameObject.SetActive(false);
-        //    npcGameObj = null;
-        //    canInteract = false;
-        //}
+        if (other.gameObject.CompareTag("PedraJapao"))
+        {
+            other.transform.GetChild(0).gameObject.SetActive(false);
+            stoneGameObj = null;
+            canInteract = false;
+        }
 
         if (other.gameObject.CompareTag("MiniShrine"))
         {
@@ -63,11 +63,11 @@ public class PlayerInteract : MonoBehaviour
         }
     }
 
-    //public void HandleNpcInteract()
+    //public void HandleStoneInteract()
     //{
-    //    if (npcGameObj != null)
+    //    if (stoneGameObj != null)
     //    {
-    //        npcGameObj.GetComponentInParent<NpcActions>().Interact();
+    //        stoneGameObj.GetComponentInParent<StoneActions>().Interact();
     //    }
     //}
 

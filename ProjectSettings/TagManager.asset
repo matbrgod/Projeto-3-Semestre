@@ -12,6 +12,8 @@ TagManager:
   - PedraJapao
   - PedraCidade
   - PedraCatedral
+  - Vento
+  - VentoTroca
   layers:
   - Default
   - TransparentFX

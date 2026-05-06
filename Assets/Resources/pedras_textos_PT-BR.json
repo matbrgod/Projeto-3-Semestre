@@ -1,0 +1,37 @@
+{
+	"pedras":[{
+		"pedra": "PedraJapao",
+		"nodes": [{
+			"nodeId": "0",
+			"pedraText": "Conhecimento insuficiente, 0/7.",
+		},
+		"nodes": [{
+			"nodeId": "1",
+			"pedraText": "Conhecimento insuficiente, 1/7.",
+		},
+			"nodeId": "2",
+			"pedraText": "Conhecimento insuficiente, 2/7.",
+		},
+		"nodes": [{
+			"nodeId": "3",
+			"pedraText": "Conhecimento insuficiente, 3/7.",
+		},
+		"nodes": [{
+			"nodeId": "4",
+			"pedraText": "Conhecimento insuficiente, 4/7.",
+		},
+		"nodes": [{
+			"nodeId": "5",
+			"pedraText": "Conhecimento insuficiente, 5/7.",
+		},
+		"nodes": [{
+			"nodeId": "6",
+			"pedraText": "Conhecimento insuficiente, 6/7.",
+		},
+		"nodes": [{
+			"nodeId": "7",
+			"pedraText": "Conhecimento suficiente, 7/7.",
+		},
+		]
+	}]
+}

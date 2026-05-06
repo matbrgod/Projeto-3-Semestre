@@ -146,10 +146,14 @@ public class InputManager : MonoBehaviour
     {
         if (interactInput)
         {
-            if (playerInteract.miniShrine)
+            if (playerInteract.shrineObj != null && playerInteract.miniShrine)
             {
                 playerInteract.MiniShrineInteract();
             }
+            //if (playerInteract.canInteract)
+            //{
+            //    playerInteract.HandleStoneInteract();
+            //}
             interactInput = false;
         }
     }
