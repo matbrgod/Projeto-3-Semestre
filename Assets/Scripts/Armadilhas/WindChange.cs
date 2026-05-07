@@ -9,11 +9,16 @@ public class WindChange : MonoBehaviour
     public bool isLeft = true;
 
     public Vector3 direction = Vector3.forward;
-    Vector3 impact;
+    public Vector3 impact;
 
     void Start()
     {
         InvokeRepeating(nameof(HandleHorizontalWindChange), time, repeatTime);
+    }
+
+    private void FixedUpdate()
+    {
+        impact += direction * windForce;
     }
 
     private void HandleHorizontalWindChange()
@@ -21,11 +26,13 @@ public class WindChange : MonoBehaviour
         if (isLeft)
         {
             direction = Vector3.forward;
+            impact = new Vector3(0f, 0f, 0f);
             isLeft = false;
         }
         else
         {
-            direction = -Vector3.forward;
+            direction = Vector3.back;
+            impact = new Vector3(0f, 0f, 0f);
             isLeft = true;
         }
     }
@@ -34,7 +41,6 @@ public class WindChange : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player") && other.attachedRigidbody != null)
         {
-            impact += direction.normalized * windForce;
             other.attachedRigidbody.AddForce(impact, ForceMode.Force);
         }
     }
