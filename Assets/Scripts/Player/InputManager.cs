@@ -35,6 +35,7 @@ public class InputManager : MonoBehaviour
     {
         animManager = GetComponent<AnimatorManager>();
         playerMove = GetComponent<PlayerMovement>();
+        playerInteract = GetComponent<PlayerInteract>();
 
         isPaused = false;
     }
@@ -61,6 +62,7 @@ public class InputManager : MonoBehaviour
             playerControl.PlayerActions.Pause.performed += i => pauseInput = true; // input de pause
 
             playerControl.PlayerActions.Interact.performed += i => interactInput = true; // input de interação
+            //playerControl.PlayerActions.Interact.canceled += i => interactInput = false;
         }
 
         playerControl.Enable(); // habilita o input system do jogador
@@ -130,15 +132,22 @@ public class InputManager : MonoBehaviour
 
     private void HandlePauseInput()
     {
-        if (pauseInput && !isPaused)
+        if (pauseInput)
         {
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-        }
-        else if(pauseInput && isPaused)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            if (!isPaused)
+            {
+                isPaused = true;
+                Cursor.visible = isPaused;
+                Cursor.lockState = CursorLockMode.None;
+                //pauseScreen.SetActive(true);
+            }
+            else
+            {
+                isPaused = false;
+                Cursor.visible = isPaused;
+                Cursor.lockState = CursorLockMode.Locked;
+                //pauseScreen.SetActive(false);
+            }
         }
     }
 
@@ -146,14 +155,14 @@ public class InputManager : MonoBehaviour
     {
         if (interactInput)
         {
+            if (playerInteract.canInteract)
+            {
+                playerInteract.HandleStoneInteract();
+            }
             if (playerInteract.shrineObj != null && playerInteract.miniShrine)
             {
                 playerInteract.MiniShrineInteract();
             }
-            //if (playerInteract.canInteract)
-            //{
-            //    playerInteract.HandleStoneInteract();
-            //}
             interactInput = false;
         }
     }
