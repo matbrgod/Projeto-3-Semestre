@@ -8,8 +8,7 @@ public class PlayerInteract : MonoBehaviour
 
     [Header("Refs")]
     InputManager input;
-    //DialogueManager dialogueManager;
-    public GameObject stoneGameObj; // npc
+    //public GameObject stoneGameObj;
     public GameObject shrineObj; // mini templo
 
     [Header("Flags de Interação")]
@@ -24,12 +23,12 @@ public class PlayerInteract : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("PedraJapao"))
-        {
-            other.transform.GetChild(0).gameObject.SetActive(true);
-            stoneGameObj = other.gameObject;
-            canInteract = true;
-        }
+        //if (other.gameObject.CompareTag("PedraJapao"))
+        //{
+        //    other.transform.GetChild(0).gameObject.SetActive(true);
+        //    stoneGameObj = other.gameObject;
+        //    canInteract = true;
+        //}
 
         if (other.gameObject.CompareTag("MiniShrine"))
         {
@@ -49,12 +48,12 @@ public class PlayerInteract : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("PedraJapao"))
-        {
-            other.transform.GetChild(0).gameObject.SetActive(false);
-            stoneGameObj = null;
-            canInteract = false;
-        }
+        //if (other.gameObject.CompareTag("PedraJapao"))
+        //{
+        //    other.transform.GetChild(0).gameObject.SetActive(false);
+        //    stoneGameObj = null;
+        //    canInteract = false;
+        //}
 
         if (other.gameObject.CompareTag("MiniShrine"))
         {

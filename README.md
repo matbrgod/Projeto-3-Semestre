@@ -18,9 +18,11 @@ Um certo dia, o mundo acordou e alguns monumentos históricos haviam sumido e ni
 ## Sumário do Projeto
 Abaixo está o sumário do projeto, em relação a Wiki do projeto no GitHub, onde estará documentado tudo do projeto.
 ### Wiki
-- <a href="https://github.com/matbrgod/Projeto-3-Semestre/wiki"> Home </a>
-- <a href="https://github.com/matbrgod/Projeto-3-Semestre/wiki/Narrativa-e-Constru%C3%A7%C3%A3o-de-Mundo"> Narrativa </a>
-- <a href="https://github.com/matbrgod/Projeto-3-Semestre/wiki/Arte-e-Level-Design"> Arte e Level Design </a>
+- <a href="https://github.com/matbrgod/Projeto-3-Semestre/wiki"> Home</a>;
+- <a href="https://github.com/matbrgod/Projeto-3-Semestre/wiki/Narrativa-e-Constru%C3%A7%C3%A3o-de-Mundo"> Narrativa</a>;
+- <a href="https://github.com/matbrgod/Projeto-3-Semestre/wiki/Arte-e-Level-Design"> Arte e Level Design</a>.
 
 ## Links Importantes
 Todos os links importantes do projeto, como links de assets ou de acesso para o jogo em alguma plataforma estará disponível nessa seção.
+- <a href="https://drive.google.com/drive/folders/1HcjzIXnUDMxsd5Pj6s-iFMmuPKr5SajN"> Asset do modelo do personagem e das animações básicas</a>.
+  - <a href="https://www.youtube.com/watch?v=_tYF5VAJdQ4&list=PLD_vBJjpCwJsqpD8QRPNPMfVUpPFLVGg4&index=2&t=268s"> Fonte onde a pasta do personagem foi encontrada</a>. <br>

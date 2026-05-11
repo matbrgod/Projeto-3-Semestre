@@ -15,4 +15,9 @@ public class WindBlow : MonoBehaviour
             other.attachedRigidbody.AddForce(impact, ForceMode.Force);
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        direction = Vector3.zero;
+    }
 }
