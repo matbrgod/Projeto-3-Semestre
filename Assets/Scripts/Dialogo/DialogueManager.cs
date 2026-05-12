@@ -1,148 +1,105 @@
-using Unity.Multiplayer.Center.Common;
-using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.UI;
 using TMPro;
-using System;
-using UnityEditor;
+using UnityEngine;
 
 [System.Serializable]
-public class DialogueEnter { public string npcName; public NodeDialogue[] node; }
+public class DialogueLines { public string name; [TextArea(2, 4)] public string line; }
 
 [System.Serializable]
-public class NodeDialogue { public string nodeId; public string npcTxt; public string choiceTrigger; public Choice[] choices; }
-
-[System.Serializable]
-public class Choice { public string choiceTxt; public string nextNodeId; }
-
-[System.Serializable]
-public class DatabaseDialogue { public DialogueEnter[] dialogues; }
+public class Dialogue { public List<DialogueLines> dialogueLines; }
 
 public class DialogueManager : MonoBehaviour
 {
-    public TextAsset jsonFile;
-    public GameObject btnPrefab;
-    public GameObject panelUI;
-    public TMP_Text npcNameTxt;
-    public TMP_Text dialogueTxt;
-    public Transform btnLocal;
+    // L√≥gica funcionando para a pedra do jap√£o
 
-    public static event Action<string> OnDialogueTrigger;
+    public static DialogueManager instance;
 
-    private Dictionary<string, Dictionary<string, NodeDialogue>> dialoguesBase = new Dictionary<string, Dictionary<string, NodeDialogue>>();
-    private Dictionary<string, NodeDialogue> npcNode;
+    [Header("Refs")]
+    [SerializeField] private GameObject dialoguePanel;
+    [SerializeField] private TextMeshProUGUI dialogueTxt;
+    [SerializeField] private TextMeshProUGUI characterNameTxt;
+    public Dialogue dialogueData;
+    PlayerInteract playerInteract;
+    InputManager input;
 
-    private List<GameObject> btnPool = new List<GameObject>();
+    public float speachVel = 3f;
 
-    int language;
+    private int dialogueIndex;
+    public bool isDialogueActive, isTyping = false;
 
     private void Start()
     {
-        LoadDialogue(); // erro
+        playerInteract = FindFirstObjectByType<PlayerInteract>();
+        input = FindFirstObjectByType<InputManager>();
     }
 
-    void LoadDialogue()
+    private void Update()
     {
-        jsonFile = Resources.Load<TextAsset>("dialogos_PT-BR");
-
-        DatabaseDialogue dbDialogue = JsonUtility.FromJson<DatabaseDialogue>(jsonFile.text);
-
-        foreach (var entry in dbDialogue.dialogues)
+        if (isDialogueActive && input.interactInput)
         {
-            var nodeDictionary = new Dictionary<string, NodeDialogue>();
-
-            foreach (var node in entry.node) // erro tambem
-            {
-                nodeDictionary[node.nodeId] = node;
-            }
-
-            dialoguesBase[entry.npcName] = nodeDictionary;
+            NextLine();
         }
-
-        panelUI.SetActive(false);
     }
 
-    public void StartDialogue(string npcName)
+    public void HandleDialogue()
     {
-        if (dialoguesBase.TryGetValue(npcName, out npcNode))
-        {
-            npcNameTxt.text = npcName;
-            panelUI.SetActive(true);
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
+        StartDialogue(dialogueData);
+    }
 
-            GoToNode("inicio");
-        }
-        else
+    public void StartDialogue(Dialogue dialogue)
+    {
+        dialoguePanel.SetActive(true);
+
+        isDialogueActive = true;
+        dialogueIndex = playerInteract.shrineCounter;
+        dialogueData = dialogue;
+        characterNameTxt.text = dialogueData.dialogueLines[dialogueIndex].name;
+
+        NextLine();
+    }
+
+    public void NextLine()
+    {
+        if (dialogueIndex > dialogueData.dialogueLines.Count) EndDialogue();
+
+        if (dialogueData.dialogueLines[dialogueIndex].line == "")
         {
-            Debug.LogWarning($"NPC {npcName} n„o encontrado no banco de dados.");
+            Debug.LogWarning($"A fala {dialogueIndex} t√° vazia");
         }
+
+        if (dialogueData.dialogueLines[dialogueIndex].name == "") characterNameTxt.text = gameObject.name;
+        else characterNameTxt.text = dialogueData.dialogueLines[dialogueIndex].name;
+
+        DialogueLines currentLine = dialogueData.dialogueLines[dialogueIndex];
+
+        StartCoroutine(TypeLine(currentLine));
+    }
+
+    IEnumerator TypeLine(DialogueLines line)
+    {
+        isTyping = true;
+        dialogueTxt.SetText("");
+
+        foreach (char letter in line.line.ToCharArray())
+        {
+            dialogueTxt.text += letter;
+            yield return new WaitForSeconds(speachVel);
+        }
+        isTyping = false;
+
+        yield return new WaitForSeconds(3.0f);
+        EndDialogue();
     }
 
     public void EndDialogue()
     {
-        BtnDeactivate();
-        panelUI.SetActive(false);
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-    }
+        StopAllCoroutines();
+        dialoguePanel.SetActive(false);
+        isDialogueActive = false;
+        isTyping = false;
 
-    void BtnConfig(int index, string btnName, UnityEngine.Events.UnityAction action)
-    {
-        GameObject btnObject;
-
-        if (index >= btnPool.Count)
-        {
-            btnObject = Instantiate(btnPrefab, btnLocal);
-            btnPool.Add(btnObject);
-        }
-        else
-        {
-            btnObject = btnPool[index];
-        }
-
-        btnObject.SetActive(true);
-        btnObject.GetComponentInChildren<TextMeshProUGUI>().text = btnName;
-
-        Button btn = btnObject.GetComponent<Button>();
-        btn.onClick.RemoveAllListeners();
-        btn.onClick.AddListener(action);
-    }
-
-    void BtnDeactivate()
-    {
-        for (int i = 0; i < btnPool.Count; i++)
-        {
-            btnPool[i].gameObject.SetActive(false);
-        }
-    }
-
-    public void GoToNode(string nodeId)
-    {
-        if (!npcNode.TryGetValue(nodeId, out NodeDialogue targetNode))
-        {
-            Debug.LogError($"N„o achou o node '{nodeId}'");
-            return;
-        }
-
-        if (!string.IsNullOrEmpty(targetNode.choiceTrigger))
-        {
-            OnDialogueTrigger?.Invoke(targetNode.choiceTrigger);
-        }
-
-        dialogueTxt.text = targetNode.npcTxt;
-        BtnDeactivate();
-
-        if (targetNode.choices == null || targetNode.choices.Length == 0)
-        {
-            BtnConfig(0, "Sair", EndDialogue);
-        }
-        for (int i = 0; i < targetNode.choices.Length; i++)
-        {
-            string choiceTxt = targetNode.choices[i].choiceTxt;
-            string nextId = targetNode.choices[i].nextNodeId;
-
-            BtnConfig(i, choiceTxt, () => GoToNode(nextId));
-        }
+        //if (characterNameTxt.text != null) characterNameTxt.SetText("");
+        //if (dialogueTxt.text != null) dialogueTxt.SetText("");
     }
 }

@@ -1,27 +1,28 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Rendering;
 
 public class InputManager : MonoBehaviour
 {
-    // manager dos inputs
+    [Header("Refs")]
     public PlayerInputSystem playerControl;
     AnimatorManager animManager;
     PlayerMovement playerMove;
     PlayerRespawn playerRespawn;
     PlayerInteract playerInteract;
-    InteractMiniShrine miniShrineInteract;
+    DialogueManager dialogueManager;
 
+    [Header("Vetores dos Inputs")]
     public Vector3 moveInput;
     public Vector2 camInput;
 
+    [Header("Valores dos Inputs")]
     public float verticalInput;
     public float horizontalInput;
     public float camXInput;
     public float camYInput;
     public float moveAmout;
 
-    // variáveis dos inputs de interação do jogador
+    [Header("Flags dos Inputs")]
     public bool jumpInput;
     public bool sprintInput;
     public bool dashInput;
@@ -34,7 +35,8 @@ public class InputManager : MonoBehaviour
     {
         animManager = GetComponent<AnimatorManager>();
         playerMove = GetComponent<PlayerMovement>();
-        miniShrineInteract = GetComponent<InteractMiniShrine>();
+        playerInteract = GetComponent<PlayerInteract>();
+        dialogueManager = FindFirstObjectByType<DialogueManager>();
 
         isPaused = false;
     }
@@ -61,6 +63,7 @@ public class InputManager : MonoBehaviour
             playerControl.PlayerActions.Pause.performed += i => pauseInput = true; // input de pause
 
             playerControl.PlayerActions.Interact.performed += i => interactInput = true; // input de interação
+            //playerControl.PlayerActions.Interact.canceled += i => interactInput = false;
         }
 
         playerControl.Enable(); // habilita o input system do jogador
@@ -130,15 +133,22 @@ public class InputManager : MonoBehaviour
 
     private void HandlePauseInput()
     {
-        if (pauseInput && !isPaused)
+        if (pauseInput)
         {
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-        }
-        else if(pauseInput && isPaused)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            if (!isPaused)
+            {
+                isPaused = true;
+                Cursor.visible = isPaused;
+                Cursor.lockState = CursorLockMode.None;
+                //pauseScreen.SetActive(true);
+            }
+            else
+            {
+                isPaused = false;
+                Cursor.visible = isPaused;
+                Cursor.lockState = CursorLockMode.Locked;
+                //pauseScreen.SetActive(false);
+            }
         }
     }
 
@@ -146,9 +156,13 @@ public class InputManager : MonoBehaviour
     {
         if (interactInput)
         {
-            if (miniShrineInteract.miniShrine)
+            if (playerInteract.canInteract && !dialogueManager.isDialogueActive)
             {
-                miniShrineInteract.MiniShrineInteract();
+                playerInteract.HandleStoneInteract();
+            }
+            if (playerInteract.shrineObj != null && playerInteract.miniShrine)
+            {
+                playerInteract.MiniShrineInteract();
             }
             interactInput = false;
         }

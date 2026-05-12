@@ -64,9 +64,37 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: 1f1bb1cc1fdff4b43a0709f5ff8fc89f, type: 2}
+    - target: {fileID: -926785289688175160, guid: a6b8493cb658c7145a60c343874e6582, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -838525925583541039, guid: a6b8493cb658c7145a60c343874e6582, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a6b8493cb658c7145a60c343874e6582, type: 3}
       propertyPath: m_Name
       value: BAMBU RETO LOD
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a6b8493cb658c7145a60c343874e6582, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: a6b8493cb658c7145a60c343874e6582, type: 3}
+      propertyPath: m_LODs.Array.data[0].screenRelativeHeight
+      value: 0.88096595
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: a6b8493cb658c7145a60c343874e6582, type: 3}
+      propertyPath: m_LODs.Array.data[1].screenRelativeHeight
+      value: 0.5887955
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: a6b8493cb658c7145a60c343874e6582, type: 3}
+      propertyPath: m_LODs.Array.data[2].screenRelativeHeight
+      value: 0.20376888
+      objectReference: {fileID: 0}
+    - target: {fileID: 7112729177019720056, guid: a6b8493cb658c7145a60c343874e6582, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8692271165361682635, guid: a6b8493cb658c7145a60c343874e6582, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -79,5 +107,34 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -838525925583541039, guid: a6b8493cb658c7145a60c343874e6582, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8857572315357806113}
   m_SourcePrefab: {fileID: 100100000, guid: a6b8493cb658c7145a60c343874e6582, type: 3}
+--- !u!1 &1125270992679053124 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -838525925583541039, guid: a6b8493cb658c7145a60c343874e6582, type: 3}
+  m_PrefabInstance: {fileID: 8917462735714552725}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &8857572315357806113
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1125270992679053124}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.0017297363, y: 0.0022882065, z: 0.102708}
+  m_Center: {x: -0.0004937744, y: -0.00017317556, z: 0.051344298}

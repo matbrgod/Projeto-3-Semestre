@@ -71,9 +71,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: db4cf237eb9a81e4fa8dc2f5f37faeeb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2899592582591169015}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: db4cf237eb9a81e4fa8dc2f5f37faeeb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5724775511864581272}
     - targetCorrespondingSourceObject: {fileID: 8519841742941874468, guid: db4cf237eb9a81e4fa8dc2f5f37faeeb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 318437747166646418}
@@ -104,22 +101,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.4, y: 2.81, z: 3.5}
   m_Center: {x: -3.05, y: 1.4, z: -0.04}
---- !u!114 &5724775511864581272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 512351726437553409}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1005eceebe266e40aa503b564cf374c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractMiniShrine
-  miniShrine: 0
-  shrineObj: {fileID: 0}
-  shrineCounterTxt: {fileID: 0}
-  shrineCounterUi: {fileID: 0}
 --- !u!1 &9070770899854754164 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8519841742941874468, guid: db4cf237eb9a81e4fa8dc2f5f37faeeb, type: 3}
