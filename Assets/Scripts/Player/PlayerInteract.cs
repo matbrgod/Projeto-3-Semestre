@@ -1,11 +1,8 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerInteract : MonoBehaviour
 {
-    // código de diálogo do gilles que eu preciso rever
-
     [Header("Refs")]
     InputManager input;
     DialogueManager dialogueManager;
@@ -55,6 +52,7 @@ public class PlayerInteract : MonoBehaviour
     {
         if (other.gameObject.CompareTag("PedraJapao"))
         {
+            dialogueManager.EndDialogue();
             stoneGameObj = null;
             canInteract = false;
         }

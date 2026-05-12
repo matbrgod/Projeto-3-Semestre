@@ -1,11 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using static UnityEditor.Rendering.MaterialUpgrader;
 
 [System.Serializable]
 public class DialogueLines { public string name; [TextArea(2, 4)] public string line; }
@@ -23,7 +19,6 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TextMeshProUGUI dialogueTxt;
     [SerializeField] private TextMeshProUGUI characterNameTxt;
-    //DialogueTrigger dialogueTrigger;
     public Dialogue dialogueData;
     PlayerInteract playerInteract;
     InputManager input;
@@ -31,21 +26,24 @@ public class DialogueManager : MonoBehaviour
     public float speachVel = 3f;
 
     private int dialogueIndex;
-    private bool isDialogueActive, isTyping = false;
+    public bool isDialogueActive, isTyping = false;
 
     private void Start()
     {
         playerInteract = FindFirstObjectByType<PlayerInteract>();
+        input = FindFirstObjectByType<InputManager>();
+    }
+
+    private void Update()
+    {
+        if (isDialogueActive && input.interactInput)
+        {
+            NextLine();
+        }
     }
 
     public void HandleDialogue()
     {
-        Debug.Log("Chamou HandleDialogue");
-        //if (dialogueData == null || (input.pauseInput && isDialogueActive)) return;
-
-        //if (isDialogueActive) NextLine();
-        //else StartDialogue(dialogueData);
-
         StartDialogue(dialogueData);
     }
 
@@ -63,7 +61,15 @@ public class DialogueManager : MonoBehaviour
 
     public void NextLine()
     {
-        if (dialogueIndex > dialogueData.dialogueLines.Count) return;
+        if (dialogueIndex > dialogueData.dialogueLines.Count) EndDialogue();
+
+        if (dialogueData.dialogueLines[dialogueIndex].line == "")
+        {
+            Debug.LogWarning($"A fala {dialogueIndex} tá vazia");
+        }
+
+        if (dialogueData.dialogueLines[dialogueIndex].name == "") characterNameTxt.text = gameObject.name;
+        else characterNameTxt.text = dialogueData.dialogueLines[dialogueIndex].name;
 
         DialogueLines currentLine = dialogueData.dialogueLines[dialogueIndex];
 
@@ -80,7 +86,20 @@ public class DialogueManager : MonoBehaviour
             dialogueTxt.text += letter;
             yield return new WaitForSeconds(speachVel);
         }
-
         isTyping = false;
+
+        yield return new WaitForSeconds(3.0f);
+        EndDialogue();
+    }
+
+    public void EndDialogue()
+    {
+        StopAllCoroutines();
+        dialoguePanel.SetActive(false);
+        isDialogueActive = false;
+        isTyping = false;
+
+        //if (characterNameTxt.text != null) characterNameTxt.SetText("");
+        //if (dialogueTxt.text != null) dialogueTxt.SetText("");
     }
 }

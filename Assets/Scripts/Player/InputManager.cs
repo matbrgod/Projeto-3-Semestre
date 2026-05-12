@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Rendering;
 
 public class InputManager : MonoBehaviour
 {
@@ -10,6 +9,7 @@ public class InputManager : MonoBehaviour
     PlayerMovement playerMove;
     PlayerRespawn playerRespawn;
     PlayerInteract playerInteract;
+    DialogueManager dialogueManager;
 
     [Header("Vetores dos Inputs")]
     public Vector3 moveInput;
@@ -36,6 +36,7 @@ public class InputManager : MonoBehaviour
         animManager = GetComponent<AnimatorManager>();
         playerMove = GetComponent<PlayerMovement>();
         playerInteract = GetComponent<PlayerInteract>();
+        dialogueManager = FindFirstObjectByType<DialogueManager>();
 
         isPaused = false;
     }
@@ -155,7 +156,7 @@ public class InputManager : MonoBehaviour
     {
         if (interactInput)
         {
-            if (playerInteract.canInteract)
+            if (playerInteract.canInteract && !dialogueManager.isDialogueActive)
             {
                 playerInteract.HandleStoneInteract();
             }
