@@ -1,5 +1,4 @@
 using UnityEngine;
-//using static UnityEngine.InputManagerEntry;
 
 public class WindChange : MonoBehaviour
 {
