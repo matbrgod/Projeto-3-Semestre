@@ -8,7 +8,8 @@ public class PlayerInteract : MonoBehaviour
 
     [Header("Refs")]
     InputManager input;
-    //public GameObject stoneGameObj;
+    DialogueManager dialogueManager;
+    public GameObject stoneGameObj;
     public GameObject shrineObj; // mini templo
 
     [Header("Flags de Interação")]
@@ -21,14 +22,18 @@ public class PlayerInteract : MonoBehaviour
 
     public int shrineCounter = 0;
 
+    private void Start()
+    {
+        //dialogueManager = stoneGameObj.GetComponent<DialogueManager>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        //if (other.gameObject.CompareTag("PedraJapao"))
-        //{
-        //    other.transform.GetChild(0).gameObject.SetActive(true);
-        //    stoneGameObj = other.gameObject;
-        //    canInteract = true;
-        //}
+        if (other.gameObject.CompareTag("PedraJapao"))
+        {
+            stoneGameObj = other.gameObject;
+            canInteract = true;
+        }
 
         if (other.gameObject.CompareTag("MiniShrine"))
         {
@@ -48,12 +53,11 @@ public class PlayerInteract : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        //if (other.gameObject.CompareTag("PedraJapao"))
-        //{
-        //    other.transform.GetChild(0).gameObject.SetActive(false);
-        //    stoneGameObj = null;
-        //    canInteract = false;
-        //}
+        if (other.gameObject.CompareTag("PedraJapao"))
+        {
+            stoneGameObj = null;
+            canInteract = false;
+        }
 
         if (other.gameObject.CompareTag("MiniShrine"))
         {
@@ -62,13 +66,15 @@ public class PlayerInteract : MonoBehaviour
         }
     }
 
-    //public void HandleStoneInteract()
-    //{
-    //    if (stoneGameObj != null)
-    //    {
-    //        stoneGameObj.GetComponentInParent<StoneActions>().Interact();
-    //    }
-    //}
+    public void HandleStoneInteract()
+    {
+        if (stoneGameObj != null)
+        {
+            Debug.Log("Chamou HandleStoneInteract");
+            dialogueManager = stoneGameObj.GetComponent<DialogueManager>();
+            dialogueManager.HandleDialogue();
+        }
+    }
 
     public void MiniShrineInteract()
     {
