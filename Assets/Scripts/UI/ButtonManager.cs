@@ -3,8 +3,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MainMenu : MonoBehaviour
+public class ButtonManager : MonoBehaviour
 {
+    InputManager inputManager;
+
     [Header("Menus")]
     [SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject controlsMenu;
@@ -23,6 +25,8 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
+        inputManager = GetComponent<InputManager>();
+
         DontDestroyOnLoad(gameObject);
         mainMenu.SetActive(true);
         creditsMenu.SetActive(false);

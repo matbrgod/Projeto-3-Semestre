@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -18,6 +19,7 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] GameObject shrineCounterUi; // UI do contador de conhecimento
 
     public int shrineCounter = 0;
+    public float timeToCloseUi = 3f;
 
     private void Start()
     {
@@ -77,10 +79,24 @@ public class PlayerInteract : MonoBehaviour
     {
         if(shrineObj != null)
         {
-            shrineCounterUi.SetActive(true);
             shrineCounter++;
+            StartCoroutine(CloseCounterUi());
+            shrineCounterUi.SetActive(true);
             shrineCounterTxt.text = shrineCounter.ToString();
             shrineObj.tag = "Untagged";
         }
     }
+
+    IEnumerator CloseCounterUi()
+    {
+        yield return new WaitForSeconds(timeToCloseUi);
+        shrineCounterUi.SetActive(false);
+    }
+
+    public IEnumerator OpenProgressionUi()
+	{
+		shrineCounterUi.SetActive(true);
+		yield return new WaitForSeconds(timeToCloseUi);
+		shrineCounterUi.SetActive(false);
+	}
 }
