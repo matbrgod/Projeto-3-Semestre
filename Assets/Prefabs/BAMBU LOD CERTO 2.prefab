@@ -49,6 +49,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8579379531869688704, guid: 1ffa9a94065a63f45a555a8c14b2b8ea, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8579379531869688704, guid: 1ffa9a94065a63f45a555a8c14b2b8ea, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8579379531869688704, guid: 1ffa9a94065a63f45a555a8c14b2b8ea, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 138475fce455d034d8491cdff32088f8, type: 2}
@@ -56,6 +64,22 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: 33f78bb91264f7d4aa86abb720b439ee, type: 2}
+    - target: {fileID: -6044385307666197188, guid: 1ffa9a94065a63f45a555a8c14b2b8ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3750480442291112304, guid: 1ffa9a94065a63f45a555a8c14b2b8ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -248254309885200700, guid: 1ffa9a94065a63f45a555a8c14b2b8ea, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -248254309885200700, guid: 1ffa9a94065a63f45a555a8c14b2b8ea, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -248254309885200700, guid: 1ffa9a94065a63f45a555a8c14b2b8ea, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -64,6 +88,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: 33f78bb91264f7d4aa86abb720b439ee, type: 2}
+    - target: {fileID: 492740173201065697, guid: 1ffa9a94065a63f45a555a8c14b2b8ea, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 492740173201065697, guid: 1ffa9a94065a63f45a555a8c14b2b8ea, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -75,6 +103,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 1ffa9a94065a63f45a555a8c14b2b8ea, type: 3}
       propertyPath: m_Name
       value: BAMBU LOD CERTO 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082992216706386377, guid: 1ffa9a94065a63f45a555a8c14b2b8ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
