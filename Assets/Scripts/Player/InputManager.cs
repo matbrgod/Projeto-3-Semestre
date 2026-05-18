@@ -140,6 +140,7 @@ public class InputManager : MonoBehaviour
                 isPaused = true;
                 Cursor.visible = isPaused;
                 Cursor.lockState = CursorLockMode.None;
+                //dialogueManager.EndDialogue();
                 //pauseScreen.SetActive(true);
             }
             else
@@ -159,6 +160,10 @@ public class InputManager : MonoBehaviour
             if (playerInteract.canInteract && !dialogueManager.isDialogueActive)
             {
                 playerInteract.HandleStoneInteract();
+            }
+            else if(playerInteract.canInteract && dialogueManager.isDialogueActive)
+            {
+                dialogueManager.EndDialogue();
             }
             if (playerInteract.shrineObj != null && playerInteract.miniShrine)
             {

@@ -11,7 +11,7 @@ public class Dialogue { public List<DialogueLines> dialogueLines; }
 
 public class DialogueManager : MonoBehaviour
 {
-    // Lógica funcionando para a pedra do japão
+    // Lógica funcionando para a pedra do japão / com o contador de shrines/conhecimento
 
     public static DialogueManager instance;
 
@@ -98,8 +98,5 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(false);
         isDialogueActive = false;
         isTyping = false;
-
-        //if (characterNameTxt.text != null) characterNameTxt.SetText("");
-        //if (dialogueTxt.text != null) dialogueTxt.SetText("");
     }
 }
