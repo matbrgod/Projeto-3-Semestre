@@ -68,7 +68,6 @@ public class PlayerInteract : MonoBehaviour
     {
         if (stoneGameObj != null)
         {
-            Debug.Log("Chamou HandleStoneInteract");
             dialogueManager = stoneGameObj.GetComponent<DialogueManager>();
             dialogueManager.HandleDialogue();
         }
