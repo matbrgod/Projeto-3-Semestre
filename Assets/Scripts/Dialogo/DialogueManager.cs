@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 
 [System.Serializable]
-public class DialogueLines { public string name; [TextArea(2, 4)] public string line; }
+public class DialogueLines { public string line; }
 
 [System.Serializable]
 public class Dialogue { public List<DialogueLines> dialogueLines; }
@@ -18,10 +18,8 @@ public class DialogueManager : MonoBehaviour
     [Header("Refs")]
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TextMeshProUGUI dialogueTxt;
-    [SerializeField] private TextMeshProUGUI characterNameTxt;
     public Dialogue dialogueData;
     PlayerInteract playerInteract;
-    InputManager input;
 
     public float speachVel = 3f;
 
@@ -31,15 +29,6 @@ public class DialogueManager : MonoBehaviour
     private void Start()
     {
         playerInteract = FindFirstObjectByType<PlayerInteract>();
-        input = FindFirstObjectByType<InputManager>();
-    }
-
-    private void Update()
-    {
-        if (isDialogueActive && input.interactInput)
-        {
-            NextLine();
-        }
     }
 
     public void HandleDialogue()
@@ -54,7 +43,6 @@ public class DialogueManager : MonoBehaviour
         isDialogueActive = true;
         dialogueIndex = playerInteract.shrineCounter;
         dialogueData = dialogue;
-        characterNameTxt.text = dialogueData.dialogueLines[dialogueIndex].name;
 
         NextLine();
     }
@@ -67,9 +55,6 @@ public class DialogueManager : MonoBehaviour
         {
             Debug.LogWarning($"A fala {dialogueIndex} tá vazia");
         }
-
-        if (dialogueData.dialogueLines[dialogueIndex].name == "") characterNameTxt.text = gameObject.name;
-        else characterNameTxt.text = dialogueData.dialogueLines[dialogueIndex].name;
 
         DialogueLines currentLine = dialogueData.dialogueLines[dialogueIndex];
 
@@ -87,9 +72,6 @@ public class DialogueManager : MonoBehaviour
             yield return new WaitForSeconds(speachVel);
         }
         isTyping = false;
-
-        yield return new WaitForSeconds(3.0f);
-        EndDialogue();
     }
 
     public void EndDialogue()
