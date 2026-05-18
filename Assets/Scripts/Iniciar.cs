@@ -13,7 +13,9 @@ public class Iniciar : MonoBehaviour
     public void LoadarScene(int cena)
     {
         StartCoroutine(LoadSceneAsync(cena));
-        
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
     }
     private IEnumerator LoadSceneAsync(int cena)
     {

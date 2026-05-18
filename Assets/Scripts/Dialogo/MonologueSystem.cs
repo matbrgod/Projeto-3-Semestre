@@ -19,18 +19,12 @@ public class MonologueSystem : MonoBehaviour
     [SerializeField] private GameObject monologuePanel;
     [SerializeField] private TextMeshProUGUI monologueTxt;
     public Monologue monologueData;
-    PlayerInteract playerInteract;
 
     public float speachVel = 3f;
     public float endMonologue = 3f;
 
-    private int monologueIndex;
+    private int monologueIndex = 0;
     public bool isMonologueActive, isTyping = false;
-
-    private void Start()
-    {
-        playerInteract = FindFirstObjectByType<PlayerInteract>();
-    }
 
     public void HandleMonologue()
     {
@@ -42,7 +36,6 @@ public class MonologueSystem : MonoBehaviour
         monologuePanel.SetActive(true);
 
         isMonologueActive = true;
-        monologueIndex = playerInteract.shrineCounter;
         monologueData = monologue;
 
         NextLine();
@@ -60,6 +53,7 @@ public class MonologueSystem : MonoBehaviour
         MonologueLines currentLine = monologueData.monologueLines[monologueIndex];
 
         StartCoroutine(TypeLine(currentLine));
+        monologueIndex++;
     }
 
     IEnumerator TypeLine(MonologueLines line)
@@ -74,13 +68,22 @@ public class MonologueSystem : MonoBehaviour
         }
         isTyping = false;
 
-        yield return new WaitForSeconds(endMonologue);
-        EndMonologue();
+        if (monologueIndex++ <= monologueData.monologueLines.Count)
+        {
+            monologueIndex++;
+            NextLine();
+        }
+        else
+        {
+            yield return new WaitForSeconds(endMonologue);
+            EndMonologue();
+        }
     }
 
     public void EndMonologue()
     {
         StopAllCoroutines();
+        monologueIndex = 0;
         monologuePanel.SetActive(false);
         isMonologueActive = false;
         isTyping = false;

@@ -42,7 +42,7 @@ public class DialogueManager : MonoBehaviour
 
         isDialogueActive = true;
         dialogueIndex = playerInteract.shrineCounter;
-        dialogueData = dialogue;
+        //dialogueData = dialogue;
 
         NextLine();
     }
@@ -57,21 +57,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         DialogueLines currentLine = dialogueData.dialogueLines[dialogueIndex];
-
-        StartCoroutine(TypeLine(currentLine));
-    }
-
-    IEnumerator TypeLine(DialogueLines line)
-    {
-        isTyping = true;
-        dialogueTxt.SetText("");
-
-        foreach (char letter in line.line.ToCharArray())
-        {
-            dialogueTxt.text += letter;
-            yield return new WaitForSeconds(speachVel);
-        }
-        isTyping = false;
+        dialogueTxt.SetText(currentLine.line);
     }
 
     public void EndDialogue()

@@ -1,9 +1,11 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
     [Header("Refs")]
+    public GameObject pauseScreen;
     public PlayerInputSystem playerControl;
     AnimatorManager animManager;
     PlayerMovement playerMove;
@@ -21,6 +23,7 @@ public class InputManager : MonoBehaviour
     public float camXInput;
     public float camYInput;
     public float moveAmout;
+    public float respawnCounter = 3f;
 
     [Header("Flags dos Inputs")]
     public bool jumpInput;
@@ -28,8 +31,11 @@ public class InputManager : MonoBehaviour
     public bool dashInput;
     public bool pauseInput;
     public bool interactInput;
+    public bool respawnInput;
+    public bool progressionInput;
 
-    bool isPaused;
+    public bool isPaused;
+    public float time;
 
     private void Awake()
     {
@@ -37,6 +43,7 @@ public class InputManager : MonoBehaviour
         playerMove = GetComponent<PlayerMovement>();
         playerInteract = GetComponent<PlayerInteract>();
         dialogueManager = FindFirstObjectByType<DialogueManager>();
+        playerRespawn = GetComponent<PlayerRespawn>();
 
         isPaused = false;
     }
@@ -63,7 +70,11 @@ public class InputManager : MonoBehaviour
             playerControl.PlayerActions.Pause.performed += i => pauseInput = true; // input de pause
 
             playerControl.PlayerActions.Interact.performed += i => interactInput = true; // input de interação
-            //playerControl.PlayerActions.Interact.canceled += i => interactInput = false;
+
+            playerControl.PlayerActions.Respawn.performed += i => respawnInput = true; // input de respawn
+            playerControl.PlayerActions.Respawn.canceled += i => respawnInput = false;
+
+            playerControl.PlayerActions.Progression.performed += i => progressionInput = true; // input para abrir a UI do contador de conhecimento
         }
 
         playerControl.Enable(); // habilita o input system do jogador
@@ -84,7 +95,9 @@ public class InputManager : MonoBehaviour
 
         //inputs diversos
         HandlePauseInput();
+        HandleRespawnInput();
         HandleInteractInput();
+        HandleProgressionUiInput();
     }
 
     private void HandleMovementInput()
@@ -140,16 +153,42 @@ public class InputManager : MonoBehaviour
                 isPaused = true;
                 Cursor.visible = isPaused;
                 Cursor.lockState = CursorLockMode.None;
-                //dialogueManager.EndDialogue();
-                //pauseScreen.SetActive(true);
+                dialogueManager.EndDialogue();
+                pauseScreen.SetActive(true);
             }
             else
             {
                 isPaused = false;
                 Cursor.visible = isPaused;
                 Cursor.lockState = CursorLockMode.Locked;
-                //pauseScreen.SetActive(false);
+                pauseScreen.SetActive(false);
             }
+        }
+    }
+
+    private void HandleRespawnInput()
+    {
+        if (respawnInput)
+        {
+            time += Time.deltaTime;
+            if (time >= respawnCounter)
+            {
+                playerRespawn.RespawnPlayer();
+                respawnInput = false;
+            }
+        }
+        else
+        {
+            time = 0f;
+        }
+    }
+
+    private void HandleProgressionUiInput()
+    {
+        if (progressionInput)
+        {
+            StartCoroutine(playerInteract.OpenProgressionUi());
+            progressionInput = false;
         }
     }
 
@@ -172,4 +211,10 @@ public class InputManager : MonoBehaviour
             interactInput = false;
         }
     }
+
+    //IEnumerator GetRespawnKey()
+    //{
+    //    yield return new WaitForSeconds(respawnCounter);
+    //    isPressingR = true;
+    //}
 }
