@@ -1,17 +1,16 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
     [Header("Refs")]
-    public GameObject pauseScreen;
     public PlayerInputSystem playerControl;
     AnimatorManager animManager;
     PlayerMovement playerMove;
     PlayerRespawn playerRespawn;
     PlayerInteract playerInteract;
     DialogueManager dialogueManager;
+    PauseManager pauseManager;
 
     [Header("Vetores dos Inputs")]
     public Vector3 moveInput;
@@ -34,7 +33,6 @@ public class InputManager : MonoBehaviour
     public bool respawnInput;
     public bool progressionInput;
 
-    public bool isPaused;
     public float time;
 
     private void Awake()
@@ -44,8 +42,6 @@ public class InputManager : MonoBehaviour
         playerInteract = GetComponent<PlayerInteract>();
         dialogueManager = FindFirstObjectByType<DialogueManager>();
         playerRespawn = GetComponent<PlayerRespawn>();
-
-        isPaused = false;
     }
 
     private void OnEnable()
@@ -148,20 +144,13 @@ public class InputManager : MonoBehaviour
     {
         if (pauseInput)
         {
-            if (!isPaused)
+            if (!pauseManager.isPaused)
             {
-                isPaused = true;
-                Cursor.visible = isPaused;
-                Cursor.lockState = CursorLockMode.None;
-                dialogueManager.EndDialogue();
-                pauseScreen.SetActive(true);
+                pauseManager.PauseGame();
             }
             else
             {
-                isPaused = false;
-                Cursor.visible = isPaused;
-                Cursor.lockState = CursorLockMode.Locked;
-                pauseScreen.SetActive(false);
+                pauseManager.ResumeGame();
             }
         }
     }

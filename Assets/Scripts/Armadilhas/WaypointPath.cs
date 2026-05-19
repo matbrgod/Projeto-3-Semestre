@@ -1,11 +1,15 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class WaypointPath : MonoBehaviour
 {
-    public Transform HandleWaypoint(int waypointIndex)
-    {
-        return transform.GetChild(waypointIndex);
-    }
+    public bool destroyPlatform;
+    public List<Transform> waypoints;
+
+    //public Transform HandleWaypoint(int waypointIndex)
+    //{
+    //    return transform.GetChild(waypointIndex);
+    //}
 
     public int HandleNextWaypointIndex(int currentWaypointIndex)
     {
@@ -13,7 +17,7 @@ public class WaypointPath : MonoBehaviour
 
         if (nextWaypointIndex == transform.childCount)
         {
-            nextWaypointIndex = 0;
+            destroyPlatform = true;
         }
 
         return nextWaypointIndex;
