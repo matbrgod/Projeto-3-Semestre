@@ -1,9 +1,18 @@
 using UnityEngine;
 
-public class PauseBtnManager : MonoBehaviour
+public class PauseManager : MonoBehaviour
 {
     [Header("Telas")]
     public GameObject pauseScreen;
+
+    public bool isPaused;
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+        isPaused = false;
+        pauseScreen.SetActive(false);
+    }
 
     public void OpenScreen(int tela)
     {
@@ -17,16 +26,17 @@ public class PauseBtnManager : MonoBehaviour
 
     public void ResumeGame()
     {
-        pauseScreen.SetActive(false);
+        isPaused = false;
+        pauseScreen.SetActive(isPaused);
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void PauseGame()
     {
-        pauseScreen.SetActive(true);
+        isPaused = true;
+        pauseScreen.SetActive(isPaused);
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-
     }
 }

@@ -2,15 +2,30 @@ using UnityEngine;
 
 public class SaveGame : MonoBehaviour
 {
-    // script para o save do jogo
+    public GameObject spawnpoint;
+    PlayerInteract interact;
+    PlayerRespawn respawn;
 
-    void Start()
+    private void Awake()
     {
-        
+        DontDestroyOnLoad(gameObject);
+
+        interact = FindFirstObjectByType<PlayerInteract>();
+        respawn = FindFirstObjectByType<PlayerRespawn>();
     }
 
-    void Update()
+    public void GameSave()
     {
-        
+
+    }
+
+    public void GetSavedData()
+    {
+
+    }
+
+    public void ResetSave()
+    {
+        PlayerPrefs.DeleteAll();
     }
 }

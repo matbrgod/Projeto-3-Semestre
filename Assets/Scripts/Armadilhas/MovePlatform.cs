@@ -4,21 +4,15 @@ using System.Collections.Generic;
 public class MovePlatform : MonoBehaviour
 {
     [Header("Waypoints")]
-    [SerializeField] private List<Transform> waypoints;
+    [SerializeField] public List<Transform> waypoints;
 
     [Header("Velocidade")]
     [SerializeField] private float speed;
 
-    Rigidbody rb;
     private int currentWaypoint = 0;
     public bool movingBack;
 
-    private Vector3 currentTarget => waypoints[currentWaypoint].position;
-
-    private void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-    }
+    public Vector3 currentTarget => waypoints[currentWaypoint].position;
 
     private void OnEnable()
     {
