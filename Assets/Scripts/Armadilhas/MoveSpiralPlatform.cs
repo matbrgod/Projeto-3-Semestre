@@ -10,7 +10,7 @@ public class MoveSpiralPlatform : MonoBehaviour
 
     private int currentWaypoint = 0;
 
-    //public Vector3 currentTarget => waypointPath.HandleWaypoint(currentWaypoint).position;
+    public Vector3 currentTarget => waypointPath.waypoints[currentWaypoint].position;
 
     private void Awake()
     {
@@ -20,21 +20,22 @@ public class MoveSpiralPlatform : MonoBehaviour
     private void OnEnable()
     {
         currentWaypoint = 0;
-        //transform.position = waypointPath.HandleWaypoint(0).position;
+        transform.position = waypointPath.waypoints[0].position;
     }
 
     void FixedUpdate()
     {
-        //if(waypointPath.destroyPlatform) Destroy(gameObject);
+        if (waypointPath.destroyPlatform) Destroy(gameObject);
         Move();
     }
 
     void Move()
     {
+        Debug.Log("Chamou o Move();");
         float time = Time.deltaTime * speed;
         time = Mathf.SmoothStep(0, 1, time);
-        //transform.position = Vector3.MoveTowards(transform.position, currentTarget, time);
-        //if (transform.position == currentTarget) waypointPath.HandleNextWaypointIndex(currentWaypoint);
+        transform.position = Vector3.MoveTowards(transform.position, currentTarget, time);
+        if (transform.position == currentTarget) waypointPath.HandleNextWaypointIndex(currentWaypoint);
     }
 
     //private void TargetNextWaypoint()
@@ -63,7 +64,7 @@ public class MoveSpiralPlatform : MonoBehaviour
 
     //private void Update()
     //{
-    //    if (transform.position == movePlatform.waypoints[waypointCount].position)
+    //    if (waypointPath.destroyPlatform)
     //    {
     //        Destroy(gameObject);
     //    }
