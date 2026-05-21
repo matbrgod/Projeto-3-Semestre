@@ -16,12 +16,10 @@ public class DialogueManager : MonoBehaviour
     public static DialogueManager instance;
 
     [Header("Refs")]
-    [SerializeField] private GameObject dialoguePanel;
+    [SerializeField] public GameObject dialoguePanel;
     [SerializeField] private TextMeshProUGUI dialogueTxt;
     public Dialogue dialogueData;
     PlayerInteract playerInteract;
-
-    public float speachVel = 3f;
 
     private int dialogueIndex;
     public bool isDialogueActive, isTyping = false;
@@ -38,11 +36,11 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
-        dialoguePanel.SetActive(true);
-
-        isDialogueActive = true;
         dialogueIndex = playerInteract.shrineCounter;
-        //dialogueData = dialogue;
+        if (dialogueIndex > dialogueData.dialogueLines.Count) return;
+
+        dialoguePanel.SetActive(true);
+        isDialogueActive = true;
 
         NextLine();
     }
@@ -62,7 +60,6 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
-        StopAllCoroutines();
         dialoguePanel.SetActive(false);
         isDialogueActive = false;
         isTyping = false;

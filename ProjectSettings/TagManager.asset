@@ -15,6 +15,7 @@ TagManager:
   - Vento
   - VentoTroca
   - WaypointPath
+  - UI
   layers:
   - Default
   - TransparentFX

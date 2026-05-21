@@ -66,17 +66,16 @@ public class MonologueSystem : MonoBehaviour
             monologueTxt.text += letter;
             yield return new WaitForSeconds(speachVel);
         }
-        isTyping = false;
 
-        if (monologueIndex++ <= monologueData.monologueLines.Count)
-        {
-            monologueIndex++;
-            NextLine();
-        }
-        else
+        if (monologueIndex++ > monologueData.monologueLines.Count)
         {
             yield return new WaitForSeconds(endMonologue);
             EndMonologue();
+        }
+        else
+        {
+            monologueIndex++;
+            NextLine();
         }
     }
 
