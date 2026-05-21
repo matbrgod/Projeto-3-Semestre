@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6353630928791265012}
   - component: {fileID: 5373746618514662487}
   m_Layer: 0
-  m_Name: plataforma que surge TESTE
+  m_Name: plataforma que surge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
