@@ -8,13 +8,16 @@ public class MoveSpiralPlatform : MonoBehaviour
     [Header("Velocidade")]
     [SerializeField] private float speed;
 
+    GameObject waypoints;
+
     private int currentWaypoint = 0;
 
     public Vector3 currentTarget => waypointPath.waypoints[currentWaypoint].position;
 
     private void Awake()
     {
-        waypointPath = FindFirstObjectByType<WaypointPath>();
+        waypoints = GameObject.FindGameObjectWithTag("WaypointPath");
+        waypointPath = waypoints.GetComponent<WaypointPath>();
     }
 
     private void OnEnable()
@@ -25,32 +28,31 @@ public class MoveSpiralPlatform : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (waypointPath.destroyPlatform) Destroy(gameObject);
         Move();
+        //if (waypointPath.destroyPlatform) Destroy(gameObject);
     }
 
     void Move()
     {
-        Debug.Log("Chamou o Move();");
         float time = Time.deltaTime * speed;
         time = Mathf.SmoothStep(0, 1, time);
         transform.position = Vector3.MoveTowards(transform.position, currentTarget, time);
-        if (transform.position == currentTarget) waypointPath.HandleNextWaypointIndex(currentWaypoint);
+        if (transform.position == currentTarget) TargetNextWaypoint();
     }
 
-    //private void TargetNextWaypoint()
-    //{
-    //    int nextWaypoint = currentWaypoint + 1;
+    private void TargetNextWaypoint()
+    {
+        int nextWaypoint = currentWaypoint + 1;
 
-    //    if (nextWaypoint >= waypoints.Count)
-    //    {
-    //        Destroy(gameObject);
-    //    }
-    //    else
-    //    {
-    //        currentWaypoint++;
-    //    }
-    //}
+        if (nextWaypoint >= waypointPath.waypoints.Count)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            currentWaypoint++;
+        }
+    }
 
     private void OnTriggerEnter(Collider collision)
     {
