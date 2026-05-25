@@ -106,7 +106,7 @@ public class PlayerInteract : MonoBehaviour
             shrineCounter++;
             StartCoroutine(CloseCounterUi());
             shrineCounterUi.SetActive(true);
-            shrineCounterTxt.text = shrineCounter.ToString();
+            shrineCounterTxt.text = shrineCounter.ToString() + "/7";
             shrineObj.tag = "Untagged";
         }
     }

@@ -12,6 +12,7 @@ public class InputManager : MonoBehaviour
     PlayerInteract playerInteract;
     DialogueManager dialogueManager;
     PauseManager pauseManager;
+    AudioManager audioManager;
 
     [Header("Vetores dos Inputs")]
     public Vector3 moveInput;
@@ -35,7 +36,8 @@ public class InputManager : MonoBehaviour
     public bool progressionInput;
 
     public float time;
-    public Image img;
+    public GameObject img;
+    public Image imgFill;
 
     private void Awake()
     {
@@ -44,6 +46,13 @@ public class InputManager : MonoBehaviour
         playerInteract = GetComponent<PlayerInteract>();
         dialogueManager = FindFirstObjectByType<DialogueManager>();
         playerRespawn = GetComponent<PlayerRespawn>();
+        pauseManager = FindFirstObjectByType<PauseManager>();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
+    private void Update()
+    {
+        if (img != null) imgFill.fillAmount = time;
     }
 
     private void OnEnable()
@@ -105,6 +114,7 @@ public class InputManager : MonoBehaviour
 
         moveAmout = Mathf.Clamp01(Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput));
         animManager.UpdateAnimatorValues(0, moveAmout, playerMove.isSprinting);
+        //if (audioManager != null) audioManager.PlaySfx(audioManager.stepSfx);
 
         camYInput = camInput.y;
         camXInput = camInput.x;
@@ -150,7 +160,7 @@ public class InputManager : MonoBehaviour
             {
                 pauseManager.PauseGame();
             }
-            else
+            else if (pauseInput && pauseManager.isPaused)
             {
                 pauseManager.ResumeGame();
             }
@@ -161,8 +171,9 @@ public class InputManager : MonoBehaviour
     {
         if (respawnInput)
         {
+            img.gameObject.SetActive(true);
             time += Time.deltaTime;
-            img.fillAmount = time;
+            //img.fillAmount = time;
             if (time >= respawnCounter)
             {
                 playerRespawn.RespawnPlayer();
@@ -172,6 +183,7 @@ public class InputManager : MonoBehaviour
         else
         {
             time = 0f;
+            img.gameObject.SetActive(false);
         }
     }
 
@@ -203,10 +215,4 @@ public class InputManager : MonoBehaviour
             interactInput = false;
         }
     }
-
-    //IEnumerator GetRespawnKey()
-    //{
-    //    yield return new WaitForSeconds(respawnCounter);
-    //    isPressingR = true;
-    //}
 }

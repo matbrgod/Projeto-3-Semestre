@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ButtonManager : MonoBehaviour
 {
     InputManager inputManager;
+    AudioManager audioManager;
 
     [Header("Menus")]
     [SerializeField] private GameObject mainMenu;
@@ -26,6 +27,7 @@ public class ButtonManager : MonoBehaviour
     private void Start()
     {
         inputManager = GetComponent<InputManager>();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
 
         DontDestroyOnLoad(gameObject);
         mainMenu.SetActive(true);
@@ -58,6 +60,7 @@ public class ButtonManager : MonoBehaviour
 
     public void BtnMenu()
     {
+        if (audioManager != null) audioManager.PlaySfx(audioManager.btnSfx);
         creditsMenu.SetActive(false);
         controlsMenu.SetActive(false);
         optionsMenu.SetActive(false);
@@ -66,6 +69,7 @@ public class ButtonManager : MonoBehaviour
 
     public void BtnOptions()
     {
+        if (audioManager != null) audioManager.PlaySfx(audioManager.btnSfx);
         controlsMenu.SetActive(false);
         mainMenu.SetActive(false);
         creditsMenu.SetActive(false);
@@ -74,6 +78,7 @@ public class ButtonManager : MonoBehaviour
 
     public void BtnCredits()
     {
+        if (audioManager != null) audioManager.PlaySfx(audioManager.btnSfx);
         controlsMenu.SetActive(false);
         optionsMenu.SetActive(false);
         mainMenu.SetActive(false);
@@ -82,6 +87,7 @@ public class ButtonManager : MonoBehaviour
 
     public void BtnControls()
     {
+        if (audioManager != null) audioManager.PlaySfx(audioManager.btnSfx);
         mainMenu.SetActive(false);
         creditsMenu.SetActive(false);
         optionsMenu.SetActive(false);
@@ -90,6 +96,7 @@ public class ButtonManager : MonoBehaviour
 
     public void QuitGame()
     {
+        if (audioManager != null) audioManager.PlaySfx(audioManager.btnSfx);
         Application.Quit();
     }
 

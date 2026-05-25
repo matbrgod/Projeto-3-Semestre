@@ -16,6 +16,7 @@ TagManager:
   - VentoTroca
   - WaypointPath
   - UI
+  - Audio
   layers:
   - Default
   - TransparentFX
