@@ -17,6 +17,8 @@ public class PlayerInteract : MonoBehaviour
     [Header("UI")]
     [SerializeField] TextMeshProUGUI shrineCounterTxt; // contador de conhecimento
     [SerializeField] GameObject shrineCounterUi; // UI do contador de conhecimento
+    [SerializeField] GameObject canvas;
+    [SerializeField] int objChildCount = 3;
 
     public int shrineCounter = 0;
     public float timeToCloseUi = 3f;
@@ -30,13 +32,18 @@ public class PlayerInteract : MonoBehaviour
     {
         if (other.gameObject.CompareTag("PedraJapao"))
         {
+            canvas = other.transform.GetChild(objChildCount).gameObject;
+            canvas.SetActive(true);
             stoneGameObj = other.gameObject;
+            dialogueManager = stoneGameObj.GetComponent<DialogueManager>();
             canInteract = true;
         }
 
         if (other.gameObject.CompareTag("MiniShrine"))
         {
             shrineObj = other.gameObject;
+            canvas = other.transform.GetChild(objChildCount).gameObject;
+            canvas.SetActive(true);
             miniShrine = true;
         }
     }
@@ -45,6 +52,7 @@ public class PlayerInteract : MonoBehaviour
     {
         if (other.CompareTag("Untagged"))
         {
+            if(canvas != null) canvas.SetActive(false);
             miniShrine = false;
             shrineObj = null;
         }
@@ -54,15 +62,32 @@ public class PlayerInteract : MonoBehaviour
     {
         if (other.gameObject.CompareTag("PedraJapao"))
         {
-            dialogueManager.EndDialogue();
+            canvas.SetActive(false);
+            canvas = null;
+            if (dialogueManager.isDialogueActive) dialogueManager.EndDialogue();
             stoneGameObj = null;
             canInteract = false;
         }
 
         if (other.gameObject.CompareTag("MiniShrine"))
         {
+            canvas.SetActive(false);
+            canvas = null;
             shrineObj = null;
             miniShrine = false;
+        }
+
+        if (other.gameObject.CompareTag("Untagged"))
+        {
+            if (other.transform.GetChild(objChildCount).gameObject.CompareTag("UI") && canvas != null)
+            {
+                canvas.SetActive(false);
+                canvas = null;
+            }
+            else
+            {
+                return;
+            }
         }
     }
 
@@ -70,7 +95,6 @@ public class PlayerInteract : MonoBehaviour
     {
         if (stoneGameObj != null)
         {
-            dialogueManager = stoneGameObj.GetComponent<DialogueManager>();
             dialogueManager.HandleDialogue();
         }
     }

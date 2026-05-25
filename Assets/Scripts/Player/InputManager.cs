@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class InputManager : MonoBehaviour
 {
@@ -34,6 +35,7 @@ public class InputManager : MonoBehaviour
     public bool progressionInput;
 
     public float time;
+    public Image img;
 
     private void Awake()
     {
@@ -160,6 +162,7 @@ public class InputManager : MonoBehaviour
         if (respawnInput)
         {
             time += Time.deltaTime;
+            img.fillAmount = time;
             if (time >= respawnCounter)
             {
                 playerRespawn.RespawnPlayer();
