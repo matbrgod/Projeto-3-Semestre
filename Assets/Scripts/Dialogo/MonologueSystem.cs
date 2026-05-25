@@ -21,7 +21,7 @@ public class MonologueSystem : MonoBehaviour
     public Monologue monologueData;
 
     public float speachVel = 3f;
-    public float endMonologue = 3f;
+    public float endMonologue = 1f;
 
     private int monologueIndex = 0;
     public bool isMonologueActive, isTyping = false;
@@ -43,21 +43,23 @@ public class MonologueSystem : MonoBehaviour
 
     public void NextLine()
     {
-        if (monologueIndex > monologueData.monologueLines.Count) EndMonologue();
-
         if (monologueData.monologueLines[monologueIndex].line == "")
         {
             Debug.LogWarning($"A fala {monologueIndex} tá vazia");
         }
 
         MonologueLines currentLine = monologueData.monologueLines[monologueIndex];
-
         StartCoroutine(TypeLine(currentLine));
-        monologueIndex++;
     }
 
     IEnumerator TypeLine(MonologueLines line)
     {
+        if (monologueIndex++ > monologueData.monologueLines.Count)
+        {
+            yield return new WaitForSeconds(endMonologue);
+            EndMonologue();
+        }
+
         isTyping = true;
         monologueTxt.SetText("");
 
@@ -66,27 +68,21 @@ public class MonologueSystem : MonoBehaviour
             monologueTxt.text += letter;
             yield return new WaitForSeconds(speachVel);
         }
-
-        if (monologueIndex++ > monologueData.monologueLines.Count)
+        
+        if (monologueIndex++ <= monologueData.monologueLines.Count)
         {
-            yield return new WaitForSeconds(endMonologue);
-            EndMonologue();
-        }
-        else
-        {
-            monologueIndex++;
             NextLine();
         }
     }
 
     public void EndMonologue()
     {
-        StopAllCoroutines();
-        monologueIndex = 0;
         monologuePanel.SetActive(false);
+        this.gameObject.SetActive(false);
+        monologueIndex = 0;
         isMonologueActive = false;
         isTyping = false;
-        this.gameObject.SetActive(false);
+        StopAllCoroutines();
     }
 
     private void OnTriggerEnter(Collider other)

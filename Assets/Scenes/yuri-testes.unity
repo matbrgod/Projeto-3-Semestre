@@ -10629,6 +10629,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 334587839104932612, guid: b4a6190ab81125243bb636d79e84fc72, type: 3}
+      propertyPath: endMonologue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 334587839104932612, guid: b4a6190ab81125243bb636d79e84fc72, type: 3}
       propertyPath: monologueTxt
       value: 
       objectReference: {fileID: 225394928}
@@ -10638,17 +10642,33 @@ PrefabInstance:
       objectReference: {fileID: 100377877}
     - target: {fileID: 334587839104932612, guid: b4a6190ab81125243bb636d79e84fc72, type: 3}
       propertyPath: monologueData.monologueLines.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 334587839104932612, guid: b4a6190ab81125243bb636d79e84fc72, type: 3}
       propertyPath: monologueData.monologueLines.Array.data[1].line
-      value: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+      value: 'lalalalaaaa
 
 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 334587839104932612, guid: b4a6190ab81125243bb636d79e84fc72, type: 3}
+      propertyPath: monologueData.monologueLines.Array.data[2].line
+      value: tchubiraum daum daum
       objectReference: {fileID: 0}
     - target: {fileID: 3451662537103808884, guid: b4a6190ab81125243bb636d79e84fc72, type: 3}
       propertyPath: m_Name
       value: monologueTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 5053713547924387804, guid: b4a6190ab81125243bb636d79e84fc72, type: 3}
+      propertyPath: m_Size.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5053713547924387804, guid: b4a6190ab81125243bb636d79e84fc72, type: 3}
+      propertyPath: m_Size.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5053713547924387804, guid: b4a6190ab81125243bb636d79e84fc72, type: 3}
+      propertyPath: m_Size.z
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5471802083789104684, guid: b4a6190ab81125243bb636d79e84fc72, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10656,7 +10676,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5471802083789104684, guid: b4a6190ab81125243bb636d79e84fc72, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.91
+      value: 5.16
       objectReference: {fileID: 0}
     - target: {fileID: 5471802083789104684, guid: b4a6190ab81125243bb636d79e84fc72, type: 3}
       propertyPath: m_LocalPosition.z
