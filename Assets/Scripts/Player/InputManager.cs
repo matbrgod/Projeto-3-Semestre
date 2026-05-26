@@ -159,10 +159,12 @@ public class InputManager : MonoBehaviour
             if (!pauseManager.isPaused)
             {
                 pauseManager.PauseGame();
+                pauseInput = false;
             }
-            else if (pauseInput && pauseManager.isPaused)
+            else //if (pauseInput && pauseManager.isPaused)
             {
                 pauseManager.ResumeGame();
+                pauseInput = false;
             }
         }
     }

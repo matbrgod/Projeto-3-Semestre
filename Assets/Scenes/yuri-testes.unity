@@ -6258,6 +6258,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1129999906 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5518984752949150835, guid: 72614be3c6c73b44aa5fab68c165dddf, type: 3}
+  m_PrefabInstance: {fileID: 2839907235288011396}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1129999911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1129999906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2aaf3926e56b9b42a116b9dd8e9bbdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VolumeSettings
+  audioMix: {fileID: 24100000, guid: 8ea9b45e58579184ca34bdd0f022e44d, type: 2}
+  masterSlider: {fileID: 0}
+  musicSlider: {fileID: 0}
+  sfxSlider: {fileID: 0}
 --- !u!1 &1185800159
 GameObject:
   m_ObjectHideFlags: 0
@@ -10410,9 +10431,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 9449bf7445add364099dffcce12d62cb, type: 3}
     - target: {fileID: 905827939575806328, guid: ea6a85096f356a041a95d9467960d049, type: 3}
-      propertyPath: bgMusic
+      propertyPath: gameBg
       value: 
       objectReference: {fileID: 8300000, guid: 631b1702899f12f4787890ce6c4912b3, type: 3}
+    - target: {fileID: 905827939575806328, guid: ea6a85096f356a041a95d9467960d049, type: 3}
+      propertyPath: menuBg
+      value: 
+      objectReference: {fileID: 8300000, guid: 52e62089777204e4d87d2edeaf2ef836, type: 3}
     - target: {fileID: 905827939575806328, guid: ea6a85096f356a041a95d9467960d049, type: 3}
       propertyPath: jumpSfx
       value: 
@@ -10425,14 +10450,6 @@ PrefabInstance:
       propertyPath: stepSfx
       value: 
       objectReference: {fileID: 8300000, guid: 18e761ff5ef14fd4588d9283fcc9b829, type: 3}
-    - target: {fileID: 905827939575806328, guid: ea6a85096f356a041a95d9467960d049, type: 3}
-      propertyPath: jumpLandSfx
-      value: 
-      objectReference: {fileID: 8300000, guid: 54cd8769272b7ca4c9a1386d106f621d, type: 3}
-    - target: {fileID: 905827939575806328, guid: ea6a85096f356a041a95d9467960d049, type: 3}
-      propertyPath: jumpStartSfx
-      value: 
-      objectReference: {fileID: 8300000, guid: 2642ca70ae8c186489090a89cce4e395, type: 3}
     - target: {fileID: 1976802468454611164, guid: ea6a85096f356a041a95d9467960d049, type: 3}
       propertyPath: m_LocalPosition.x
       value: 639.8272
@@ -10476,10 +10493,6 @@ PrefabInstance:
     - target: {fileID: 4419510354474284915, guid: ea6a85096f356a041a95d9467960d049, type: 3}
       propertyPath: m_Name
       value: AudioManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 4419510354474284915, guid: ea6a85096f356a041a95d9467960d049, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6154801391796071801, guid: ea6a85096f356a041a95d9467960d049, type: 3}
       propertyPath: Loop
@@ -10943,7 +10956,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5518984752949150835, guid: 72614be3c6c73b44aa5fab68c165dddf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1129999911}
   m_SourcePrefab: {fileID: 100100000, guid: 72614be3c6c73b44aa5fab68c165dddf, type: 3}
 --- !u!1001 &3544237852008841122
 PrefabInstance:

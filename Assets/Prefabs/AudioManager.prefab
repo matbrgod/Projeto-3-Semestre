@@ -48,9 +48,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
   musicSource: {fileID: 6154801391796071801}
   sfxSource: {fileID: 8603107149876289456}
-  bgMusic: {fileID: 0}
-  stepSfx: {fileID: 0}
-  btnSfx: {fileID: 0}
+  menuBg: {fileID: 8300000, guid: 52e62089777204e4d87d2edeaf2ef836, type: 3}
+  gameBg: {fileID: 8300000, guid: 631b1702899f12f4787890ce6c4912b3, type: 3}
+  stepSfx: {fileID: 8300000, guid: 18e761ff5ef14fd4588d9283fcc9b829, type: 3}
+  jumpSfx: {fileID: 8300000, guid: 2642ca70ae8c186489090a89cce4e395, type: 3}
+  landSfx: {fileID: 8300000, guid: 54cd8769272b7ca4c9a1386d106f621d, type: 3}
+  btnSfx: {fileID: 8300000, guid: 9449bf7445add364099dffcce12d62cb, type: 3}
 --- !u!1 &6132971533356433338
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,13 +95,13 @@ AudioSource:
   m_GameObject: {fileID: 6132971533356433338}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -810483049749032650, guid: 8ea9b45e58579184ca34bdd0f022e44d, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -221,10 +224,10 @@ AudioSource:
   m_GameObject: {fileID: 6415980123373411822}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -5541633012817091851, guid: 8ea9b45e58579184ca34bdd0f022e44d, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
