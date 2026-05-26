@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -9,11 +11,15 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource sfxSource;
 
     [Header("Audio Clips")]
-    public AudioClip bgMusic;
+    public AudioClip menuBg;
+    public AudioClip gameBg;
     public AudioClip stepSfx;
     public AudioClip jumpSfx;
     public AudioClip landSfx;
     public AudioClip btnSfx;
+    AudioClip bgMusic;
+
+    string cena;
 
     private void Awake()
     {
@@ -32,15 +38,44 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        UpdateMusic();
+
         musicSource = GetComponentInChildren<AudioSource>();
         sfxSource = GetComponentInChildren<AudioSource>();
+    }
 
-        if (bgMusic != null) musicSource.clip = bgMusic;
-        if (bgMusic != null) musicSource.Play();
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        UpdateMusic();
+    }
+
+    public void UpdateMusic()
+    {
+        cena = SceneManager.GetActiveScene().name.ToLower();
+
+        if (cena.Contains("menu"))
+            bgMusic = menuBg;
+        else if (cena.Contains("yuri-testes"))
+            bgMusic = gameBg;
+
+        PlayMusic(bgMusic);
     }
 
     public void PlaySfx(AudioClip clip)
     {
         sfxSource.PlayOneShot(clip);
+    }
+
+    public void PlayMusic(AudioClip clip)
+    {
+        if(musicSource == null) return;
+
+        if(musicSource.clip != clip)
+        {
+            musicSource.Stop();
+            musicSource.clip = clip;
+            musicSource.Play();
+        }
     }
 }

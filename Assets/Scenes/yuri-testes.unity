@@ -10629,6 +10629,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 334587839104932612, guid: b4a6190ab81125243bb636d79e84fc72, type: 3}
+      propertyPath: waitToSpeak
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 334587839104932612, guid: b4a6190ab81125243bb636d79e84fc72, type: 3}
       propertyPath: endMonologue
       value: 1
       objectReference: {fileID: 0}

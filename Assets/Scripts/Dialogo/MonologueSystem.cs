@@ -21,10 +21,18 @@ public class MonologueSystem : MonoBehaviour
     public Monologue monologueData;
 
     public float speachVel = 3f;
-    public float endMonologue = 1f;
+    public float waitToSpeak = 1f;
 
-    private int monologueIndex = 0;
+    [SerializeField] private int monologueIndex = 0;
     public bool isMonologueActive, isTyping = false;
+
+    private void Update()
+    {
+        if (monologueIndex > monologueData.monologueLines.Count)
+        {
+            EndMonologue();
+        }
+    }
 
     public void HandleMonologue()
     {
@@ -35,6 +43,7 @@ public class MonologueSystem : MonoBehaviour
     {
         monologuePanel.SetActive(true);
 
+        monologueIndex = 0;
         isMonologueActive = true;
         monologueData = monologue;
 
@@ -43,10 +52,10 @@ public class MonologueSystem : MonoBehaviour
 
     public void NextLine()
     {
-        if (monologueData.monologueLines[monologueIndex].line == "")
-        {
-            Debug.LogWarning($"A fala {monologueIndex} tá vazia");
-        }
+        //if (monologueData.monologueLines[monologueIndex].line == "")
+        //{
+        //    Debug.LogWarning($"A fala {monologueIndex} tá vazia");
+        //}
 
         MonologueLines currentLine = monologueData.monologueLines[monologueIndex];
         StartCoroutine(TypeLine(currentLine));
@@ -54,11 +63,7 @@ public class MonologueSystem : MonoBehaviour
 
     IEnumerator TypeLine(MonologueLines line)
     {
-        if (monologueIndex++ > monologueData.monologueLines.Count)
-        {
-            yield return new WaitForSeconds(endMonologue);
-            EndMonologue();
-        }
+        int index = monologueIndex + 1;
 
         isTyping = true;
         monologueTxt.SetText("");
@@ -69,8 +74,15 @@ public class MonologueSystem : MonoBehaviour
             yield return new WaitForSeconds(speachVel);
         }
         
-        if (monologueIndex++ <= monologueData.monologueLines.Count)
+        yield return new WaitForSeconds(waitToSpeak);
+
+        if (index >= monologueData.monologueLines.Count)
         {
+            EndMonologue();
+        }
+        else //(monologueIndex++ <= monologueData.monologueLines.Count)
+        {
+            monologueIndex++;
             NextLine();
         }
     }
