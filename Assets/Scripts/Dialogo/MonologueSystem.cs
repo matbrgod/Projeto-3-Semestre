@@ -21,10 +21,18 @@ public class MonologueSystem : MonoBehaviour
     public Monologue monologueData;
 
     public float speachVel = 3f;
-    public float endMonologue = 3f;
+    public float waitToSpeak = 1f;
 
-    private int monologueIndex = 0;
+    [SerializeField] private int monologueIndex = 0;
     public bool isMonologueActive, isTyping = false;
+
+    private void Update()
+    {
+        if (monologueIndex > monologueData.monologueLines.Count)
+        {
+            EndMonologue();
+        }
+    }
 
     public void HandleMonologue()
     {
@@ -35,6 +43,7 @@ public class MonologueSystem : MonoBehaviour
     {
         monologuePanel.SetActive(true);
 
+        monologueIndex = 0;
         isMonologueActive = true;
         monologueData = monologue;
 
@@ -43,21 +52,19 @@ public class MonologueSystem : MonoBehaviour
 
     public void NextLine()
     {
-        if (monologueIndex > monologueData.monologueLines.Count) EndMonologue();
-
-        if (monologueData.monologueLines[monologueIndex].line == "")
-        {
-            Debug.LogWarning($"A fala {monologueIndex} tá vazia");
-        }
+        //if (monologueData.monologueLines[monologueIndex].line == "")
+        //{
+        //    Debug.LogWarning($"A fala {monologueIndex} tá vazia");
+        //}
 
         MonologueLines currentLine = monologueData.monologueLines[monologueIndex];
-
         StartCoroutine(TypeLine(currentLine));
-        monologueIndex++;
     }
 
     IEnumerator TypeLine(MonologueLines line)
     {
+        int index = monologueIndex + 1;
+
         isTyping = true;
         monologueTxt.SetText("");
 
@@ -66,13 +73,14 @@ public class MonologueSystem : MonoBehaviour
             monologueTxt.text += letter;
             yield return new WaitForSeconds(speachVel);
         }
+        
+        yield return new WaitForSeconds(waitToSpeak);
 
-        if (monologueIndex++ > monologueData.monologueLines.Count)
+        if (index >= monologueData.monologueLines.Count)
         {
-            yield return new WaitForSeconds(endMonologue);
             EndMonologue();
         }
-        else
+        else //(monologueIndex++ <= monologueData.monologueLines.Count)
         {
             monologueIndex++;
             NextLine();
@@ -81,12 +89,12 @@ public class MonologueSystem : MonoBehaviour
 
     public void EndMonologue()
     {
-        StopAllCoroutines();
-        monologueIndex = 0;
         monologuePanel.SetActive(false);
+        this.gameObject.SetActive(false);
+        monologueIndex = 0;
         isMonologueActive = false;
         isTyping = false;
-        this.gameObject.SetActive(false);
+        StopAllCoroutines();
     }
 
     private void OnTriggerEnter(Collider other)
