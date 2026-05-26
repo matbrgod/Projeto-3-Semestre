@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
     Vector3 playerVel;
 
     [Header("Refer�ncias")]
-    Transform cameraObj;
+    public Transform cameraObj;
     Rigidbody playerRb;
 
     InputManager inputManager;
