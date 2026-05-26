@@ -4,6 +4,9 @@ public class PauseManager : MonoBehaviour
 {
     AudioManager audioManager;
     InputManager inputManager;
+    public GameObject cameraManager;
+
+    float camMoveSpeed;
 
     [Header("Telas")]
     public GameObject pauseScreen;
@@ -16,6 +19,10 @@ public class PauseManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         inputManager = GameObject.FindWithTag("Player").GetComponent<InputManager>();
+        cameraManager = GameObject.Find("CameraManager");
+
+        camMoveSpeed = cameraManager.GetComponent<CameraManager>().camLookSpeed;
+
         isPaused = false;
         pauseScreen.SetActive(false);
     }
@@ -66,6 +73,9 @@ public class PauseManager : MonoBehaviour
 
     public void ResumeGame()
     {
+        inputManager.playerControl.PlayerMove.Enable();
+        cameraManager.GetComponent<CameraManager>().camLookSpeed = camMoveSpeed;
+        cameraManager.GetComponent<CameraManager>().camPivotSpeed = camMoveSpeed;
         isPaused = false;
         pauseScreen.SetActive(isPaused);
         Cursor.visible = false;
@@ -75,7 +85,9 @@ public class PauseManager : MonoBehaviour
     public void PauseGame()
     {
         isPaused = true;
-        inputManager.playerControl.Disable();
+        inputManager.playerControl.PlayerMove.Disable();
+        cameraManager.GetComponent<CameraManager>().camLookSpeed = 0f;
+        cameraManager.GetComponent<CameraManager>().camPivotSpeed = 0f;
         pauseScreen.SetActive(isPaused);
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;

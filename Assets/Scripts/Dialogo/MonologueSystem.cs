@@ -101,6 +101,7 @@ public class MonologueSystem : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            gameObject.GetComponent<BoxCollider>().enabled = false;
             HandleMonologue();
         }
     }
