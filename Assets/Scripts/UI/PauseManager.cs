@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class PauseManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PauseManager : MonoBehaviour
 
     [Header("Telas")]
     public GameObject pauseScreen;
+    public GameObject optionsScreen;
     [SerializeField] GameObject quitScreen;
 
     public bool isPaused;
@@ -49,6 +51,12 @@ public class PauseManager : MonoBehaviour
         ResumeGame();
     }
 
+    public void BtnOptions()
+    {
+        pauseScreen.SetActive(false);
+        optionsScreen.SetActive(true);
+    }
+
     void BtnSaveAndQuit()
     {
         if (audioManager != null) audioManager.PlaySfx(audioManager.btnSfx);
@@ -58,7 +66,13 @@ public class PauseManager : MonoBehaviour
     {
         if (audioManager != null) audioManager.PlaySfx(audioManager.btnSfx);
         pauseScreen.SetActive(false);
-        quitScreen.SetActive(true);
+        if (quitScreen != null) quitScreen.SetActive(true);
+    }
+
+    public void BtnReturn()
+    {
+        pauseScreen.SetActive(true);
+        optionsScreen.SetActive(false);
     }
 
     void BtnDontSave()
@@ -78,6 +92,7 @@ public class PauseManager : MonoBehaviour
         cameraManager.GetComponent<CameraManager>().camPivotSpeed = camMoveSpeed;
         isPaused = false;
         pauseScreen.SetActive(isPaused);
+        optionsScreen.SetActive(isPaused);
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -89,6 +104,7 @@ public class PauseManager : MonoBehaviour
         cameraManager.GetComponent<CameraManager>().camLookSpeed = 0f;
         cameraManager.GetComponent<CameraManager>().camPivotSpeed = 0f;
         pauseScreen.SetActive(isPaused);
+        optionsScreen.SetActive(false);
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }

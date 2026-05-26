@@ -4294,7 +4294,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Em breve aqui ter\xE1 informa\xE7\xF5es\n"
+  m_text: "Movimenta\xE7\xE3o:\nWASD\nC\xE2mera:\nMouse\nIntera\xE7\xE3o:\nE\nPulo:\nEspa\xE7o"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9bfa3fd25bb54a74898dc52d4f3aa5d0, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 9bfa3fd25bb54a74898dc52d4f3aa5d0, type: 2}
