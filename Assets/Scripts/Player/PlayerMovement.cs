@@ -165,6 +165,7 @@ public class PlayerMovement : MonoBehaviour
         //reconstru��o parcial da interrup��o do movimento
 
         playerRb.linearVelocity = moveVelocity;
+        //if (audioManager != null && ) audioManager.PlaySfx(audioManager.stepSfx);
     }
 
     private void HandleRotation()
@@ -217,7 +218,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (!isGrounded && playerManager.isInteracting)
             {
-                //if (audioManager != null && playerManager.isInteracting) audioManager.PlaySfx(audioManager.landSfx);
+                if (audioManager != null && !isJumping) audioManager.PlaySfx(audioManager.landSfx);
                 animManager.PlayTargetAnimation("Land", true);
             }
 
