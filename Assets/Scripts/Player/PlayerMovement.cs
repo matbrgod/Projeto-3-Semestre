@@ -6,12 +6,13 @@ public class PlayerMovement : MonoBehaviour
     Vector3 playerVel;
 
     [Header("Refer�ncias")]
-    Transform cameraObj;
+    public Transform cameraObj;
     Rigidbody playerRb;
 
     InputManager inputManager;
     PlayerManager playerManager;
     AnimatorManager animManager;
+    AudioManager audioManager;
 
     [Header("Flag de Movimento")]
     public bool isGrounded;
@@ -65,6 +66,7 @@ public class PlayerMovement : MonoBehaviour
         playerManager = GetComponent<PlayerManager>();
         animManager = GetComponent<AnimatorManager>();
         playerRb = GetComponent<Rigidbody>();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
 
         cameraObj = Camera.main.transform;
 
@@ -200,8 +202,6 @@ public class PlayerMovement : MonoBehaviour
             inAirTimer += Time.deltaTime;
             //reconstru��o da for�a que aumenta a intensidade da gravidade durante o tempo no ar
             //e aplica��o dela somente ap�s o segundo pulo ou passado determinado tempo caindo
-            //playerRb.AddForce(transform.forward * leapingVel);
-            //playerRb.AddForce(Vector3.down * fallingVel * inAirTimer);
             if (jumpCounter > 1 || inAirTimer > 0.3f)
             {
                 playerRb.AddForce(Physics.gravity * inAirTimer * fallingVel);
@@ -213,6 +213,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (!isGrounded && playerManager.isInteracting)
             {
+                //if (audioManager != null && playerManager.isInteracting) audioManager.PlaySfx(audioManager.landSfx);
                 animManager.PlayTargetAnimation("Land", true);
             }
 
@@ -242,6 +243,7 @@ public class PlayerMovement : MonoBehaviour
             playerVel = moveDirection;
             playerVel.y = jumpingVel;
             playerRb.linearVelocity = playerVel;
+            if (audioManager != null) audioManager.PlaySfx(audioManager.jumpSfx);
         }
         else if (jumpCounter < 2 && canDoubleJump) // condicional do pulo duplo
         {
@@ -290,11 +292,4 @@ public class PlayerMovement : MonoBehaviour
             dash = false;
         }
     }
-
-    //private void OnDrawGizmos()//gizmo para visualizar as esferas de colis�o
-    //{
-    //    Gizmos.color = Color.yellow;
-    //    Gizmos.DrawWireSphere(transform.position, sphereCastRadius);
-    //    //Gizmos.DrawWireSphere(transform.position, frontRaycastRadius);
-    //}
 }

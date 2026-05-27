@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class InputManager : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class InputManager : MonoBehaviour
     PlayerRespawn playerRespawn;
     PlayerInteract playerInteract;
     DialogueManager dialogueManager;
+    PauseManager pauseManager;
+    AudioManager audioManager;
 
     [Header("Vetores dos Inputs")]
     public Vector3 moveInput;
@@ -21,6 +24,7 @@ public class InputManager : MonoBehaviour
     public float camXInput;
     public float camYInput;
     public float moveAmout;
+    public float respawnCounter = 3f;
 
     [Header("Flags dos Inputs")]
     public bool jumpInput;
@@ -28,8 +32,12 @@ public class InputManager : MonoBehaviour
     public bool dashInput;
     public bool pauseInput;
     public bool interactInput;
+    public bool respawnInput;
+    public bool progressionInput;
 
-    bool isPaused;
+    public float time;
+    public GameObject img;
+    public Image imgFill;
 
     private void Awake()
     {
@@ -37,8 +45,14 @@ public class InputManager : MonoBehaviour
         playerMove = GetComponent<PlayerMovement>();
         playerInteract = GetComponent<PlayerInteract>();
         dialogueManager = FindFirstObjectByType<DialogueManager>();
+        playerRespawn = GetComponent<PlayerRespawn>();
+        pauseManager = FindFirstObjectByType<PauseManager>();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
-        isPaused = false;
+    private void Update()
+    {
+        if (img != null) imgFill.fillAmount = time;
     }
 
     private void OnEnable()
@@ -63,7 +77,11 @@ public class InputManager : MonoBehaviour
             playerControl.PlayerActions.Pause.performed += i => pauseInput = true; // input de pause
 
             playerControl.PlayerActions.Interact.performed += i => interactInput = true; // input de interação
-            //playerControl.PlayerActions.Interact.canceled += i => interactInput = false;
+
+            playerControl.PlayerActions.Respawn.performed += i => respawnInput = true; // input de respawn
+            playerControl.PlayerActions.Respawn.canceled += i => respawnInput = false;
+
+            playerControl.PlayerActions.Progression.performed += i => progressionInput = true; // input para abrir a UI do contador de conhecimento
         }
 
         playerControl.Enable(); // habilita o input system do jogador
@@ -84,7 +102,9 @@ public class InputManager : MonoBehaviour
 
         //inputs diversos
         HandlePauseInput();
+        HandleRespawnInput();
         HandleInteractInput();
+        HandleProgressionUiInput();
     }
 
     private void HandleMovementInput()
@@ -94,6 +114,7 @@ public class InputManager : MonoBehaviour
 
         moveAmout = Mathf.Clamp01(Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput));
         animManager.UpdateAnimatorValues(0, moveAmout, playerMove.isSprinting);
+        //if (audioManager != null) audioManager.PlaySfx(audioManager.stepSfx);
 
         camYInput = camInput.y;
         camXInput = camInput.x;
@@ -135,20 +156,45 @@ public class InputManager : MonoBehaviour
     {
         if (pauseInput)
         {
-            if (!isPaused)
+            if (!pauseManager.isPaused)
             {
-                isPaused = true;
-                Cursor.visible = isPaused;
-                Cursor.lockState = CursorLockMode.None;
-                //pauseScreen.SetActive(true);
+                pauseManager.PauseGame();
+                pauseInput = false;
             }
-            else
+            else //if (pauseInput && pauseManager.isPaused)
             {
-                isPaused = false;
-                Cursor.visible = isPaused;
-                Cursor.lockState = CursorLockMode.Locked;
-                //pauseScreen.SetActive(false);
+                pauseManager.ResumeGame();
+                pauseInput = false;
             }
+        }
+    }
+
+    private void HandleRespawnInput()
+    {
+        if (respawnInput)
+        {
+            img.gameObject.SetActive(true);
+            time += Time.deltaTime;
+            //img.fillAmount = time;
+            if (time >= respawnCounter)
+            {
+                playerRespawn.RespawnPlayer();
+                respawnInput = false;
+            }
+        }
+        else
+        {
+            time = 0f;
+            img.gameObject.SetActive(false);
+        }
+    }
+
+    private void HandleProgressionUiInput()
+    {
+        if (progressionInput)
+        {
+            StartCoroutine(playerInteract.OpenProgressionUi());
+            progressionInput = false;
         }
     }
 
@@ -159,6 +205,10 @@ public class InputManager : MonoBehaviour
             if (playerInteract.canInteract && !dialogueManager.isDialogueActive)
             {
                 playerInteract.HandleStoneInteract();
+            }
+            else if(playerInteract.canInteract && dialogueManager.isDialogueActive)
+            {
+                dialogueManager.EndDialogue();
             }
             if (playerInteract.shrineObj != null && playerInteract.miniShrine)
             {
