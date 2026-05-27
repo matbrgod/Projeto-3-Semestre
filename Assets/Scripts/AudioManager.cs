@@ -56,7 +56,7 @@ public class AudioManager : MonoBehaviour
 
         if (cena.Contains("menu"))
             bgMusic = menuBg;
-        else if (cena.Contains("yuri-testes"))
+        else if (cena.Contains("yuri-testes") || cena.Contains("blocagem_matheus"))
             bgMusic = gameBg;
 
         PlayMusic(bgMusic);
