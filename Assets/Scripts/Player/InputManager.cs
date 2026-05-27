@@ -109,6 +109,7 @@ public class InputManager : MonoBehaviour
 
     private void HandleMovementInput()
     {
+        playerMove.isWalking = playerControl.PlayerMove.Movement.IsPressed();
         verticalInput = moveInput.y;
         horizontalInput = moveInput.x;
 
@@ -176,16 +177,17 @@ public class InputManager : MonoBehaviour
             img.gameObject.SetActive(true);
             time += Time.deltaTime;
             //img.fillAmount = time;
+            if(playerMove.isSprinting || playerMove.isWalking || playerMove.isJumping) respawnInput = false;
             if (time >= respawnCounter)
             {
                 playerRespawn.RespawnPlayer();
-                respawnInput = false;
             }
+            respawnInput = false;
         }
         else
         {
-            time = 0f;
             img.gameObject.SetActive(false);
+            time = 0f;
         }
     }
 

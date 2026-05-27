@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isGrounded;
     public bool isJumping;
     public bool isSprinting;
+    public bool isWalking;
     public bool dash;
     public bool doubleJump;
     public bool canDoubleJump;
