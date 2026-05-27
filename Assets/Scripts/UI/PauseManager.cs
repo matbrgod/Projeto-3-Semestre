@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class PauseManager : MonoBehaviour
 {
@@ -62,11 +63,12 @@ public class PauseManager : MonoBehaviour
         if (audioManager != null) audioManager.PlaySfx(audioManager.btnSfx);
     }
 
-    void BtnQuitToMenu()
+     public void BtnQuitToMenu()
     {
         if (audioManager != null) audioManager.PlaySfx(audioManager.btnSfx);
         pauseScreen.SetActive(false);
         if (quitScreen != null) quitScreen.SetActive(true);
+        else SceneManager.LoadScene("menu");
     }
 
     public void BtnReturn()
