@@ -49,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
     public float raycastMaxDistance = 0.5f; // dist�ncia que verifica pra andar (tentativa de mexer no bug da anima��o)
     public float frontRaycastRadius = 0.2f; // raio do raycast da colis�o com paredes
     public LayerMask wallLayer;
+    public PhysicsMaterial noFrictionMat; // material f�sico sem atrito para aplicar nas paredes
 
     [Header("Velocidade de Movimento")]
     public float walkSpeed = 1.5f;
@@ -72,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
 
         dashCdTimer = dashCooldown;
 
-        canDash = true;
+        //canDash = true;
         canDoubleJump = true;
 
         isGrounded = true;
@@ -113,6 +114,8 @@ public class PlayerMovement : MonoBehaviour
             moveDirection.x = 0;
             moveDirection.y = 0;
             moveDirection.z = 0;
+
+            hit.collider.material = noFrictionMat; 
         }
 
         //removido a manipula��o do vetor da gravidade manual e substitu�da no fallAndJump pela gravidade
