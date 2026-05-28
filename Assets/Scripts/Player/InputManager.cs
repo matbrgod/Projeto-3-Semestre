@@ -109,13 +109,12 @@ public class InputManager : MonoBehaviour
 
     private void HandleMovementInput()
     {
-        playerMove.isWalking = playerControl.PlayerMove.Movement.IsPressed();
+        //playerMove.isWalking = playerControl.PlayerMove.Movement.IsPressed();
         verticalInput = moveInput.y;
         horizontalInput = moveInput.x;
 
         moveAmout = Mathf.Clamp01(Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput));
         animManager.UpdateAnimatorValues(0, moveAmout, playerMove.isSprinting);
-        //if (audioManager != null) audioManager.PlaySfx(audioManager.stepSfx);
 
         camYInput = camInput.y;
         camXInput = camInput.x;
@@ -176,8 +175,6 @@ public class InputManager : MonoBehaviour
         {
             img.gameObject.SetActive(true);
             time += Time.deltaTime;
-            //img.fillAmount = time;
-            if(playerMove.isSprinting || playerMove.isWalking || playerMove.isJumping) respawnInput = false;
             if (time >= respawnCounter)
             {
                 playerRespawn.RespawnPlayer();
