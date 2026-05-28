@@ -1,0 +1,33 @@
+{
+	"dialogues": [
+		{
+			"npcName": "Fred",
+			"nodes": [
+				{
+					"nodeId": "inicio",
+					"npcTxt": "olá viajante! Tudo bem?",
+					"choices": [
+						{
+							"choiceTxt": "Sim",
+							"nextNodeId": "sim_node"
+						},
+						{
+							"choiceTxt": "Não",
+							"nextNodeId": "nao_node"
+						}
+					]
+				},
+				{
+					"nodeId": "sim_node",
+					"npcTxt": "Que ótimo! Fico muito feliz!",
+					"choices": []
+				},
+				{
+					"nodeId": "nao_node",
+					"npcTxt": "Que pena, caso eu possa ajudar pode me procurar!",
+					"choices": []
+				}
+			]
+		}
+	]
+}

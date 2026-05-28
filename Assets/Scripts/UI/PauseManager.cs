@@ -1,0 +1,113 @@
+using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
+
+public class PauseManager : MonoBehaviour
+{
+    AudioManager audioManager;
+    InputManager inputManager;
+    public GameObject cameraManager;
+
+    float camMoveSpeed;
+
+    [Header("Telas")]
+    public GameObject pauseScreen;
+    public GameObject optionsScreen;
+    [SerializeField] GameObject quitScreen;
+
+    public bool isPaused;
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        inputManager = GameObject.FindWithTag("Player").GetComponent<InputManager>();
+        cameraManager = GameObject.Find("CameraManager");
+
+        camMoveSpeed = cameraManager.GetComponent<CameraManager>().camLookSpeed;
+
+        isPaused = false;
+        pauseScreen.SetActive(false);
+    }
+
+    public void OpenScreen(int tela)
+    {
+        switch (tela)
+        {
+            case 0:
+                BtnResume();
+                break;
+            case 1:
+                BtnSaveAndQuit();
+                break;
+            case 2:
+                BtnQuitToMenu();
+                break;
+        }
+    }
+
+    public void BtnResume()
+    {
+        if (audioManager != null) audioManager.PlaySfx(audioManager.btnSfx);
+        ResumeGame();
+    }
+
+    public void BtnOptions()
+    {
+        pauseScreen.SetActive(false);
+        optionsScreen.SetActive(true);
+    }
+
+    void BtnSaveAndQuit()
+    {
+        if (audioManager != null) audioManager.PlaySfx(audioManager.btnSfx);
+    }
+
+     public void BtnQuitToMenu()
+    {
+        if (audioManager != null) audioManager.PlaySfx(audioManager.btnSfx);
+        pauseScreen.SetActive(false);
+        if (quitScreen != null) quitScreen.SetActive(true);
+        else SceneManager.LoadScene("menu");
+    }
+
+    public void BtnReturn()
+    {
+        pauseScreen.SetActive(true);
+        optionsScreen.SetActive(false);
+    }
+
+    void BtnDontSave()
+    {
+
+    }
+
+    void Save()
+    {
+
+    }
+
+    public void ResumeGame()
+    {
+        inputManager.playerControl.PlayerMove.Enable();
+        cameraManager.GetComponent<CameraManager>().camLookSpeed = camMoveSpeed;
+        cameraManager.GetComponent<CameraManager>().camPivotSpeed = camMoveSpeed;
+        isPaused = false;
+        pauseScreen.SetActive(isPaused);
+        optionsScreen.SetActive(isPaused);
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    public void PauseGame()
+    {
+        isPaused = true;
+        inputManager.playerControl.PlayerMove.Disable();
+        cameraManager.GetComponent<CameraManager>().camLookSpeed = 0f;
+        cameraManager.GetComponent<CameraManager>().camPivotSpeed = 0f;
+        pauseScreen.SetActive(isPaused);
+        optionsScreen.SetActive(false);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+}
