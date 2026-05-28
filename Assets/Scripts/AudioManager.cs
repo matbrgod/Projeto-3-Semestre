@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
+    PlayerMovement playerMove;
 
     [Header("Audio Source")]
     [SerializeField] AudioSource musicSource;
@@ -20,6 +21,7 @@ public class AudioManager : MonoBehaviour
     AudioClip bgMusic;
 
     string cena;
+    public bool waitForStep;
 
     private void Awake()
     {
@@ -43,6 +45,7 @@ public class AudioManager : MonoBehaviour
 
         musicSource = GetComponentInChildren<AudioSource>();
         sfxSource = GetComponentInChildren<AudioSource>();
+        playerMove = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -76,6 +79,23 @@ public class AudioManager : MonoBehaviour
             musicSource.Stop();
             musicSource.clip = clip;
             musicSource.Play();
+        }
+    }
+
+    //public void TakeStep()
+    //{
+    //    Play
+    //}
+
+    public IEnumerator HandleSteps()
+    {
+        while (playerMove.isWalking)
+        {
+            //TakeStep();
+            sfxSource.PlayOneShot(stepSfx);
+            waitForStep = true;
+            yield return new WaitForSeconds(playerMove.moveSpeed);
+            waitForStep = false;
         }
     }
 }

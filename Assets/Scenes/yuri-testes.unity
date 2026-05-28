@@ -8587,7 +8587,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 89867936039907649, guid: e7cca1d02c565394f8418ec93c115b68, type: 3}
       propertyPath: respawnCounter
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2648050143128994830, guid: e7cca1d02c565394f8418ec93c115b68, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10811,6 +10811,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 474421900}
+    - target: {fileID: 2645504891010297275, guid: 72614be3c6c73b44aa5fab68c165dddf, type: 3}
+      propertyPath: m_FillAmount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2710476606549746576, guid: 72614be3c6c73b44aa5fab68c165dddf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

@@ -78,7 +78,8 @@ public class InputManager : MonoBehaviour
 
             playerControl.PlayerActions.Interact.performed += i => interactInput = true; // input de interação
 
-            playerControl.PlayerActions.Respawn.performed += i => respawnInput = true; // input de respawn
+            //respawnInput = playerControl.PlayerActions.Respawn.IsPressed(); // input de respawn
+            playerControl.PlayerActions.Respawn.performed += i => respawnInput = true;
             playerControl.PlayerActions.Respawn.canceled += i => respawnInput = false;
 
             playerControl.PlayerActions.Progression.performed += i => progressionInput = true; // input para abrir a UI do contador de conhecimento
@@ -178,10 +179,11 @@ public class InputManager : MonoBehaviour
             if (time >= respawnCounter)
             {
                 playerRespawn.RespawnPlayer();
+                respawnInput = false;
             }
-            respawnInput = false;
+            //respawnInput = false;
         }
-        else
+        else if (!respawnInput)
         {
             img.gameObject.SetActive(false);
             time = 0f;

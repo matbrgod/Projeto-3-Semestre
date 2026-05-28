@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -57,6 +58,7 @@ public class PlayerMovement : MonoBehaviour
     public float runSpeed = 5f;
     public float sprintSpeed = 7f;
     public float rotationSpeed = 15f;
+    [HideInInspector] public float moveSpeed;
 
     [Header("Velocidade de Pulo e Gravidade")]
     public float jumpHeight = 3f;
@@ -134,6 +136,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleMovement()
     {
+        isWalking = inputManager.playerControl.PlayerMove.Movement.IsPressed();
+
         // usa a dire��o da c�mera para determinar a dire��o que o jogador vai andar
         moveDirection = cameraObj.forward * inputManager.verticalInput;
         moveDirection = moveDirection + cameraObj.right * inputManager.horizontalInput;
@@ -143,16 +147,19 @@ public class PlayerMovement : MonoBehaviour
         if (isSprinting)
         {
             moveDirection = moveDirection * sprintSpeed;
+            moveSpeed = 0.2f;
         }
         else
         {
             if (inputManager.moveAmout >= 0.5f)
             {
                 moveDirection = moveDirection * runSpeed;
+                moveSpeed = 0.4f;
             }
             else
             {
                 moveDirection = moveDirection * walkSpeed;
+                moveSpeed = 0.75f;
             }
         }
 
@@ -165,7 +172,18 @@ public class PlayerMovement : MonoBehaviour
         //reconstru��o parcial da interrup��o do movimento
 
         playerRb.linearVelocity = moveVelocity;
-        //if (audioManager != null && ) audioManager.PlaySfx(audioManager.stepSfx);
+        if (audioManager != null)
+        {
+            if (isWalking && !audioManager.waitForStep)
+            {
+                StartCoroutine(audioManager.HandleSteps());
+            }
+            else if (!isWalking)
+            {
+                audioManager.waitForStep = false;
+                StopAllCoroutines();
+            }
+        }
     }
 
     private void HandleRotation()
