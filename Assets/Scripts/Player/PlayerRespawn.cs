@@ -7,11 +7,13 @@ public class PlayerRespawn : MonoBehaviour
     GameObject newRespawn;
     GameObject oldRespawn;
     public float spawnValue;
+    PlayerManager playerManager;
 
-    //private void Start()
-    //{
-    //    RespawnPlayer();
-    //}
+    private void Start()
+    {
+        //RespawnPlayer();
+        playerManager = GetComponent<PlayerManager>();
+    }
 
     private void Update()
     {
@@ -23,7 +25,9 @@ public class PlayerRespawn : MonoBehaviour
 
     public void RespawnPlayer()
     {
+        playerManager.enabled = false;
         transform.position = respawnPoint.position;
+        playerManager.enabled = true;
     }
 
     private void OnCollisionEnter(Collision collision)
