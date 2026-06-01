@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -53,6 +54,8 @@ public class InputManager : MonoBehaviour
     private void Update()
     {
         if (img != null) imgFill.fillAmount = time;
+
+        if (FadeManager.instance.fadeImage.color == new Color(1, 1, 1, 0)) StopAllCoroutines();
     }
 
     private void OnEnable()
@@ -123,7 +126,7 @@ public class InputManager : MonoBehaviour
 
     private void HandleJumpInput()
     {
-        if(jumpInput == true)
+        if(jumpInput)
         {
             playerMove.HandleJump();
             if (Keyboard.current.spaceKey.wasPressedThisFrame)
@@ -178,10 +181,9 @@ public class InputManager : MonoBehaviour
             time += Time.deltaTime;
             if (time >= respawnCounter)
             {
-                playerRespawn.RespawnPlayer();
+                StartCoroutine(HandleFadeIn());
                 respawnInput = false;
             }
-            //respawnInput = false;
         }
         else if (!respawnInput)
         {
@@ -217,5 +219,22 @@ public class InputManager : MonoBehaviour
             }
             interactInput = false;
         }
+    }
+
+    public IEnumerator HandleFadeIn()
+    {
+        FadeManager.instance.isInTransition = true;
+        FadeManager.instance.Fade(true, 0.25f);
+        yield return new WaitForSeconds(1f);
+        playerRespawn.RespawnPlayer();
+        yield return new WaitForSeconds(3f);
+    }
+
+    public IEnumerator HandleFadeOut()
+    {
+        yield return new WaitForSeconds(1f);
+        FadeManager.instance.Fade(false, 1f);
+        yield return new WaitForSeconds(1.5f);
+        FadeManager.instance.isInTransition = false;
     }
 }
