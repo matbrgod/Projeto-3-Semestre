@@ -1,3 +1,4 @@
+using NUnit.Framework.Constraints;
 using UnityEngine;
 
 public class girarDomo : MonoBehaviour
@@ -6,10 +7,24 @@ public class girarDomo : MonoBehaviour
     private float rotationSpeed = 50f; // degrees per second
 
     private float rotationZ = 0f;
+    public bool invertRotation = true;
 
-    void Update()
+    void Start()
     {
         rotationZ += rotationSpeed * Time.deltaTime;
-        transform.rotation = Quaternion.Euler(-90f, 0, rotationZ);
+        
+    }
+    void Update()
+    {
+        if (invertRotation)
+        {
+            rotationZ = -rotationZ;
+            transform.rotation = Quaternion.Euler(-90f, 0, -rotationZ);
+        }
+        else
+        {
+           
+            transform.rotation = Quaternion.Euler(-90f, 0, rotationZ);
+        }
     }
 }
