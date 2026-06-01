@@ -1,4 +1,5 @@
 using System.Collections;
+using System.IO;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -20,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isJumping;
     public bool isSprinting;
     public bool isWalking;
+    public bool canJump;
     public bool dash;
     public bool doubleJump;
     public bool canDoubleJump;
@@ -36,6 +38,8 @@ public class PlayerMovement : MonoBehaviour
     [Header("Pulo")]
     public int jumpCounter = 0;
     public int maxNumJumps = 2;
+    public float jumpCooldown = 2f;
+    private float jumpCdTimer;
 
     [Header("Dash")]
     public float dashForce;
@@ -75,7 +79,9 @@ public class PlayerMovement : MonoBehaviour
         cameraObj = Camera.main.transform;
 
         dashCdTimer = dashCooldown;
+        jumpCdTimer = jumpCooldown;
 
+        canJump = true;
         //canDash = true;
         canDoubleJump = true;
 
@@ -107,6 +113,7 @@ public class PlayerMovement : MonoBehaviour
 
         // cooldown do dash
         if (dash) HandleDashCd();
+        if (!canJump) HandleJumpCd();
 
         HandleFallAndLand();
         HandleRotation();
@@ -181,7 +188,7 @@ public class PlayerMovement : MonoBehaviour
             else if (!isWalking)
             {
                 audioManager.waitForStep = false;
-                StopAllCoroutines();
+                StopCoroutine(audioManager.HandleSteps());
             }
         }
     }
@@ -256,17 +263,22 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isGrounded) // condicional do pulo simples
         {
-            animManager.animator.SetBool("isJumping", true);
-            animManager.PlayTargetAnimation("Jump", false);
+            if (canJump)
+            {
+                canJump = false;
 
-            jumpCounter++;
+                animManager.animator.SetBool("isJumping", true);
+                animManager.PlayTargetAnimation("Jump", false);
 
-            float jumpingVel = Mathf.Sqrt(-2 * gravityIntensity * jumpHeight);
+                jumpCounter++;
 
-            playerVel = moveDirection;
-            playerVel.y = jumpingVel;
-            playerRb.linearVelocity = playerVel;
-            if (audioManager != null) audioManager.PlaySfx(audioManager.jumpSfx);
+                float jumpingVel = Mathf.Sqrt(-2 * gravityIntensity * jumpHeight);
+
+                playerVel = moveDirection;
+                playerVel.y = jumpingVel;
+                playerRb.linearVelocity = playerVel;
+                if (audioManager != null) audioManager.PlaySfx(audioManager.jumpSfx);
+            }
         }
         else if (jumpCounter < 2 && canDoubleJump) // condicional do pulo duplo
         {
@@ -313,6 +325,17 @@ public class PlayerMovement : MonoBehaviour
         {
             dashCdTimer = dashCooldown;
             dash = false;
+        }
+    }
+
+    public void HandleJumpCd()
+    {
+        if(jumpCdTimer > 0)
+            jumpCdTimer -= Time.deltaTime;
+        else if (jumpCdTimer <= 0)
+        {
+            jumpCdTimer = jumpCooldown;
+            canJump = true;
         }
     }
 }
