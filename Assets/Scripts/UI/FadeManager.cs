@@ -48,5 +48,6 @@ public class FadeManager : MonoBehaviour
         isInTransition = true;
         this.duration = duration;
         transition = (isShowing) ? 0 : 1;
+        inputManager.enabled = !showing;
     }
 }
