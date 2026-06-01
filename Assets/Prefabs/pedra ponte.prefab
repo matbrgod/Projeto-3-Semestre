@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8227236719153702713
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 53c96917ce9c8804ab796987c15e2f3f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 830.54034
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 53c96917ce9c8804ab796987c15e2f3f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.10280685
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 53c96917ce9c8804ab796987c15e2f3f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 666.0856
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 53c96917ce9c8804ab796987c15e2f3f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.49437734
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 53c96917ce9c8804ab796987c15e2f3f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.4943773
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 53c96917ce9c8804ab796987c15e2f3f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.50556016
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 53c96917ce9c8804ab796987c15e2f3f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.5055601
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 53c96917ce9c8804ab796987c15e2f3f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -89.98
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 53c96917ce9c8804ab796987c15e2f3f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 53c96917ce9c8804ab796987c15e2f3f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 91.281
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 53c96917ce9c8804ab796987c15e2f3f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 84fb5700e52a0e245a942421c8699ca8, type: 2}
+    - target: {fileID: 919132149155446097, guid: 53c96917ce9c8804ab796987c15e2f3f, type: 3}
+      propertyPath: m_Name
+      value: pedra ponte
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 53c96917ce9c8804ab796987c15e2f3f, type: 3}
