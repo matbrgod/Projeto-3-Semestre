@@ -117,7 +117,18 @@ public class InputManager : MonoBehaviour
         verticalInput = moveInput.y;
         horizontalInput = moveInput.x;
 
-        moveAmout = Mathf.Clamp01(Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput));
+        if (playerRespawn.isRespawning)
+        {
+            verticalInput = 0;
+            moveAmout = 0;
+            animManager.animator.SetBool("isIdle", true);
+        }
+        else if (!playerRespawn.isRespawning && playerMove.isWalking)
+        {
+            animManager.animator.Play("Movement", -1);
+            moveAmout = Mathf.Clamp01(Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput));
+            animManager.animator.SetBool("isIdle", false);
+        }
         animManager.UpdateAnimatorValues(0, moveAmout, playerMove.isSprinting);
 
         camYInput = camInput.y;
@@ -181,7 +192,7 @@ public class InputManager : MonoBehaviour
             time += Time.deltaTime;
             if (time >= respawnCounter)
             {
-                StartCoroutine(HandleFadeIn());
+                StartCoroutine(FadeManager.instance.HandleFadeIn());
                 respawnInput = false;
             }
         }
@@ -219,22 +230,5 @@ public class InputManager : MonoBehaviour
             }
             interactInput = false;
         }
-    }
-
-    public IEnumerator HandleFadeIn()
-    {
-        FadeManager.instance.isInTransition = true;
-        FadeManager.instance.Fade(true, 0.25f);
-        yield return new WaitForSeconds(1f);
-        playerRespawn.RespawnPlayer();
-        yield return new WaitForSeconds(3f);
-    }
-
-    public IEnumerator HandleFadeOut()
-    {
-        yield return new WaitForSeconds(1f);
-        FadeManager.instance.Fade(false, 1f);
-        yield return new WaitForSeconds(1.5f);
-        FadeManager.instance.isInTransition = false;
     }
 }
