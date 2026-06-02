@@ -263,7 +263,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &3635614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23338,8 +23338,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 137631260c3bfe4438da6efbce8f99eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerRespawn
-  respawnPoint: {fileID: 1970249050}
   spawnValue: 10
+  isRespawning: 0
+  respawnPoint: {fileID: 1970249050}
 --- !u!114 &94388716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166638,7 +166639,7 @@ GameObject:
   - component: {fileID: 504189674}
   - component: {fileID: 504189673}
   - component: {fileID: 504189672}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: "po\xE7a"
   m_TagString: ChaoMata
   m_Icon: {fileID: 0}
@@ -504209,7 +504210,7 @@ GameObject:
   - component: {fileID: 1635892912}
   - component: {fileID: 1635892911}
   - component: {fileID: 1635892910}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Plane
   m_TagString: ChaoMata
   m_Icon: {fileID: 0}
@@ -611290,7 +611291,7 @@ GameObject:
   - component: {fileID: 2016192112}
   - component: {fileID: 2016192111}
   - component: {fileID: 2016192114}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Agua
   m_TagString: ChaoMata
   m_Icon: {fileID: 0}

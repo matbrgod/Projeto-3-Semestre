@@ -124,7 +124,7 @@ public class PlayerMovement : MonoBehaviour
             moveDirection.y = 0;
             moveDirection.z = 0;
 
-            hit.collider.material = noFrictionMat; 
+            //hit.collider.material = noFrictionMat; 
         }
 
         //removido a manipula��o do vetor da gravidade manual e substitu�da no fallAndJump pela gravidade
