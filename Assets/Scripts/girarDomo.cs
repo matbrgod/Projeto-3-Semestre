@@ -11,19 +11,18 @@ public class girarDomo : MonoBehaviour
 
     void Start()
     {
-        rotationZ += rotationSpeed * Time.deltaTime;
+       
         
     }
     void Update()
     {
+        rotationZ += rotationSpeed * Time.deltaTime;
         if (invertRotation)
         {
-            rotationZ = -rotationZ;
             transform.rotation = Quaternion.Euler(-90f, 0, -rotationZ);
         }
         else
-        {
-           
+        {  
             transform.rotation = Quaternion.Euler(-90f, 0, rotationZ);
         }
     }
