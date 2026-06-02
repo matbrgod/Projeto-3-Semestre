@@ -10,7 +10,6 @@ public class PlayerMovement : MonoBehaviour
     [Header("Refer�ncias")]
     public Transform cameraObj;
     Rigidbody playerRb;
-
     InputManager inputManager;
     PlayerManager playerManager;
     AnimatorManager animManager;
@@ -145,50 +144,53 @@ public class PlayerMovement : MonoBehaviour
     {
         isWalking = inputManager.playerControl.PlayerMove.Movement.IsPressed();
 
-        // usa a dire��o da c�mera para determinar a dire��o que o jogador vai andar
-        moveDirection = cameraObj.forward * inputManager.verticalInput;
-        moveDirection = moveDirection + cameraObj.right * inputManager.horizontalInput;
-        moveDirection.Normalize();
+        if (isWalking)
+        {
+            // usa a dire��o da c�mera para determinar a dire��o que o jogador vai andar
+            moveDirection = cameraObj.forward * inputManager.verticalInput;
+            moveDirection = moveDirection + cameraObj.right * inputManager.horizontalInput;
+            moveDirection.Normalize();
 
-        // sprint e andando/correndo (essa varia��o usa o anal�gico do controle)
-        if (isSprinting)
-        {
-            moveDirection = moveDirection * sprintSpeed;
-            moveSpeed = 0.2f;
-        }
-        else
-        {
-            if (inputManager.moveAmout >= 0.5f)
+            // sprint e andando/correndo (essa varia��o usa o anal�gico do controle)
+            if (isSprinting)
             {
-                moveDirection = moveDirection * runSpeed;
-                moveSpeed = 0.4f;
+                moveDirection = moveDirection * sprintSpeed;
+                moveSpeed = 0.2f;
             }
             else
             {
-                moveDirection = moveDirection * walkSpeed;
-                moveSpeed = 0.75f;
+                if (inputManager.moveAmout >= 0.5f)
+                {
+                    moveDirection = moveDirection * runSpeed;
+                    moveSpeed = 0.4f;
+                }
+                else
+                {
+                    moveDirection = moveDirection * walkSpeed;
+                    moveSpeed = 0.75f;
+                }
             }
-        }
 
-        //Vector3 moveVelocity = new Vector3(moveDirection.x, playerVel.y, moveDirection.z);
-        Vector3 moveVelocity = new Vector3(moveDirection.x, playerRb.linearVelocity.y, moveDirection.z);
-        if (inputManager.moveInput == Vector3.zero && !isGrounded)
-        {
-            moveVelocity = new Vector3(0f, playerRb.linearVelocity.y, 0f);
-        }
-        //reconstru��o parcial da interrup��o do movimento
-
-        playerRb.linearVelocity = moveVelocity;
-        if (audioManager != null)
-        {
-            if (isWalking && !audioManager.waitForStep)
+            //Vector3 moveVelocity = new Vector3(moveDirection.x, playerVel.y, moveDirection.z);
+            Vector3 moveVelocity = new Vector3(moveDirection.x, playerRb.linearVelocity.y, moveDirection.z);
+            if (inputManager.moveInput == Vector3.zero && !isGrounded)
             {
-                StartCoroutine(audioManager.HandleSteps());
+                moveVelocity = new Vector3(0f, playerRb.linearVelocity.y, 0f);
             }
-            else if (!isWalking)
+            //reconstru��o parcial da interrup��o do movimento
+
+            playerRb.linearVelocity = moveVelocity;
+            if (audioManager != null)
             {
-                audioManager.waitForStep = false;
-                StopCoroutine(audioManager.HandleSteps());
+                if (isWalking && !audioManager.waitForStep)
+                {
+                    StartCoroutine(audioManager.HandleSteps());
+                }
+                else if (!isWalking)
+                {
+                    audioManager.waitForStep = false;
+                    StopCoroutine(audioManager.HandleSteps());
+                }
             }
         }
     }
@@ -266,6 +268,7 @@ public class PlayerMovement : MonoBehaviour
             if (canJump)
             {
                 canJump = false;
+                moveSpeed = 0;
 
                 animManager.animator.SetBool("isJumping", true);
                 animManager.PlayTargetAnimation("Jump", false);
@@ -283,6 +286,7 @@ public class PlayerMovement : MonoBehaviour
         else if (jumpCounter < 2 && canDoubleJump) // condicional do pulo duplo
         {
             doubleJump = true;
+            moveSpeed = 0;
 
             animManager.animator.SetBool("isJumping", true);
             animManager.PlayTargetAnimation("Jump", false);
