@@ -21,8 +21,9 @@ public class DialogueManager : MonoBehaviour
     public Dialogue dialogueData;
     PlayerInteract playerInteract;
 
-    private int dialogueIndex;
-    public bool isDialogueActive, isTyping = false;
+    public int dialogueIndex;
+    public bool finishedDialogue, isDialogueActive, isTyping = false;
+
 
     private void Start()
     {
@@ -41,6 +42,7 @@ public class DialogueManager : MonoBehaviour
 
         dialoguePanel.SetActive(true);
         isDialogueActive = true;
+        finishedDialogue = false;
 
         NextLine();
     }
@@ -63,5 +65,6 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(false);
         isDialogueActive = false;
         isTyping = false;
+        finishedDialogue = true;
     }
 }

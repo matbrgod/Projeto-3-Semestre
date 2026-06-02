@@ -1,3 +1,5 @@
+using System.Collections;
+using System.IO;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -18,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     public bool isGrounded;
     public bool isJumping;
     public bool isSprinting;
+    public bool isWalking;
+    public bool canJump;
     public bool dash;
     public bool doubleJump;
     public bool canDoubleJump;
@@ -34,6 +38,8 @@ public class PlayerMovement : MonoBehaviour
     [Header("Pulo")]
     public int jumpCounter = 0;
     public int maxNumJumps = 2;
+    public float jumpCooldown = 2f;
+    private float jumpCdTimer;
 
     [Header("Dash")]
     public float dashForce;
@@ -56,6 +62,7 @@ public class PlayerMovement : MonoBehaviour
     public float runSpeed = 5f;
     public float sprintSpeed = 7f;
     public float rotationSpeed = 15f;
+    [HideInInspector] public float moveSpeed;
 
     [Header("Velocidade de Pulo e Gravidade")]
     public float jumpHeight = 3f;
@@ -72,7 +79,9 @@ public class PlayerMovement : MonoBehaviour
         cameraObj = Camera.main.transform;
 
         dashCdTimer = dashCooldown;
+        jumpCdTimer = jumpCooldown;
 
+        canJump = true;
         //canDash = true;
         canDoubleJump = true;
 
@@ -104,6 +113,7 @@ public class PlayerMovement : MonoBehaviour
 
         // cooldown do dash
         if (dash) HandleDashCd();
+        if (!canJump) HandleJumpCd();
 
         HandleFallAndLand();
         HandleRotation();
@@ -133,6 +143,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleMovement()
     {
+        isWalking = inputManager.playerControl.PlayerMove.Movement.IsPressed();
+
         // usa a dire��o da c�mera para determinar a dire��o que o jogador vai andar
         moveDirection = cameraObj.forward * inputManager.verticalInput;
         moveDirection = moveDirection + cameraObj.right * inputManager.horizontalInput;
@@ -142,16 +154,19 @@ public class PlayerMovement : MonoBehaviour
         if (isSprinting)
         {
             moveDirection = moveDirection * sprintSpeed;
+            moveSpeed = 0.2f;
         }
         else
         {
             if (inputManager.moveAmout >= 0.5f)
             {
                 moveDirection = moveDirection * runSpeed;
+                moveSpeed = 0.4f;
             }
             else
             {
                 moveDirection = moveDirection * walkSpeed;
+                moveSpeed = 0.75f;
             }
         }
 
@@ -164,6 +179,18 @@ public class PlayerMovement : MonoBehaviour
         //reconstru��o parcial da interrup��o do movimento
 
         playerRb.linearVelocity = moveVelocity;
+        if (audioManager != null)
+        {
+            if (isWalking && !audioManager.waitForStep)
+            {
+                StartCoroutine(audioManager.HandleSteps());
+            }
+            else if (!isWalking)
+            {
+                audioManager.waitForStep = false;
+                StopCoroutine(audioManager.HandleSteps());
+            }
+        }
     }
 
     private void HandleRotation()
@@ -216,7 +243,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (!isGrounded && playerManager.isInteracting)
             {
-                //if (audioManager != null && playerManager.isInteracting) audioManager.PlaySfx(audioManager.landSfx);
+                if (audioManager != null && !isJumping) audioManager.PlaySfx(audioManager.landSfx);
                 animManager.PlayTargetAnimation("Land", true);
             }
 
@@ -236,17 +263,22 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isGrounded) // condicional do pulo simples
         {
-            animManager.animator.SetBool("isJumping", true);
-            animManager.PlayTargetAnimation("Jump", false);
+            if (canJump)
+            {
+                canJump = false;
 
-            jumpCounter++;
+                animManager.animator.SetBool("isJumping", true);
+                animManager.PlayTargetAnimation("Jump", false);
 
-            float jumpingVel = Mathf.Sqrt(-2 * gravityIntensity * jumpHeight);
+                jumpCounter++;
 
-            playerVel = moveDirection;
-            playerVel.y = jumpingVel;
-            playerRb.linearVelocity = playerVel;
-            if (audioManager != null) audioManager.PlaySfx(audioManager.jumpSfx);
+                float jumpingVel = Mathf.Sqrt(-2 * gravityIntensity * jumpHeight);
+
+                playerVel = moveDirection;
+                playerVel.y = jumpingVel;
+                playerRb.linearVelocity = playerVel;
+                if (audioManager != null) audioManager.PlaySfx(audioManager.jumpSfx);
+            }
         }
         else if (jumpCounter < 2 && canDoubleJump) // condicional do pulo duplo
         {
@@ -293,6 +325,17 @@ public class PlayerMovement : MonoBehaviour
         {
             dashCdTimer = dashCooldown;
             dash = false;
+        }
+    }
+
+    public void HandleJumpCd()
+    {
+        if(jumpCdTimer > 0)
+            jumpCdTimer -= Time.deltaTime;
+        else if (jumpCdTimer <= 0)
+        {
+            jumpCdTimer = jumpCooldown;
+            canJump = true;
         }
     }
 }

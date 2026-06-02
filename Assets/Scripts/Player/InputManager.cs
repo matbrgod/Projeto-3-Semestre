@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -53,6 +54,8 @@ public class InputManager : MonoBehaviour
     private void Update()
     {
         if (img != null) imgFill.fillAmount = time;
+
+        if (FadeManager.instance.fadeImage.color == new Color(1, 1, 1, 0)) StopAllCoroutines();
     }
 
     private void OnEnable()
@@ -78,7 +81,8 @@ public class InputManager : MonoBehaviour
 
             playerControl.PlayerActions.Interact.performed += i => interactInput = true; // input de interação
 
-            playerControl.PlayerActions.Respawn.performed += i => respawnInput = true; // input de respawn
+            //respawnInput = playerControl.PlayerActions.Respawn.IsPressed(); // input de respawn
+            playerControl.PlayerActions.Respawn.performed += i => respawnInput = true;
             playerControl.PlayerActions.Respawn.canceled += i => respawnInput = false;
 
             playerControl.PlayerActions.Progression.performed += i => progressionInput = true; // input para abrir a UI do contador de conhecimento
@@ -109,12 +113,12 @@ public class InputManager : MonoBehaviour
 
     private void HandleMovementInput()
     {
+        //playerMove.isWalking = playerControl.PlayerMove.Movement.IsPressed();
         verticalInput = moveInput.y;
         horizontalInput = moveInput.x;
 
         moveAmout = Mathf.Clamp01(Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput));
         animManager.UpdateAnimatorValues(0, moveAmout, playerMove.isSprinting);
-        //if (audioManager != null) audioManager.PlaySfx(audioManager.stepSfx);
 
         camYInput = camInput.y;
         camXInput = camInput.x;
@@ -122,7 +126,7 @@ public class InputManager : MonoBehaviour
 
     private void HandleJumpInput()
     {
-        if(jumpInput == true)
+        if(jumpInput)
         {
             playerMove.HandleJump();
             if (Keyboard.current.spaceKey.wasPressedThisFrame)
@@ -175,17 +179,16 @@ public class InputManager : MonoBehaviour
         {
             img.gameObject.SetActive(true);
             time += Time.deltaTime;
-            //img.fillAmount = time;
             if (time >= respawnCounter)
             {
-                playerRespawn.RespawnPlayer();
+                StartCoroutine(HandleFadeIn());
                 respawnInput = false;
             }
         }
-        else
+        else if (!respawnInput)
         {
-            time = 0f;
             img.gameObject.SetActive(false);
+            time = 0f;
         }
     }
 
@@ -216,5 +219,22 @@ public class InputManager : MonoBehaviour
             }
             interactInput = false;
         }
+    }
+
+    public IEnumerator HandleFadeIn()
+    {
+        FadeManager.instance.isInTransition = true;
+        FadeManager.instance.Fade(true, 0.25f);
+        yield return new WaitForSeconds(1f);
+        playerRespawn.RespawnPlayer();
+        yield return new WaitForSeconds(3f);
+    }
+
+    public IEnumerator HandleFadeOut()
+    {
+        yield return new WaitForSeconds(1f);
+        FadeManager.instance.Fade(false, 1f);
+        yield return new WaitForSeconds(1.5f);
+        FadeManager.instance.isInTransition = false;
     }
 }

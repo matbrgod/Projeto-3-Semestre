@@ -7,11 +7,15 @@ public class PlayerRespawn : MonoBehaviour
     GameObject newRespawn;
     GameObject oldRespawn;
     public float spawnValue;
+    PlayerManager playerManager;
+    InputManager input;
 
-    //private void Start()
-    //{
-    //    RespawnPlayer();
-    //}
+    private void Start()
+    {
+        //RespawnPlayer();
+        playerManager = GetComponent<PlayerManager>();
+        input = GetComponent<InputManager>();
+    }
 
     private void Update()
     {
@@ -23,14 +27,17 @@ public class PlayerRespawn : MonoBehaviour
 
     public void RespawnPlayer()
     {
+        playerManager.enabled = false;
         transform.position = respawnPoint.position;
+        playerManager.enabled = true;
+        StartCoroutine(input.HandleFadeOut());
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("ChaoMata"))
         {
-            RespawnPlayer();
+            StartCoroutine(input.HandleFadeIn());
         }
     }
 

@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Blocagem.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
+    path: Assets/Scenes/Cutscene Inicial.unity
+    guid: d88d582eaef1562469daa387d20b5d62
+  - enabled: 1
     path: Assets/Scenes/blocagem_matheus.unity
     guid: 6b04d272be8b64c418d1ab94ff925c4e
   m_configObjects:
