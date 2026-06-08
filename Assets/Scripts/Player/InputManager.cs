@@ -72,14 +72,14 @@ public class InputManager : MonoBehaviour
             playerControl.PlayerActions.Jump.performed += i => jumpInput = true; // input de pulo
 
             // input do sprint
-            playerControl.PlayerActions.Sprint.performed += i => sprintInput = true; // detecta se o botão foi pressionado
+            playerControl.PlayerActions.Sprint.performed += i => sprintInput = true; // detecta se o botï¿½o foi pressionado
             playerControl.PlayerActions.Sprint.canceled += i => sprintInput = false; // detecta se ele deixou de ser pressionado
 
             playerControl.PlayerActions.Dash.performed += i => dashInput = true; // input do dash
 
             playerControl.PlayerActions.Pause.performed += i => pauseInput = true; // input de pause
 
-            playerControl.PlayerActions.Interact.performed += i => interactInput = true; // input de interação
+            playerControl.PlayerActions.Interact.performed += i => interactInput = true; // input de interaï¿½ï¿½o
 
             //respawnInput = playerControl.PlayerActions.Respawn.IsPressed(); // input de respawn
             playerControl.PlayerActions.Respawn.performed += i => respawnInput = true;
@@ -117,18 +117,19 @@ public class InputManager : MonoBehaviour
         verticalInput = moveInput.y;
         horizontalInput = moveInput.x;
 
-        if (playerRespawn.isRespawning)
-        {
-            verticalInput = 0;
-            moveAmout = 0;
-            animManager.animator.SetBool("isIdle", true);
-        }
-        else if (!playerRespawn.isRespawning && playerMove.isWalking)
-        {
-            animManager.animator.Play("Movement", -1);
-            moveAmout = Mathf.Clamp01(Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput));
-            animManager.animator.SetBool("isIdle", false);
-        }
+        // if (playerRespawn.isRespawning)
+        // {
+        //     verticalInput = 0;
+        //     moveAmout = 0;
+        //     animManager.animator.SetBool("isIdle", true);
+        // }
+        // else if (!playerRespawn.isRespawning && playerMove.isWalking)
+        // {
+        //     animManager.animator.Play("Movement", -1);
+        //     moveAmout = Mathf.Clamp01(Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput));
+        //     animManager.animator.SetBool("isIdle", false);
+        // }
+        moveAmout = Mathf.Clamp01(Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput));
         animManager.UpdateAnimatorValues(0, moveAmout, playerMove.isSprinting);
 
         camYInput = camInput.y;

@@ -267,6 +267,8 @@ public class PlayerMovement : MonoBehaviour
         {
             if (canJump)
             {
+                isWalking = false;
+                StopCoroutine(audioManager.HandleSteps());
                 canJump = false;
                 moveSpeed = 0;
 
