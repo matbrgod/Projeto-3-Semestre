@@ -17,6 +17,8 @@ TagManager:
   - WaypointPath
   - UI
   - Audio
+  - Triggers
+  - MiniShrineInteragida
   layers:
   - Default
   - TransparentFX

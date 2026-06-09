@@ -50,7 +50,7 @@ public class PlayerInteract : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Untagged"))
+        if (other.CompareTag("MiniShrineInteragida"))
         {
             if(canvas != null) canvas.SetActive(false);
             miniShrine = false;
@@ -62,7 +62,9 @@ public class PlayerInteract : MonoBehaviour
     {
         if (other.gameObject.CompareTag("PedraJapao"))
         {
-            canvas.SetActive(false);
+            if(canvas != null)
+                canvas.SetActive(false);
+
             canvas = null;
             if (dialogueManager.isDialogueActive) dialogueManager.EndDialogue();
             stoneGameObj = null;
@@ -77,7 +79,7 @@ public class PlayerInteract : MonoBehaviour
             miniShrine = false;
         }
 
-        if (other.gameObject.CompareTag("Untagged"))
+        if (other.gameObject.CompareTag("MiniShrineInteragida"))
         {
             if (other.transform.GetChild(objChildCount).gameObject.CompareTag("UI") && canvas != null)
             {
@@ -107,7 +109,7 @@ public class PlayerInteract : MonoBehaviour
             StartCoroutine(CloseCounterUi());
             shrineCounterUi.SetActive(true);
             shrineCounterTxt.text = shrineCounter.ToString() + "/7";
-            shrineObj.tag = "Untagged";
+            shrineObj.tag = "MiniShrineInteragida";
         }
     }
 

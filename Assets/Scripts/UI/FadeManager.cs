@@ -40,7 +40,7 @@ public class FadeManager : MonoBehaviour
         if (!isInTransition) return;
 
         transition += (isShowing) ? Time.deltaTime * (1 / duration) : -Time.deltaTime * (1 / duration);
-        fadeImage.color = Color.Lerp(new Color(1, 1, 1, 0), Color.white, transition);
+        fadeImage.color = Color.Lerp(new Color(0, 0, 0, 0), Color.black, transition);
 
         if (transition > 1 || transition < 0)
             isInTransition = false;
