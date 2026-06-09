@@ -35,16 +35,16 @@ public class PlayerRespawn : MonoBehaviour
     public void RespawnPlayer()
     {
         isRespawning = true;
-        input.moveAmout = 0f;
-        input.verticalInput = 0f;
-        input.playerControl.PlayerMove.Disable();
-        input.enabled = false;
-        move.enabled = false;
-        move.isWalking = false;
-        animator.enabled = false;
+        //input.moveAmout = 0f;
+        //input.verticalInput = 0f;
+        //input.playerControl.PlayerMove.Disable();
+        //input.enabled = false;
+        //move.enabled = false;
+        //move.isWalking = false;
+        //animator.enabled = false;
         transform.position = respawnPoint.position;
-        playerManager.enabled = true;
-        move.enabled = true;
+        //playerManager.enabled = true;
+        //move.enabled = true;
         StartCoroutine(FadeManager.instance.HandleFadeOut());
     }
 

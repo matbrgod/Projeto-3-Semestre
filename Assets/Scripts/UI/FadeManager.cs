@@ -11,7 +11,8 @@ public class FadeManager : MonoBehaviour
     InputManager inputManager;
     PlayerManager playerManager;
     PlayerMovement playerMovement;
-    PlayerRespawn playerRespawn;
+    //PlayerRespawn playerRespawn;
+    PlayerRespawner respawn;
 
     public Image fadeImage;
     public bool isInTransition;
@@ -28,20 +29,12 @@ public class FadeManager : MonoBehaviour
         animManager = GameObject.FindWithTag("Player").GetComponent<AnimatorManager>();
         playerManager = GameObject.FindWithTag("Player").GetComponent<PlayerManager>();
         playerMovement = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
-        playerRespawn = GameObject.FindWithTag("Player").GetComponent<PlayerRespawn>();
+        //playerRespawn = GameObject.FindWithTag("Player").GetComponent<PlayerRespawn>();
+        respawn = FindFirstObjectByType<PlayerRespawner>();
     }
 
     private void Update()
     {
-        //if (inputManager.respawnInput)
-        //{
-        //    Fade(true, 1f);
-        //}
-        //else
-        //{
-        //    Fade(false, 3f);
-        //}
-
         if (!isInTransition) return;
 
         transition += (isShowing) ? Time.deltaTime * (1 / duration) : -Time.deltaTime * (1 / duration);
@@ -57,9 +50,9 @@ public class FadeManager : MonoBehaviour
         isInTransition = true;
         this.duration = duration;
         transition = (isShowing) ? 0 : 1;
-        inputManager.enabled = !showing;
-        playerManager.enabled = !showing;
-        playerMovement.enabled = !showing;
+        inputManager.enabled = !PlayerRespawner.instance.isRespawning;
+        playerManager.enabled = !PlayerRespawner.instance.isRespawning;
+        playerMovement.enabled = !PlayerRespawner.instance.isRespawning;
     }
 
     public IEnumerator HandleFadeIn()
@@ -67,17 +60,19 @@ public class FadeManager : MonoBehaviour
         isInTransition = true;
         Fade(true, 0.25f);
         yield return new WaitForSeconds(1f);
-        playerRespawn.RespawnPlayer();
-        yield return new WaitForSeconds(3f);
+        //playerRespawn.RespawnPlayer();
+        respawn.RespawnPlayer();
+        yield return new WaitForSeconds(1f);
+        StartCoroutine(HandleFadeOut());
     }
 
     public IEnumerator HandleFadeOut()
     {
         yield return new WaitForSeconds(1f);
-        animManager.animator.enabled = true;
-        animManager.animator.SetBool("isIdle", true);
-        inputManager.enabled = true;
-        playerRespawn.isRespawning = false;
+        //animManager.animator.enabled = true;
+        //animManager.animator.SetBool("isIdle", true);
+        //inputManager.enabled = true;
+        respawn.isRespawning = false;
         Fade(false, 1f);
         yield return new WaitForSeconds(1.5f);
         isInTransition = false;

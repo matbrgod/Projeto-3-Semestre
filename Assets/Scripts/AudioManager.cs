@@ -82,16 +82,10 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    //public void TakeStep()
-    //{
-    //    Play
-    //}
-
     public IEnumerator HandleSteps()
     {
         while (playerMove.isWalking)
         {
-            //TakeStep();
             sfxSource.PlayOneShot(stepSfx);
             waitForStep = true;
             yield return new WaitForSeconds(playerMove.moveSpeed);
