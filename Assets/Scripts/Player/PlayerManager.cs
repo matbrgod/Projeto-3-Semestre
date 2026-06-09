@@ -15,8 +15,6 @@ public class PlayerManager : MonoBehaviour
         inputManager = GetComponent<InputManager>();
         playerMove = GetComponent<PlayerMovement>();
         camManager = FindFirstObjectByType<CameraManager>();
-
-        DontDestroyOnLoad(this.gameObject);
     }
 
     void Start()

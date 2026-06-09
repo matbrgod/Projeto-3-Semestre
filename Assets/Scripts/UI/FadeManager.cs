@@ -13,6 +13,7 @@ public class FadeManager : MonoBehaviour
     PlayerMovement playerMovement;
     //PlayerRespawn playerRespawn;
     PlayerRespawner respawn;
+    GameObject player;
 
     public Image fadeImage;
     public bool isInTransition;
@@ -29,6 +30,7 @@ public class FadeManager : MonoBehaviour
         animManager = GameObject.FindWithTag("Player").GetComponent<AnimatorManager>();
         playerManager = GameObject.FindWithTag("Player").GetComponent<PlayerManager>();
         playerMovement = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
+        player = GameObject.FindWithTag("Player");
         //playerRespawn = GameObject.FindWithTag("Player").GetComponent<PlayerRespawn>();
         respawn = FindFirstObjectByType<PlayerRespawner>();
     }
@@ -72,7 +74,15 @@ public class FadeManager : MonoBehaviour
         //animManager.animator.enabled = true;
         //animManager.animator.SetBool("isIdle", true);
         //inputManager.enabled = true;
+        MonoBehaviour[] allScripts = player.GetComponents<MonoBehaviour>();
         respawn.isRespawning = false;
+        foreach (MonoBehaviour script in allScripts)
+        {
+            if(script != null)
+            {
+                script.enabled = true;
+            }
+        }
         Fade(false, 1f);
         yield return new WaitForSeconds(1.5f);
         isInTransition = false;
