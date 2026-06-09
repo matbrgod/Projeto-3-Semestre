@@ -8518,58 +8518,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -472138165093898138, guid: e7cca1d02c565394f8418ec93c115b68, type: 3}
-      propertyPath: dashForce
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: -472138165093898138, guid: e7cca1d02c565394f8418ec93c115b68, type: 3}
-      propertyPath: fallingVel
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: -472138165093898138, guid: e7cca1d02c565394f8418ec93c115b68, type: 3}
-      propertyPath: jumpHeight
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: -472138165093898138, guid: e7cca1d02c565394f8418ec93c115b68, type: 3}
-      propertyPath: leapingVel
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: -472138165093898138, guid: e7cca1d02c565394f8418ec93c115b68, type: 3}
-      propertyPath: dashCooldown
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -472138165093898138, guid: e7cca1d02c565394f8418ec93c115b68, type: 3}
-      propertyPath: jumpCooldown
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: -472138165093898138, guid: e7cca1d02c565394f8418ec93c115b68, type: 3}
-      propertyPath: gravityIntensity
-      value: -2
-      objectReference: {fileID: 0}
-    - target: {fileID: -472138165093898138, guid: e7cca1d02c565394f8418ec93c115b68, type: 3}
-      propertyPath: sphereCastRadius
-      value: 0.33
-      objectReference: {fileID: 0}
-    - target: {fileID: -472138165093898138, guid: e7cca1d02c565394f8418ec93c115b68, type: 3}
-      propertyPath: wallLayer.m_Bits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -472138165093898138, guid: e7cca1d02c565394f8418ec93c115b68, type: 3}
-      propertyPath: frontRaycastRadius
-      value: 0.33
-      objectReference: {fileID: 0}
-    - target: {fileID: -472138165093898138, guid: e7cca1d02c565394f8418ec93c115b68, type: 3}
-      propertyPath: groundLayer.m_Bits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -472138165093898138, guid: e7cca1d02c565394f8418ec93c115b68, type: 3}
-      propertyPath: raycastMaxDistance
-      value: 0.33
-      objectReference: {fileID: 0}
-    - target: {fileID: -472138165093898138, guid: e7cca1d02c565394f8418ec93c115b68, type: 3}
-      propertyPath: raycastHeightOffSet
-      value: 0.65
-      objectReference: {fileID: 0}
     - target: {fileID: 89867936039907649, guid: e7cca1d02c565394f8418ec93c115b68, type: 3}
       propertyPath: img
       value: 
@@ -8578,10 +8526,6 @@ PrefabInstance:
       propertyPath: imgFill
       value: 
       objectReference: {fileID: 370691900}
-    - target: {fileID: 89867936039907649, guid: e7cca1d02c565394f8418ec93c115b68, type: 3}
-      propertyPath: respawnCounter
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2648050143128994830, guid: e7cca1d02c565394f8418ec93c115b68, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.44
@@ -8635,10 +8579,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 959969813}
     - target: {fileID: 3942657657963958957, guid: e7cca1d02c565394f8418ec93c115b68, type: 3}
-      propertyPath: timeToCloseUi
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3942657657963958957, guid: e7cca1d02c565394f8418ec93c115b68, type: 3}
       propertyPath: shrineCounterUi
       value: 
       objectReference: {fileID: 5139709467093967145}
@@ -8646,14 +8586,6 @@ PrefabInstance:
       propertyPath: shrineCounterTxt
       value: 
       objectReference: {fileID: 4833263302962486241}
-    - target: {fileID: 8241568934652649076, guid: e7cca1d02c565394f8418ec93c115b68, type: 3}
-      propertyPath: m_CullingMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8241568934652649076, guid: e7cca1d02c565394f8418ec93c115b68, type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

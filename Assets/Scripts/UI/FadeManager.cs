@@ -75,7 +75,6 @@ public class FadeManager : MonoBehaviour
         //animManager.animator.SetBool("isIdle", true);
         //inputManager.enabled = true;
         MonoBehaviour[] allScripts = player.GetComponents<MonoBehaviour>();
-        respawn.isRespawning = false;
         foreach (MonoBehaviour script in allScripts)
         {
             if(script != null)
@@ -83,6 +82,7 @@ public class FadeManager : MonoBehaviour
                 script.enabled = true;
             }
         }
+        respawn.isRespawning = false;
         Fade(false, 1f);
         yield return new WaitForSeconds(1.5f);
         isInTransition = false;
