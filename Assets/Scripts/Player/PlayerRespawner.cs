@@ -17,7 +17,7 @@ public class PlayerRespawner : MonoBehaviour
     {
         if (playerPrefab.transform.position.y < -spawnValue)
         {
-            RespawnPlayer();
+            StartCoroutine(FadeManager.instance.HandleFadeIn());
         }
     }
 
