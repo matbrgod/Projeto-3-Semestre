@@ -27,6 +27,7 @@ public class PlayerRespawner : MonoBehaviour
         playerPrefab.SetActive(false);
         playerPrefab.transform.position = getCheckpoint.spawn.position;
         playerPrefab.SetActive(true);
+        TorsoTrigger.instance.isTorsoTriggered = false;
         //isRespawning = false;
     }
 }

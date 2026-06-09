@@ -15,16 +15,19 @@ public class TorsoTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        isTorsoTriggered = true;
+        if(!other.CompareTag("Triggers") && !other.CompareTag("Checkpoint") && !other.CompareTag("MiniShrine") && !other.CompareTag("PedraJapao") && !other.CompareTag("MiniShrineInteragida"))
+            isTorsoTriggered = true;
     }
 
     private void OnTriggerStay(Collider other)
     {
-        isTorsoTriggered = true;
+        if (!other.CompareTag("Triggers") && !other.CompareTag("Checkpoint") && !other.CompareTag("MiniShrine") && !other.CompareTag("PedraJapao") && !other.CompareTag("MiniShrineInteragida"))
+            isTorsoTriggered = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        isTorsoTriggered = false;
+        if (!other.CompareTag("Triggers") && !other.CompareTag("Checkpoint") && !other.CompareTag("MiniShrine") && !other.CompareTag("PedraJapao") && !other.CompareTag("MiniShrineInteragida"))
+            isTorsoTriggered = false;
     }
 }
