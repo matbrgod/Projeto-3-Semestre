@@ -4294,7 +4294,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Movimenta\xE7\xE3o:\nWASD\nC\xE2mera:\nMouse\nIntera\xE7\xE3o:\nE\nPulo:\nEspa\xE7o"
+  m_text: "Movimenta\xE7\xE3o: WASD\n\nC\xE2mera: Mouse\n\nIntera\xE7\xE3o: E\n\nPulo:
+    Espa\xE7o\n\nVoltar ao \xFAltimo checkpoint: segurar R"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9bfa3fd25bb54a74898dc52d4f3aa5d0, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 9bfa3fd25bb54a74898dc52d4f3aa5d0, type: 2}
@@ -4639,9 +4640,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Os integrantes da equipe de desenvolvimento desse projeto s\xE3o:\nAndr\xE9
+  m_text: "Os integrantes da equipe de desenvolvimento desse projeto s\xE3o:\n\nAndr\xE9
     Campos - diretor de arte e modelador 3D\nGustavo Tashima - modelador 3D\nMatheus
-    Barroso - game designer e level designer\nYuri Telis - programador e narrativa\n"
+    Barroso - game designer e level designer\nYuri Telis - programador e narrativa\n\nCora
+    \"Logout\" Hutz - trilha sonora \n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9bfa3fd25bb54a74898dc52d4f3aa5d0, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 9bfa3fd25bb54a74898dc52d4f3aa5d0, type: 2}
