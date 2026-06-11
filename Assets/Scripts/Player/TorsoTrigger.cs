@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TorsoTrigger : MonoBehaviour
@@ -15,19 +16,19 @@ public class TorsoTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(!other.CompareTag("Triggers") && !other.CompareTag("Checkpoint") && !other.CompareTag("MiniShrine") && !other.CompareTag("PedraJapao") && !other.CompareTag("MiniShrineInteragida"))
+        if(!other.CompareTag("Triggers") && !other.CompareTag("Checkpoint") && !other.CompareTag("MiniShrine") && !other.CompareTag("PedraJapao") && !other.CompareTag("MiniShrineInteragida") && !playerMove.isGrounded)
             isTorsoTriggered = true;
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (!other.CompareTag("Triggers") && !other.CompareTag("Checkpoint") && !other.CompareTag("MiniShrine") && !other.CompareTag("PedraJapao") && !other.CompareTag("MiniShrineInteragida"))
+        if (!other.CompareTag("Triggers") && !other.CompareTag("Checkpoint") && !other.CompareTag("MiniShrine") && !other.CompareTag("PedraJapao") && !other.CompareTag("MiniShrineInteragida") && !playerMove.isGrounded)
             isTorsoTriggered = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (!other.CompareTag("Triggers") && !other.CompareTag("Checkpoint") && !other.CompareTag("MiniShrine") && !other.CompareTag("PedraJapao") && !other.CompareTag("MiniShrineInteragida"))
+        if (!other.CompareTag("Triggers") && !other.CompareTag("Checkpoint") && !other.CompareTag("MiniShrine") && !other.CompareTag("PedraJapao") && !other.CompareTag("MiniShrineInteragida") && !playerMove.isGrounded)
             isTorsoTriggered = false;
     }
 }

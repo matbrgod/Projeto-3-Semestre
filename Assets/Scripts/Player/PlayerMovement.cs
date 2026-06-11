@@ -109,7 +109,7 @@ public class PlayerMovement : MonoBehaviour
 
         if(!isWalking && !isJumping && PlayerRespawner.instance.isRespawning)
         {
-            inputManager.moveAmout = 0;
+            inputManager.moveAmount = 0;
             inputManager.verticalInput = 0;
             inputManager.horizontalInput = 0;
             animManager.animator.SetBool("isIdle", true);
@@ -117,7 +117,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (PlayerRespawner.instance.isRespawning)
         {
-            inputManager.moveAmout = 0;
+            inputManager.moveAmount = 0;
             inputManager.verticalInput = 0;
             inputManager.horizontalInput = 0;
             animManager.animator.SetBool("isIdle", true);
@@ -170,7 +170,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            if (inputManager.moveAmout >= 0.5f)
+            if (inputManager.moveAmount >= 0.5f)
             {
                 moveDirection = moveDirection * runSpeed;
                 moveSpeed = 0.4f;

@@ -24,7 +24,7 @@ public class InputManager : MonoBehaviour
     public float horizontalInput;
     public float camXInput;
     public float camYInput;
-    public float moveAmout;
+    public float moveAmount;
     public float respawnCounter = 3f;
 
     [Header("Flags dos Inputs")]
@@ -55,7 +55,7 @@ public class InputManager : MonoBehaviour
     {
         if (img != null) imgFill.fillAmount = time;
 
-        if (FadeManager.instance.fadeImage.color == new Color(1, 1, 1, 0)) StopAllCoroutines();
+        //if (FadeManager.instance.fadeImage.color == new Color(1, 1, 1, 0)) StopAllCoroutines();
     }
 
     private void OnEnable()
@@ -113,27 +113,16 @@ public class InputManager : MonoBehaviour
 
     private void HandleMovementInput()
     {
-        //playerMove.isWalking = playerControl.PlayerMove.Movement.IsPressed();
         verticalInput = moveInput.y;
         horizontalInput = moveInput.x;
 
-        // if (playerRespawn.isRespawning)
-        // {
-        //     verticalInput = 0;
-        //     moveAmout = 0;
-        //     animManager.animator.SetBool("isIdle", true);
-        // }
-        // else if (!playerRespawn.isRespawning && playerMove.isWalking)
-        // {
-        //     animManager.animator.Play("Movement", -1);
-        //     moveAmout = Mathf.Clamp01(Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput));
-        //     animManager.animator.SetBool("isIdle", false);
-        // }
-        moveAmout = Mathf.Clamp01(Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput));
-        animManager.UpdateAnimatorValues(0, moveAmout, playerMove.isSprinting);
+        moveAmount = Mathf.Clamp01(Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput));
+        animManager.UpdateAnimatorValues(0, moveAmount, playerMove.isSprinting);
 
         camYInput = camInput.y;
         camXInput = camInput.x;
+
+        if (moveAmount >= 0.5f) TorsoTrigger.instance.isTorsoTriggered = false;
     }
 
     private void HandleJumpInput()
@@ -149,7 +138,7 @@ public class InputManager : MonoBehaviour
 
     private void HandleSprintInput()
     {
-        if (sprintInput && moveAmout > 0.5f)
+        if (sprintInput && moveAmount > 0.5f)
         {
             playerMove.isSprinting = true;
         }
