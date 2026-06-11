@@ -144,14 +144,8 @@ public class PlayerMovement : MonoBehaviour
         // raycast para deteccao de parede
         if (TorsoTrigger.instance.isTorsoTriggered)
         {
-            moveDirection.x = 0;
-            moveDirection.y = 0;
-            moveDirection.z = 0;
-
-            playerRb.AddForce(Physics.gravity * inAirTimer * fallingVel);
             inputManager.moveInput = Vector3.zero;
-
-            //hit.collider.material = noFrictionMat; 
+            playerRb.AddForce(Physics.gravity * inAirTimer * fallingVel);
         }
     }
 
