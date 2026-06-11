@@ -12,13 +12,19 @@ public class PlayerRespawner : MonoBehaviour
     {
         instance = this;
         getCheckpoint = GameObject.FindWithTag("Player").GetComponent<GetCheckpoint>();
+        playerPrefab = GameObject.FindWithTag("Player");
     }
     private void Update()
     {
-        if (playerPrefab.transform.position.y < -spawnValue)
+        if (playerPrefab != null)
         {
-            StartCoroutine(FadeManager.instance.HandleFadeIn());
+            if (playerPrefab.transform.position.y < -spawnValue)
+            {
+                StartCoroutine(FadeManager.instance.HandleFadeIn());
+            }
         }
+        else return;
+        
     }
 
     public void RespawnPlayer()
