@@ -21,3 +21,4 @@ Abaixo está o sumário do projeto, em relação a Wiki do projeto no GitHub, on
 Todos os links importantes do projeto, como links de assets ou de acesso para o jogo em alguma plataforma estará disponível nessa seção.
 - <a href="https://drive.google.com/drive/folders/1HcjzIXnUDMxsd5Pj6s-iFMmuPKr5SajN"> Asset do modelo do personagem e das animações básicas</a>.
   - <a href="https://www.youtube.com/watch?v=_tYF5VAJdQ4&list=PLD_vBJjpCwJsqpD8QRPNPMfVUpPFLVGg4&index=2&t=268s"> Fonte onde a pasta do personagem foi encontrada</a>. <br>
+- <a href="https://fonts.google.com/specimen/Almendra"> Fonte utilizada na tela de título</a>.
