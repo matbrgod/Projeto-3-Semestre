@@ -63,20 +63,18 @@ public class FadeManager : MonoBehaviour
     public IEnumerator HandleFadeIn()
     {
         isInTransition = true;
-        Fade(true, 0.25f);
+        Fade(true, 0.15f);
+        inputManager.moveInput = Vector3.zero;
         yield return new WaitForSeconds(1f);
         //playerRespawn.RespawnPlayer();
         respawn.RespawnPlayer();
-        yield return new WaitForSeconds(1f);
         StartCoroutine(HandleFadeOut());
+        yield return new WaitForSeconds(1f);
     }
 
     public IEnumerator HandleFadeOut()
     {
         yield return new WaitForSeconds(1f);
-        //animManager.animator.enabled = true;
-        //animManager.animator.SetBool("isIdle", true);
-        //inputManager.enabled = true;
         MonoBehaviour[] allScripts = player.GetComponents<MonoBehaviour>();
         foreach (MonoBehaviour script in allScripts)
         {

@@ -109,7 +109,7 @@ public class PlayerMovement : MonoBehaviour
 
         if(!isWalking && !isJumping && PlayerRespawner.instance.isRespawning)
         {
-            inputManager.moveAmout = 0;
+            inputManager.moveAmount = 0;
             inputManager.verticalInput = 0;
             inputManager.horizontalInput = 0;
             animManager.animator.SetBool("isIdle", true);
@@ -117,7 +117,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (PlayerRespawner.instance.isRespawning)
         {
-            inputManager.moveAmout = 0;
+            inputManager.moveAmount = 0;
             inputManager.verticalInput = 0;
             inputManager.horizontalInput = 0;
             animManager.animator.SetBool("isIdle", true);
@@ -144,14 +144,8 @@ public class PlayerMovement : MonoBehaviour
         // raycast para deteccao de parede
         if (TorsoTrigger.instance.isTorsoTriggered)
         {
-            moveDirection.x = 0;
-            moveDirection.y = 0;
-            moveDirection.z = 0;
-
-            playerRb.AddForce(Physics.gravity * inAirTimer * fallingVel);
             inputManager.moveInput = Vector3.zero;
-
-            //hit.collider.material = noFrictionMat; 
+            playerRb.AddForce(Physics.gravity * inAirTimer * fallingVel);
         }
     }
 
@@ -170,7 +164,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            if (inputManager.moveAmout >= 0.5f)
+            if (inputManager.moveAmount >= 0.5f)
             {
                 moveDirection = moveDirection * runSpeed;
                 moveSpeed = 0.4f;
@@ -196,7 +190,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 StartCoroutine(audioManager.HandleSteps());
             }
-            else if (!isWalking)
+            else if (!isWalking && !isGrounded || !isGrounded || !isWalking)
             {
                 audioManager.waitForStep = false;
                 StopCoroutine(audioManager.HandleSteps());

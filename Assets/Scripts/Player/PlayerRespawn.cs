@@ -35,7 +35,7 @@ public class PlayerRespawn : MonoBehaviour
     public void RespawnPlayer()
     {
         isRespawning = true;
-        //input.moveAmout = 0f;
+        //input.moveAmount = 0f;
         //input.verticalInput = 0f;
         //input.playerControl.PlayerMove.Disable();
         //input.enabled = false;
