@@ -45,7 +45,9 @@ public class AudioManager : MonoBehaviour
 
         musicSource = GetComponentInChildren<AudioSource>();
         sfxSource = GetComponentInChildren<AudioSource>();
-        playerMove = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
+
+        if (playerMove != null)
+            playerMove = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)

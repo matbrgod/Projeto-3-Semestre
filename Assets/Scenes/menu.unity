@@ -4117,6 +4117,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 9449bf7445add364099dffcce12d62cb, type: 3}
     - target: {fileID: 905827939575806328, guid: ea6a85096f356a041a95d9467960d049, type: 3}
+      propertyPath: gameBg
+      value: 
+      objectReference: {fileID: 8300000, guid: 7f782617dff7e4a419cc79cd1e31ec8f, type: 3}
+    - target: {fileID: 905827939575806328, guid: ea6a85096f356a041a95d9467960d049, type: 3}
+      propertyPath: menuBg
+      value: 
+      objectReference: {fileID: 8300000, guid: 80980cb06749ca54e94770a76a6b40a6, type: 3}
+    - target: {fileID: 905827939575806328, guid: ea6a85096f356a041a95d9467960d049, type: 3}
       propertyPath: jumpSfx
       value: 
       objectReference: {fileID: 8300000, guid: 2642ca70ae8c186489090a89cce4e395, type: 3}

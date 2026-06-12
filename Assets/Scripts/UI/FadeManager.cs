@@ -26,11 +26,14 @@ public class FadeManager : MonoBehaviour
         fadeImage.color = new Color(0f, 0f, 0f, 0f);
         instance = this;
 
-        inputManager = GameObject.FindWithTag("Player").GetComponent<InputManager>();
-        animManager = GameObject.FindWithTag("Player").GetComponent<AnimatorManager>();
-        playerManager = GameObject.FindWithTag("Player").GetComponent<PlayerManager>();
-        playerMovement = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
-        player = GameObject.FindWithTag("Player");
+        if(player != null)
+        {
+            player = GameObject.FindWithTag("Player");
+            inputManager = GameObject.FindWithTag("Player").GetComponent<InputManager>();
+            animManager = GameObject.FindWithTag("Player").GetComponent<AnimatorManager>();
+            playerManager = GameObject.FindWithTag("Player").GetComponent<PlayerManager>();
+            playerMovement = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
+        }
         //playerRespawn = GameObject.FindWithTag("Player").GetComponent<PlayerRespawn>();
         respawn = FindFirstObjectByType<PlayerRespawner>();
     }
