@@ -61,7 +61,7 @@ public class AudioManager : MonoBehaviour
 
         if (cena.Contains("menu"))
             bgMusic = menuBg;
-        else if (cena.Contains("yuri-testes") || cena.Contains("blocagem_matheus"))
+        else if (cena.Contains("yuri-testes") || cena.Contains("blocagem_matheus") || cena.Contains("Cutscene Inicial"))
             bgMusic = gameBg;
 
         PlayMusic(bgMusic);
@@ -86,12 +86,15 @@ public class AudioManager : MonoBehaviour
 
     public IEnumerator HandleSteps()
     {
-        while (playerMove.isWalking)
+        if (playerMove!=null)
         {
-            sfxSource.PlayOneShot(stepSfx);
-            waitForStep = true;
-            yield return new WaitForSeconds(playerMove.moveSpeed);
-            waitForStep = false;
+            while (playerMove.isWalking)
+            {
+                sfxSource.PlayOneShot(stepSfx);
+                waitForStep = true;
+                yield return new WaitForSeconds(playerMove.moveSpeed);
+                waitForStep = false;
+            }
         }
     }
 }

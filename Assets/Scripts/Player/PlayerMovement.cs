@@ -190,7 +190,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 StartCoroutine(audioManager.HandleSteps());
             }
-            else if (!isWalking && !isGrounded || !isGrounded || !isWalking)
+            else if (!isWalking)
             {
                 audioManager.waitForStep = false;
                 StopCoroutine(audioManager.HandleSteps());
