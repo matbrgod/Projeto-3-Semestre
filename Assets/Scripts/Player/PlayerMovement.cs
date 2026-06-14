@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isJumping;
     public bool isSprinting;
     public bool isWalking;
+    public bool isLanding;
     public bool canJump;
     public bool dash;
     public bool doubleJump;
@@ -101,7 +102,11 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit hitFloor;
         Vector3 raycastOrigin = transform.position;
 
-        isWalking = inputManager.playerControl.PlayerMove.Movement.IsPressed();
+        isLanding = playerManager.isInteracting;
+
+        if(isJumping || isLanding || !isGrounded || PlayerRespawner.instance.isRespawning)
+            isWalking = false;
+        else if (!isJumping && !isLanding && isGrounded && !PlayerRespawner.instance.isRespawning) isWalking = inputManager.playerControl.PlayerMove.Movement.IsPressed();
 
         // dash
         if (impact.magnitude > 0.2f)
@@ -193,7 +198,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 StartCoroutine(stepsSfx);
             }
-            else if (!isWalking || isJumping)
+            else if (!isWalking)
             {
                 audioManager.waitForStep = false;
                 StopCoroutine(stepsSfx);

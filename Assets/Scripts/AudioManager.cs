@@ -10,7 +10,7 @@ public class AudioManager : MonoBehaviour
 
     [Header("Audio Source")]
     [SerializeField] AudioSource musicSource;
-    [SerializeField] AudioSource sfxSource;
+    [SerializeField] public AudioSource sfxSource;
 
     [Header("Audio Clips")]
     public AudioClip menuBg;
