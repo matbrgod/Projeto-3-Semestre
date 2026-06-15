@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -8,11 +9,11 @@ public class InputManager : MonoBehaviour
     public PlayerInputSystem playerControl;
     AnimatorManager animManager;
     PlayerMovement playerMove;
-    PlayerRespawn playerRespawn;
     PlayerInteract playerInteract;
     DialogueManager dialogueManager;
     PauseManager pauseManager;
     AudioManager audioManager;
+    CutsceneFinal cutsceneFinal;
 
     [Header("Vetores dos Inputs")]
     public Vector3 moveInput;
@@ -23,7 +24,7 @@ public class InputManager : MonoBehaviour
     public float horizontalInput;
     public float camXInput;
     public float camYInput;
-    public float moveAmout;
+    public float moveAmount;
     public float respawnCounter = 3f;
 
     [Header("Flags dos Inputs")]
@@ -45,9 +46,9 @@ public class InputManager : MonoBehaviour
         playerMove = GetComponent<PlayerMovement>();
         playerInteract = GetComponent<PlayerInteract>();
         dialogueManager = FindFirstObjectByType<DialogueManager>();
-        playerRespawn = GetComponent<PlayerRespawn>();
         pauseManager = FindFirstObjectByType<PauseManager>();
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        cutsceneFinal = FindFirstObjectByType<CutsceneFinal>();
     }
 
     private void Update()
@@ -69,16 +70,17 @@ public class InputManager : MonoBehaviour
             playerControl.PlayerActions.Jump.performed += i => jumpInput = true; // input de pulo
 
             // input do sprint
-            playerControl.PlayerActions.Sprint.performed += i => sprintInput = true; // detecta se o botão foi pressionado
+            playerControl.PlayerActions.Sprint.performed += i => sprintInput = true; // detecta se o botï¿½o foi pressionado
             playerControl.PlayerActions.Sprint.canceled += i => sprintInput = false; // detecta se ele deixou de ser pressionado
 
             playerControl.PlayerActions.Dash.performed += i => dashInput = true; // input do dash
 
             playerControl.PlayerActions.Pause.performed += i => pauseInput = true; // input de pause
 
-            playerControl.PlayerActions.Interact.performed += i => interactInput = true; // input de interação
+            playerControl.PlayerActions.Interact.performed += i => interactInput = true; // input de interaï¿½ï¿½o
 
-            playerControl.PlayerActions.Respawn.performed += i => respawnInput = true; // input de respawn
+            //respawnInput = playerControl.PlayerActions.Respawn.IsPressed(); // input de respawn
+            playerControl.PlayerActions.Respawn.performed += i => respawnInput = true;
             playerControl.PlayerActions.Respawn.canceled += i => respawnInput = false;
 
             playerControl.PlayerActions.Progression.performed += i => progressionInput = true; // input para abrir a UI do contador de conhecimento
@@ -109,20 +111,21 @@ public class InputManager : MonoBehaviour
 
     private void HandleMovementInput()
     {
-        //playerMove.isWalking = playerControl.PlayerMove.Movement.IsPressed();
         verticalInput = moveInput.y;
         horizontalInput = moveInput.x;
 
-        moveAmout = Mathf.Clamp01(Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput));
-        animManager.UpdateAnimatorValues(0, moveAmout, playerMove.isSprinting);
+        moveAmount = Mathf.Clamp01(Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput));
+        animManager.UpdateAnimatorValues(0, moveAmount, playerMove.isSprinting);
 
         camYInput = camInput.y;
         camXInput = camInput.x;
+
+        if (moveAmount >= 0.5f) TorsoTrigger.instance.isTorsoTriggered = false;
     }
 
     private void HandleJumpInput()
     {
-        if(jumpInput == true)
+        if(jumpInput)
         {
             playerMove.HandleJump();
             if (Keyboard.current.spaceKey.wasPressedThisFrame)
@@ -133,7 +136,7 @@ public class InputManager : MonoBehaviour
 
     private void HandleSprintInput()
     {
-        if (sprintInput && moveAmout > 0.5f)
+        if (sprintInput && moveAmount > 0.5f)
         {
             playerMove.isSprinting = true;
         }
@@ -177,11 +180,11 @@ public class InputManager : MonoBehaviour
             time += Time.deltaTime;
             if (time >= respawnCounter)
             {
-                playerRespawn.RespawnPlayer();
+                StartCoroutine(FadeManager.instance.HandleFadeIn());
+                respawnInput = false;
             }
-            respawnInput = false;
         }
-        else
+        else if (!respawnInput)
         {
             img.gameObject.SetActive(false);
             time = 0f;
@@ -212,6 +215,10 @@ public class InputManager : MonoBehaviour
             if (playerInteract.shrineObj != null && playerInteract.miniShrine)
             {
                 playerInteract.MiniShrineInteract();
+            }
+            if (playerInteract.bola == true)
+            {
+                cutsceneFinal.cutsceneActive = true;
             }
             interactInput = false;
         }

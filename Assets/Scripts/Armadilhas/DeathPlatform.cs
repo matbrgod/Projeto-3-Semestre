@@ -2,23 +2,12 @@ using UnityEngine;
 
 public class DeathPlatform : MonoBehaviour
 {
-    PlayerRespawn playerRespawn;
-
-    //void Start()
-    //{
-        
-    //}
-
-    //void Update()
-    //{
-        
-    //}
-
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.gameObject.CompareTag("ChaoMata"))
-    //    {
-    //        playerRespawn.RespawnPlayer();
-    //    }
-    //}
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.CompareTag("Player") && !PlayerRespawner.instance.isRespawning)
+        {
+            PlayerRespawner.instance.isRespawning = true;
+            StartCoroutine(FadeManager.instance.HandleFadeIn());
+        }
+    }
 }

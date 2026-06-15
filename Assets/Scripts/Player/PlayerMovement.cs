@@ -1,3 +1,5 @@
+using System.Collections;
+using System.IO;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -8,7 +10,6 @@ public class PlayerMovement : MonoBehaviour
     [Header("Refer�ncias")]
     public Transform cameraObj;
     Rigidbody playerRb;
-
     InputManager inputManager;
     PlayerManager playerManager;
     AnimatorManager animManager;
@@ -19,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     public bool isJumping;
     public bool isSprinting;
     public bool isWalking;
+    public bool isLanding;
+    public bool canJump;
     public bool dash;
     public bool doubleJump;
     public bool canDoubleJump;
@@ -27,14 +30,14 @@ public class PlayerMovement : MonoBehaviour
     [Header("Queda")]
     public float inAirTimer;
     public float leapingVel;
-    public float fallingVel;//passou a ser um multiplicador na intensidade da gravidade
-    //em fun��o linear do inAirTimer (quando inAirTimer sobe, ele sobe junto multiplicando
-    //a for�a extra vertical)
+    public float fallingVel;
     public LayerMask groundLayer;
 
     [Header("Pulo")]
     public int jumpCounter = 0;
     public int maxNumJumps = 2;
+    public float jumpCooldown = 2f;
+    private float jumpCdTimer;
 
     [Header("Dash")]
     public float dashForce;
@@ -57,10 +60,16 @@ public class PlayerMovement : MonoBehaviour
     public float runSpeed = 5f;
     public float sprintSpeed = 7f;
     public float rotationSpeed = 15f;
+    [HideInInspector] public float moveSpeed;
+    private float playerWalkSpeed; // velocidade base do jogador andando
+    private float playerRunSpeed; // velocidade base do jogador correndo
+    private float playerSprintSpeed; // velocidade base do jogador usando sprint
 
     [Header("Velocidade de Pulo e Gravidade")]
     public float jumpHeight = 3f;
     public float gravityIntensity = -15f;
+
+    IEnumerator stepsSfx;
 
     private void Awake()
     {
@@ -70,10 +79,18 @@ public class PlayerMovement : MonoBehaviour
         playerRb = GetComponent<Rigidbody>();
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
 
+        stepsSfx = audioManager.HandleSteps();
+
+        playerWalkSpeed = walkSpeed;
+        playerRunSpeed = runSpeed;
+        playerSprintSpeed = sprintSpeed;
+
         cameraObj = Camera.main.transform;
 
         dashCdTimer = dashCooldown;
+        jumpCdTimer = jumpCooldown;
 
+        canJump = true;
         //canDash = true;
         canDoubleJump = true;
 
@@ -83,8 +100,13 @@ public class PlayerMovement : MonoBehaviour
     public void HandleMoves()
     {
         RaycastHit hitFloor;
-        RaycastHit hit;
         Vector3 raycastOrigin = transform.position;
+
+        isLanding = playerManager.isInteracting;
+
+        if(isJumping || isLanding || !isGrounded || PlayerRespawner.instance.isRespawning)
+            isWalking = false;
+        else if (!isJumping && !isLanding && isGrounded && !PlayerRespawner.instance.isRespawning) isWalking = inputManager.playerControl.PlayerMove.Movement.IsPressed();
 
         // dash
         if (impact.magnitude > 0.2f)
@@ -92,6 +114,23 @@ public class PlayerMovement : MonoBehaviour
             transform.position += impact * Time.deltaTime;
         }
         impact = Vector3.Lerp(impact, Vector3.zero, drag * Time.deltaTime);
+
+        if(!isWalking && !isJumping && PlayerRespawner.instance.isRespawning)
+        {
+            inputManager.moveAmount = 0;
+            inputManager.verticalInput = 0;
+            inputManager.horizontalInput = 0;
+            animManager.animator.SetBool("isIdle", true);
+        }
+
+        if (PlayerRespawner.instance.isRespawning)
+        {
+            inputManager.moveAmount = 0;
+            inputManager.verticalInput = 0;
+            inputManager.horizontalInput = 0;
+            animManager.animator.SetBool("isIdle", true);
+            playerRb.linearVelocity = Vector3.zero;
+        }
 
         HandleMovement();
 
@@ -105,36 +144,22 @@ public class PlayerMovement : MonoBehaviour
 
         // cooldown do dash
         if (dash) HandleDashCd();
+        if (!canJump) HandleJumpCd();
 
         HandleFallAndLand();
         HandleRotation();
 
-        // raycast para detec��o de parede
-        if (Physics.SphereCast(raycastOrigin, frontRaycastRadius, Vector3.forward, out hit, raycastMaxDistance, wallLayer))
+        // raycast para deteccao de parede
+        if (TorsoTrigger.instance.isTorsoTriggered)
         {
-            moveDirection.x = 0;
-            moveDirection.y = 0;
-            moveDirection.z = 0;
-
-            hit.collider.material = noFrictionMat; 
+            inputManager.moveInput = Vector3.zero;
+            playerRb.AddForce(Physics.gravity * inAirTimer * fallingVel);
         }
-
-        //removido a manipula��o do vetor da gravidade manual e substitu�da no fallAndJump pela gravidade
-        //da Unity + a for�a extra de gravidade
-
-        //if (isJumping) return;
-        //if (dash) return;
-
-        // gravidade para sempre jogar o personagem para baixo quando n�o t� pulando ou dando dash
-        //playerVel.y -= fallingVel * 1.5f;
-
-        //playerRb.linearVelocity = new Vector3(playerRb.linearVelocity.x, fallingVel * 1.5f, playerRb.linearVelocity.z);
-        //playerVel.y = 0;
     }
 
     private void HandleMovement()
     {
-        // usa a dire��o da c�mera para determinar a dire��o que o jogador vai andar
+        // usa a direcao da camera para determinar a direcao que o jogador vai andar
         moveDirection = cameraObj.forward * inputManager.verticalInput;
         moveDirection = moveDirection + cameraObj.right * inputManager.horizontalInput;
         moveDirection.Normalize();
@@ -143,20 +168,22 @@ public class PlayerMovement : MonoBehaviour
         if (isSprinting)
         {
             moveDirection = moveDirection * sprintSpeed;
+            moveSpeed = 0.2f;
         }
         else
         {
-            if (inputManager.moveAmout >= 0.5f)
+            if (inputManager.moveAmount >= 0.5f)
             {
                 moveDirection = moveDirection * runSpeed;
+                moveSpeed = 0.4f;
             }
             else
             {
                 moveDirection = moveDirection * walkSpeed;
+                moveSpeed = 0.75f;
             }
         }
 
-        //Vector3 moveVelocity = new Vector3(moveDirection.x, playerVel.y, moveDirection.z);
         Vector3 moveVelocity = new Vector3(moveDirection.x, playerRb.linearVelocity.y, moveDirection.z);
         if (inputManager.moveInput == Vector3.zero && !isGrounded)
         {
@@ -165,12 +192,23 @@ public class PlayerMovement : MonoBehaviour
         //reconstru��o parcial da interrup��o do movimento
 
         playerRb.linearVelocity = moveVelocity;
-        //if (audioManager != null && ) audioManager.PlaySfx(audioManager.stepSfx);
+        if (audioManager != null)
+        {
+            if (isWalking && !audioManager.waitForStep)
+            {
+                StartCoroutine(stepsSfx);
+            }
+            else if (!isWalking)
+            {
+                audioManager.waitForStep = false;
+                StopCoroutine(stepsSfx);
+            }
+        }
     }
 
     private void HandleRotation()
     {
-        // rota��o do personagem com a movimenta��o da c�mera
+        // rotacao do personagem com a movimentacao da camera
         if (isJumping || doubleJump) return; // impeditivo do personagem rodar caso ele esteja pulando e o jogador mova a c�mera
 
         Vector3 targetDirection = Vector3.zero;
@@ -191,7 +229,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleFallAndLand()
     {
-        // fun��o para queda do personagem caso ele detecte que n�o tem ch�o abaixo do jogador
+        // funcao para queda do personagem caso ele detecte que nao tem chao abaixo do jogador
         RaycastHit hit;
         Vector3 raycastOrigin = transform.position;
         raycastOrigin.y = raycastOrigin.y + raycastHeightOffSet;
@@ -205,8 +243,6 @@ public class PlayerMovement : MonoBehaviour
             }
 
             inAirTimer += Time.deltaTime;
-            //reconstru��o da for�a que aumenta a intensidade da gravidade durante o tempo no ar
-            //e aplica��o dela somente ap�s o segundo pulo ou passado determinado tempo caindo
             if (jumpCounter > 1 || inAirTimer > 0.3f)
             {
                 playerRb.AddForce(Physics.gravity * inAirTimer * fallingVel);
@@ -238,21 +274,29 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isGrounded) // condicional do pulo simples
         {
-            animManager.animator.SetBool("isJumping", true);
-            animManager.PlayTargetAnimation("Jump", false);
+            if (canJump)
+            {
+                isWalking = false;
+                canJump = false;
+                moveSpeed = 0;
 
-            jumpCounter++;
+                animManager.animator.SetBool("isJumping", true);
+                animManager.PlayTargetAnimation("Jump", false);
 
-            float jumpingVel = Mathf.Sqrt(-2 * gravityIntensity * jumpHeight);
+                jumpCounter++;
 
-            playerVel = moveDirection;
-            playerVel.y = jumpingVel;
-            playerRb.linearVelocity = playerVel;
-            if (audioManager != null) audioManager.PlaySfx(audioManager.jumpSfx);
+                float jumpingVel = Mathf.Sqrt(-2 * gravityIntensity * jumpHeight);
+
+                playerVel = moveDirection;
+                playerVel.y = jumpingVel;
+                playerRb.linearVelocity = playerVel;
+                if (audioManager != null) audioManager.PlaySfx(audioManager.jumpSfx);
+            }
         }
         else if (jumpCounter < 2 && canDoubleJump) // condicional do pulo duplo
         {
             doubleJump = true;
+            moveSpeed = 0;
 
             animManager.animator.SetBool("isJumping", true);
             animManager.PlayTargetAnimation("Jump", false);
@@ -260,8 +304,6 @@ public class PlayerMovement : MonoBehaviour
             jumpCounter++;
 
             float jumpingVel = Mathf.Sqrt(-2 * gravityIntensity * (jumpHeight * 1.5f));
-            //alterado o multiplicador de intensidade do segundo pulo para aumentar
-            //menos a discrep�ncia de altura entre os dois saltos
 
             playerVel = moveDirection;
             playerVel.y = jumpingVel;
@@ -274,11 +316,11 @@ public class PlayerMovement : MonoBehaviour
         // fun��o de dash
         if (canDash) // verifica��o se o jogador pode usar o dash
         {
-            if (dashCdTimer >= dashCooldown && !dash) // verifica��o se dash 
+            if (dashCdTimer >= dashCooldown && !dash) // verificacao se dash 
             {
                 dash = true; // bool para rodar o cooldown do dash
 
-                Vector3 direction = cameraObj.forward; // determina a dire��o do dash sendo a da c�mera
+                Vector3 direction = cameraObj.forward; // determina a direcao do dash sendo a da camera
                 impact += direction.normalized * dashForce; // dash
             }
         }
@@ -286,15 +328,27 @@ public class PlayerMovement : MonoBehaviour
 
     public void HandleDashCd()
     {
-        // fun��o para o cooldown do dash
-        if (dashCdTimer > 0) // verifica se o timer tem tempo restante, se sim, ele inicia o countdown
+        // funcao para o cooldown do dash
+        if (dashCdTimer > 0)
         {
             dashCdTimer -= Time.deltaTime;
         }
-        if (dashCdTimer <= 0) // verifica se o timer zerou, se sim, ele iguala o timer com o tempo total do cooldown e libera o jogador a usar o dash novamente
+        if (dashCdTimer <= 0)
         {
             dashCdTimer = dashCooldown;
             dash = false;
+        }
+    }
+
+    public void HandleJumpCd()
+    {
+        // funcao de cooldown para o pulo
+        if(jumpCdTimer > 0)
+            jumpCdTimer -= Time.deltaTime;
+        else if (jumpCdTimer <= 0)
+        {
+            jumpCdTimer = jumpCooldown;
+            canJump = true;
         }
     }
 }

@@ -1,14 +1,16 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
+    PlayerMovement playerMove;
 
     [Header("Audio Source")]
     [SerializeField] AudioSource musicSource;
-    [SerializeField] AudioSource sfxSource;
+    [SerializeField] public AudioSource sfxSource;
 
     [Header("Audio Clips")]
     public AudioClip menuBg;
@@ -20,6 +22,7 @@ public class AudioManager : MonoBehaviour
     AudioClip bgMusic;
 
     string cena;
+    public bool waitForStep;
 
     private void Awake()
     {
@@ -41,8 +44,11 @@ public class AudioManager : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
         UpdateMusic();
 
-        musicSource = GetComponentInChildren<AudioSource>();
-        sfxSource = GetComponentInChildren<AudioSource>();
+        musicSource = transform.GetChild(0).GetComponent<AudioSource>();
+        sfxSource = transform.GetChild(1).GetComponent<AudioSource>();
+
+        if (playerMove == null)
+            playerMove = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -56,7 +62,7 @@ public class AudioManager : MonoBehaviour
 
         if (cena.Contains("menu"))
             bgMusic = menuBg;
-        else if (cena.Contains("yuri-testes") || cena.Contains("blocagem_matheus"))
+        else if (cena.Contains("yuri-testes") || cena.Contains("blocagem_matheus") || cena.Contains("Cutscene Inicial"))
             bgMusic = gameBg;
 
         PlayMusic(bgMusic);
@@ -76,6 +82,20 @@ public class AudioManager : MonoBehaviour
             musicSource.Stop();
             musicSource.clip = clip;
             musicSource.Play();
+        }
+    }
+
+    public IEnumerator HandleSteps()
+    {
+        if (playerMove != null)
+        {
+            while (playerMove.isWalking)
+            {
+                sfxSource.PlayOneShot(stepSfx);
+                waitForStep = true;
+                yield return new WaitForSeconds(playerMove.moveSpeed);
+                waitForStep = false;
+            }
         }
     }
 }
