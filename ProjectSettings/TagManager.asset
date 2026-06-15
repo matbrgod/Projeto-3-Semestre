@@ -20,6 +20,7 @@ TagManager:
   - Triggers
   - MiniShrineInteragida
   - Bola
+  - CameraVideo
   layers:
   - Default
   - TransparentFX
