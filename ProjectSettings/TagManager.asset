@@ -19,6 +19,7 @@ TagManager:
   - Audio
   - Triggers
   - MiniShrineInteragida
+  - Bola
   layers:
   - Default
   - TransparentFX

@@ -7,12 +7,14 @@ public class PlayerInteract : MonoBehaviour
     [Header("Refs")]
     InputManager input;
     DialogueManager dialogueManager;
+    CutsceneFinal cutsceneFinal;
     public GameObject stoneGameObj;
     public GameObject shrineObj; // mini templo
 
-    [Header("Flags de Interação")]
+    [Header("Flags de Interaï¿½ï¿½o")]
     public bool canInteract = false;
     public bool miniShrine = false;
+    public bool bola = false;
 
     [Header("UI")]
     [SerializeField] TextMeshProUGUI shrineCounterTxt; // contador de conhecimento
@@ -45,6 +47,13 @@ public class PlayerInteract : MonoBehaviour
             canvas = other.transform.GetChild(objChildCount).gameObject;
             canvas.SetActive(true);
             miniShrine = true;
+        }
+
+        if(other.gameObject.CompareTag("Bola"))
+        {
+            bola = true;
+            canvas = other.transform.GetChild(0).gameObject;
+            canvas.SetActive(true);
         }
     }
 
@@ -112,6 +121,11 @@ public class PlayerInteract : MonoBehaviour
             shrineObj.tag = "MiniShrineInteragida";
         }
     }
+
+    //public void HandleBall()
+    //{
+    //    cutsceneFinal.cutsceneActive = true;
+    //}
 
     IEnumerator CloseCounterUi()
     {

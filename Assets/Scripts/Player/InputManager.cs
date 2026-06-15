@@ -13,6 +13,7 @@ public class InputManager : MonoBehaviour
     DialogueManager dialogueManager;
     PauseManager pauseManager;
     AudioManager audioManager;
+    CutsceneFinal cutsceneFinal;
 
     [Header("Vetores dos Inputs")]
     public Vector3 moveInput;
@@ -47,6 +48,7 @@ public class InputManager : MonoBehaviour
         dialogueManager = FindFirstObjectByType<DialogueManager>();
         pauseManager = FindFirstObjectByType<PauseManager>();
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        cutsceneFinal = FindFirstObjectByType<CutsceneFinal>();
     }
 
     private void Update()
@@ -213,6 +215,10 @@ public class InputManager : MonoBehaviour
             if (playerInteract.shrineObj != null && playerInteract.miniShrine)
             {
                 playerInteract.MiniShrineInteract();
+            }
+            if (playerInteract.bola == true)
+            {
+                cutsceneFinal.cutsceneActive = true;
             }
             interactInput = false;
         }
