@@ -7,11 +7,10 @@ public class FadeManager : MonoBehaviour
 {
     public static FadeManager instance;
     
-    AnimatorManager animManager;
+    AudioManager audioManager;
     InputManager inputManager;
     PlayerManager playerManager;
     PlayerMovement playerMovement;
-    //PlayerRespawn playerRespawn;
     PlayerRespawner respawn;
     GameObject player;
 
@@ -30,13 +29,13 @@ public class FadeManager : MonoBehaviour
 
         if(player != null)
         {           
-            inputManager = GameObject.FindWithTag("Player").GetComponent<InputManager>();
-            animManager = GameObject.FindWithTag("Player").GetComponent<AnimatorManager>();
-            playerManager = GameObject.FindWithTag("Player").GetComponent<PlayerManager>();
-            playerMovement = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
+            inputManager = player.GetComponent<InputManager>();
+            playerManager = player.GetComponent<PlayerManager>();
+            playerMovement = player.GetComponent<PlayerMovement>();
         }
         //playerRespawn = GameObject.FindWithTag("Player").GetComponent<PlayerRespawn>();
         respawn = FindFirstObjectByType<PlayerRespawner>();
+        audioManager = GameObject.FindWithTag("Audio").GetComponent<AudioManager>();
     }
 
     private void Update()
@@ -56,18 +55,19 @@ public class FadeManager : MonoBehaviour
         isInTransition = true;
         this.duration = duration;
         transition = (isShowing) ? 0 : 1;
-        inputManager.enabled = !PlayerRespawner.instance.isRespawning;
-        playerManager.enabled = !PlayerRespawner.instance.isRespawning;
-        playerMovement.enabled = !PlayerRespawner.instance.isRespawning;
+        inputManager.enabled = !isShowing;
+        playerManager.enabled = !isShowing;
+        playerMovement.enabled = !isShowing;
     }
 
     public IEnumerator HandleFadeIn()
     {
+        respawn.isRespawning = true;
+        audioManager.sfxSource.mute = true;
         isInTransition = true;
         Fade(true, 0.15f);
         inputManager.moveInput = Vector3.zero;
         yield return new WaitForSeconds(1f);
-        //playerRespawn.RespawnPlayer();
         respawn.RespawnPlayer();
         StartCoroutine(HandleFadeOut());
         yield return new WaitForSeconds(1f);
@@ -84,8 +84,9 @@ public class FadeManager : MonoBehaviour
                 script.enabled = true;
             }
         }
-        respawn.isRespawning = false;
         Fade(false, 1f);
+        respawn.isRespawning = false;
+        audioManager.sfxSource.mute = false;
         yield return new WaitForSeconds(1.5f);
         isInTransition = false;
     }

@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,7 +10,7 @@ public class AudioManager : MonoBehaviour
 
     [Header("Audio Source")]
     [SerializeField] AudioSource musicSource;
-    [SerializeField] AudioSource sfxSource;
+    [SerializeField] public AudioSource sfxSource;
 
     [Header("Audio Clips")]
     public AudioClip menuBg;
@@ -43,10 +44,10 @@ public class AudioManager : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
         UpdateMusic();
 
-        musicSource = GetComponentInChildren<AudioSource>();
-        sfxSource = GetComponentInChildren<AudioSource>();
+        musicSource = transform.GetChild(0).GetComponent<AudioSource>();
+        sfxSource = transform.GetChild(1).GetComponent<AudioSource>();
 
-        if (playerMove != null)
+        if (playerMove == null)
             playerMove = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
     }
 
@@ -86,7 +87,7 @@ public class AudioManager : MonoBehaviour
 
     public IEnumerator HandleSteps()
     {
-        if (playerMove!=null)
+        if (playerMove != null)
         {
             while (playerMove.isWalking)
             {

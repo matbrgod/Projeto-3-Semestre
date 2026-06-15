@@ -9,7 +9,6 @@ public class InputManager : MonoBehaviour
     public PlayerInputSystem playerControl;
     AnimatorManager animManager;
     PlayerMovement playerMove;
-    PlayerRespawn playerRespawn;
     PlayerInteract playerInteract;
     DialogueManager dialogueManager;
     PauseManager pauseManager;
@@ -46,7 +45,6 @@ public class InputManager : MonoBehaviour
         playerMove = GetComponent<PlayerMovement>();
         playerInteract = GetComponent<PlayerInteract>();
         dialogueManager = FindFirstObjectByType<DialogueManager>();
-        playerRespawn = GetComponent<PlayerRespawn>();
         pauseManager = FindFirstObjectByType<PauseManager>();
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
@@ -54,8 +52,6 @@ public class InputManager : MonoBehaviour
     private void Update()
     {
         if (img != null) imgFill.fillAmount = time;
-
-        //if (FadeManager.instance.fadeImage.color == new Color(1, 1, 1, 0)) StopAllCoroutines();
     }
 
     private void OnEnable()

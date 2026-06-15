@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isJumping;
     public bool isSprinting;
     public bool isWalking;
+    public bool isLanding;
     public bool canJump;
     public bool dash;
     public bool doubleJump;
@@ -68,6 +69,8 @@ public class PlayerMovement : MonoBehaviour
     public float jumpHeight = 3f;
     public float gravityIntensity = -15f;
 
+    IEnumerator stepsSfx;
+
     private void Awake()
     {
         inputManager = GetComponent<InputManager>();
@@ -75,6 +78,8 @@ public class PlayerMovement : MonoBehaviour
         animManager = GetComponent<AnimatorManager>();
         playerRb = GetComponent<Rigidbody>();
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+
+        stepsSfx = audioManager.HandleSteps();
 
         playerWalkSpeed = walkSpeed;
         playerRunSpeed = runSpeed;
@@ -95,10 +100,13 @@ public class PlayerMovement : MonoBehaviour
     public void HandleMoves()
     {
         RaycastHit hitFloor;
-        RaycastHit hit;
         Vector3 raycastOrigin = transform.position;
 
-        isWalking = inputManager.playerControl.PlayerMove.Movement.IsPressed();
+        isLanding = playerManager.isInteracting;
+
+        if(isJumping || isLanding || !isGrounded || PlayerRespawner.instance.isRespawning)
+            isWalking = false;
+        else if (!isJumping && !isLanding && isGrounded && !PlayerRespawner.instance.isRespawning) isWalking = inputManager.playerControl.PlayerMove.Movement.IsPressed();
 
         // dash
         if (impact.magnitude > 0.2f)
@@ -188,12 +196,12 @@ public class PlayerMovement : MonoBehaviour
         {
             if (isWalking && !audioManager.waitForStep)
             {
-                StartCoroutine(audioManager.HandleSteps());
+                StartCoroutine(stepsSfx);
             }
             else if (!isWalking)
             {
                 audioManager.waitForStep = false;
-                StopCoroutine(audioManager.HandleSteps());
+                StopCoroutine(stepsSfx);
             }
         }
     }
@@ -269,7 +277,6 @@ public class PlayerMovement : MonoBehaviour
             if (canJump)
             {
                 isWalking = false;
-                StopCoroutine(audioManager.HandleSteps());
                 canJump = false;
                 moveSpeed = 0;
 
