@@ -75,14 +75,14 @@ public class PlayerInteract : MonoBehaviour
                 canvas.SetActive(false);
 
             canvas = null;
-            if (dialogueManager.isDialogueActive) dialogueManager.EndDialogue();
+            if (dialogueManager.isDialogueActive && stoneGameObj != null) dialogueManager.EndDialogue();
             stoneGameObj = null;
             canInteract = false;
         }
 
         if (other.gameObject.CompareTag("MiniShrine"))
         {
-            canvas.SetActive(false);
+            if(canvas != null) canvas.SetActive(false);
             canvas = null;
             shrineObj = null;
             miniShrine = false;
