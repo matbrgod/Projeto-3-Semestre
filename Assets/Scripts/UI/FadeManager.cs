@@ -84,8 +84,8 @@ public class FadeManager : MonoBehaviour
                 script.enabled = true;
             }
         }
-        Fade(false, 1f);
         respawn.isRespawning = false;
+        Fade(false, 1f);
         audioManager.sfxSource.mute = false;
         yield return new WaitForSeconds(1.5f);
         isInTransition = false;
