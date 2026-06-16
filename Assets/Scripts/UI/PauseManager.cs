@@ -15,6 +15,7 @@ public class PauseManager : MonoBehaviour
     [Header("Telas")]
     public GameObject pauseScreen;
     public GameObject optionsScreen;
+    public GameObject controlsScreen;
 
     public bool isPaused;
 
@@ -48,6 +49,15 @@ public class PauseManager : MonoBehaviour
             case 2:
                 BtnQuitToMenu();
                 break;
+            case 3:
+                BtnControls();
+                break;
+            case 4:
+                BtnReturn();
+                break;
+            case 5:
+                BtnReturnToOptions();
+                break;
         }
     }
 
@@ -71,11 +81,27 @@ public class PauseManager : MonoBehaviour
         SceneManager.LoadScene("menu");
     }
 
-    public void BtnReturn()
+    private void BtnReturn()
     {
         if (audioManager != null) audioManager.PlaySfx(audioManager.btnSfx);
         pauseScreen.SetActive(true);
         optionsScreen.SetActive(false);
+    }
+
+    private void BtnControls()
+    {
+        if (audioManager != null) audioManager.PlaySfx(audioManager.btnSfx);
+        pauseScreen.SetActive(false);
+        optionsScreen.SetActive(false);
+        controlsScreen.SetActive(true);
+    }
+
+    private void BtnReturnToOptions()
+    {
+        if (audioManager != null) audioManager.PlaySfx(audioManager.btnSfx);
+        pauseScreen.SetActive(false);
+        optionsScreen.SetActive(true);
+        controlsScreen.SetActive(false);
     }
 
     public void ResumeGame()
