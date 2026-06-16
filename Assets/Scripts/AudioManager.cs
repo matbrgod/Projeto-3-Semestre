@@ -91,6 +91,7 @@ public class AudioManager : MonoBehaviour
         {
             while (playerMove.isWalking)
             {
+                sfxSource.pitch = Random.value * 0.9f + 0.2f;
                 sfxSource.PlayOneShot(stepSfx);
                 waitForStep = true;
                 yield return new WaitForSeconds(playerMove.moveSpeed);
