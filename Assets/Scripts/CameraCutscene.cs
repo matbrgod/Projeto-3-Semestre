@@ -9,6 +9,8 @@ public class CameraCutscene : MonoBehaviour
     {
         if (currentTarget != null)
         {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             transform.position = Vector3.Lerp(transform.position, currentTarget.position, speed);
             transform.rotation = Quaternion.Lerp(transform.rotation, currentTarget.rotation, speed);
         }
