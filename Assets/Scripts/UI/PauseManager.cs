@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class PauseManager : MonoBehaviour
 {
+    public static PauseManager instance;
+
     AudioManager audioManager;
     InputManager inputManager;
     public GameObject cameraManager;
@@ -13,12 +15,16 @@ public class PauseManager : MonoBehaviour
     [Header("Telas")]
     public GameObject pauseScreen;
     public GameObject optionsScreen;
-    [SerializeField] GameObject quitScreen;
+    public GameObject controlsScreen;
 
     public bool isPaused;
 
     private void Awake()
     {
+        instance = this;
+
+        Time.timeScale = 1f;
+
         DontDestroyOnLoad(gameObject);
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         inputManager = GameObject.FindWithTag("Player").GetComponent<InputManager>();
@@ -38,57 +44,69 @@ public class PauseManager : MonoBehaviour
                 BtnResume();
                 break;
             case 1:
-                BtnSaveAndQuit();
+                BtnOptions();
                 break;
             case 2:
                 BtnQuitToMenu();
                 break;
+            case 3:
+                BtnControls();
+                break;
+            case 4:
+                BtnReturn();
+                break;
+            case 5:
+                BtnReturnToOptions();
+                break;
         }
     }
 
-    public void BtnResume()
+    private void BtnResume()
     {
         if (audioManager != null) audioManager.PlaySfx(audioManager.btnSfx);
         ResumeGame();
     }
 
-    public void BtnOptions()
+    private void BtnOptions()
     {
+        if (audioManager != null) audioManager.PlaySfx(audioManager.btnSfx);
         pauseScreen.SetActive(false);
         optionsScreen.SetActive(true);
     }
 
-    void BtnSaveAndQuit()
-    {
-        if (audioManager != null) audioManager.PlaySfx(audioManager.btnSfx);
-    }
-
-     public void BtnQuitToMenu()
+    private void BtnQuitToMenu()
     {
         if (audioManager != null) audioManager.PlaySfx(audioManager.btnSfx);
         pauseScreen.SetActive(false);
-        if (quitScreen != null) quitScreen.SetActive(true);
-        else SceneManager.LoadScene("menu");
+        SceneManager.LoadScene("menu");
     }
 
-    public void BtnReturn()
+    private void BtnReturn()
     {
+        if (audioManager != null) audioManager.PlaySfx(audioManager.btnSfx);
         pauseScreen.SetActive(true);
         optionsScreen.SetActive(false);
     }
 
-    void BtnDontSave()
+    private void BtnControls()
     {
-
+        if (audioManager != null) audioManager.PlaySfx(audioManager.btnSfx);
+        pauseScreen.SetActive(false);
+        optionsScreen.SetActive(false);
+        controlsScreen.SetActive(true);
     }
 
-    void Save()
+    private void BtnReturnToOptions()
     {
-
+        if (audioManager != null) audioManager.PlaySfx(audioManager.btnSfx);
+        pauseScreen.SetActive(false);
+        optionsScreen.SetActive(true);
+        controlsScreen.SetActive(false);
     }
 
     public void ResumeGame()
     {
+        Time.timeScale = 1f;
         inputManager.playerControl.PlayerMove.Enable();
         cameraManager.GetComponent<CameraManager>().camLookSpeed = camMoveSpeed;
         cameraManager.GetComponent<CameraManager>().camPivotSpeed = camMoveSpeed;
@@ -103,6 +121,7 @@ public class PauseManager : MonoBehaviour
     {
         isPaused = true;
         inputManager.playerControl.PlayerMove.Disable();
+        Time.timeScale = 0f;
         cameraManager.GetComponent<CameraManager>().camLookSpeed = 0f;
         cameraManager.GetComponent<CameraManager>().camPivotSpeed = 0f;
         pauseScreen.SetActive(isPaused);

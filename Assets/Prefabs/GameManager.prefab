@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8862876731398533151}
   - component: {fileID: 5279499541898921966}
+  - component: {fileID: 7171042319319796192}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -44,5 +45,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6c64a2724e139c4983dfd076af1580d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PauseManager
+  cameraManager: {fileID: 0}
   pauseScreen: {fileID: 0}
+  optionsScreen: {fileID: 0}
   isPaused: 0
+--- !u!114 &7171042319319796192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1514454559862805566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13adbb4685629924c879346d46d880b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerRespawner
+  playerPrefab: {fileID: 0}
+  isRespawning: 0
+  spawnValue: 0

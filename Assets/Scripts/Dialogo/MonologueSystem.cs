@@ -22,9 +22,15 @@ public class MonologueSystem : MonoBehaviour
 
     public float speachVel = 3f;
     public float waitToSpeak = 1f;
+    float speachSpeed;
 
     [SerializeField] private int monologueIndex = 0;
     public bool isMonologueActive, isTyping = false;
+
+    private void Awake()
+    {
+        speachSpeed = speachVel;
+    }
 
     private void Update()
     {
@@ -36,10 +42,10 @@ public class MonologueSystem : MonoBehaviour
 
     public void HandleMonologue()
     {
-        Startmonologue(monologueData);
+        StartMonologue(monologueData);
     }
 
-    public void Startmonologue(Monologue monologue)
+    public void StartMonologue(Monologue monologue)
     {
         monologuePanel.SetActive(true);
 

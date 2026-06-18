@@ -9,11 +9,11 @@ public class InputManager : MonoBehaviour
     public PlayerInputSystem playerControl;
     AnimatorManager animManager;
     PlayerMovement playerMove;
-    PlayerRespawn playerRespawn;
     PlayerInteract playerInteract;
     DialogueManager dialogueManager;
     PauseManager pauseManager;
     AudioManager audioManager;
+    CutsceneFinal cutsceneFinal;
 
     [Header("Vetores dos Inputs")]
     public Vector3 moveInput;
@@ -24,7 +24,7 @@ public class InputManager : MonoBehaviour
     public float horizontalInput;
     public float camXInput;
     public float camYInput;
-    public float moveAmout;
+    public float moveAmount;
     public float respawnCounter = 3f;
 
     [Header("Flags dos Inputs")]
@@ -46,16 +46,14 @@ public class InputManager : MonoBehaviour
         playerMove = GetComponent<PlayerMovement>();
         playerInteract = GetComponent<PlayerInteract>();
         dialogueManager = FindFirstObjectByType<DialogueManager>();
-        playerRespawn = GetComponent<PlayerRespawn>();
         pauseManager = FindFirstObjectByType<PauseManager>();
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        cutsceneFinal = FindFirstObjectByType<CutsceneFinal>();
     }
 
     private void Update()
     {
         if (img != null) imgFill.fillAmount = time;
-
-        if (FadeManager.instance.fadeImage.color == new Color(1, 1, 1, 0)) StopAllCoroutines();
     }
 
     private void OnEnable()
@@ -72,14 +70,14 @@ public class InputManager : MonoBehaviour
             playerControl.PlayerActions.Jump.performed += i => jumpInput = true; // input de pulo
 
             // input do sprint
-            playerControl.PlayerActions.Sprint.performed += i => sprintInput = true; // detecta se o botão foi pressionado
+            playerControl.PlayerActions.Sprint.performed += i => sprintInput = true; // detecta se o botï¿½o foi pressionado
             playerControl.PlayerActions.Sprint.canceled += i => sprintInput = false; // detecta se ele deixou de ser pressionado
 
             playerControl.PlayerActions.Dash.performed += i => dashInput = true; // input do dash
 
             playerControl.PlayerActions.Pause.performed += i => pauseInput = true; // input de pause
 
-            playerControl.PlayerActions.Interact.performed += i => interactInput = true; // input de interação
+            playerControl.PlayerActions.Interact.performed += i => interactInput = true; // input de interaï¿½ï¿½o
 
             //respawnInput = playerControl.PlayerActions.Respawn.IsPressed(); // input de respawn
             playerControl.PlayerActions.Respawn.performed += i => respawnInput = true;
@@ -113,15 +111,16 @@ public class InputManager : MonoBehaviour
 
     private void HandleMovementInput()
     {
-        //playerMove.isWalking = playerControl.PlayerMove.Movement.IsPressed();
         verticalInput = moveInput.y;
         horizontalInput = moveInput.x;
 
-        moveAmout = Mathf.Clamp01(Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput));
-        animManager.UpdateAnimatorValues(0, moveAmout, playerMove.isSprinting);
+        moveAmount = Mathf.Clamp01(Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput));
+        animManager.UpdateAnimatorValues(0, moveAmount, playerMove.isSprinting);
 
         camYInput = camInput.y;
         camXInput = camInput.x;
+
+        if (moveAmount >= 0.5f) TorsoTrigger.instance.isTorsoTriggered = false;
     }
 
     private void HandleJumpInput()
@@ -137,7 +136,7 @@ public class InputManager : MonoBehaviour
 
     private void HandleSprintInput()
     {
-        if (sprintInput && moveAmout > 0.5f)
+        if (sprintInput && moveAmount > 0.5f)
         {
             playerMove.isSprinting = true;
         }
@@ -181,7 +180,7 @@ public class InputManager : MonoBehaviour
             time += Time.deltaTime;
             if (time >= respawnCounter)
             {
-                StartCoroutine(HandleFadeIn());
+                StartCoroutine(FadeManager.instance.HandleFadeIn());
                 respawnInput = false;
             }
         }
@@ -217,24 +216,11 @@ public class InputManager : MonoBehaviour
             {
                 playerInteract.MiniShrineInteract();
             }
+            if (playerInteract.bola == true)
+            {
+                cutsceneFinal.cutsceneActive = true;
+            }
             interactInput = false;
         }
-    }
-
-    public IEnumerator HandleFadeIn()
-    {
-        FadeManager.instance.isInTransition = true;
-        FadeManager.instance.Fade(true, 0.25f);
-        yield return new WaitForSeconds(1f);
-        playerRespawn.RespawnPlayer();
-        yield return new WaitForSeconds(3f);
-    }
-
-    public IEnumerator HandleFadeOut()
-    {
-        yield return new WaitForSeconds(1f);
-        FadeManager.instance.Fade(false, 1f);
-        yield return new WaitForSeconds(1.5f);
-        FadeManager.instance.isInTransition = false;
     }
 }

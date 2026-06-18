@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,7 +10,7 @@ public class AudioManager : MonoBehaviour
 
     [Header("Audio Source")]
     [SerializeField] AudioSource musicSource;
-    [SerializeField] AudioSource sfxSource;
+    [SerializeField] public AudioSource sfxSource;
 
     [Header("Audio Clips")]
     public AudioClip menuBg;
@@ -43,9 +44,11 @@ public class AudioManager : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
         UpdateMusic();
 
-        musicSource = GetComponentInChildren<AudioSource>();
-        sfxSource = GetComponentInChildren<AudioSource>();
-        playerMove = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
+        musicSource = transform.GetChild(0).GetComponent<AudioSource>();
+        sfxSource = transform.GetChild(1).GetComponent<AudioSource>();
+
+        if (playerMove == null)
+            playerMove = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -59,7 +62,7 @@ public class AudioManager : MonoBehaviour
 
         if (cena.Contains("menu"))
             bgMusic = menuBg;
-        else if (cena.Contains("yuri-testes") || cena.Contains("blocagem_matheus"))
+        else if (cena.Contains("yuri-testes") || cena.Contains("blocagem_matheus") || cena.Contains("Cutscene Inicial"))
             bgMusic = gameBg;
 
         PlayMusic(bgMusic);
@@ -82,20 +85,18 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    //public void TakeStep()
-    //{
-    //    Play
-    //}
-
     public IEnumerator HandleSteps()
     {
-        while (playerMove.isWalking)
+        if (playerMove != null)
         {
-            //TakeStep();
-            sfxSource.PlayOneShot(stepSfx);
-            waitForStep = true;
-            yield return new WaitForSeconds(playerMove.moveSpeed);
-            waitForStep = false;
+            while (playerMove.isWalking)
+            {
+                sfxSource.pitch = Random.value * 0.9f + 0.2f;
+                sfxSource.PlayOneShot(stepSfx);
+                waitForStep = true;
+                yield return new WaitForSeconds(playerMove.moveSpeed);
+                waitForStep = false;
+            }
         }
     }
 }

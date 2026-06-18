@@ -724,7 +724,7 @@
     "m_ShaderOutputName": "BaseColor",
     "m_StageCapability": 2,
     "m_Value": {
-        "x": 0.0,
+        "x": 1.0,
         "y": 0.0,
         "z": 0.0
     },
@@ -1465,9 +1465,9 @@
     "m_ShaderOutputName": "Emission",
     "m_StageCapability": 2,
     "m_Value": {
-        "x": 0.00019830380915664136,
-        "y": 0.0,
-        "z": 0.000005765712103311671
+        "x": 0.00026475125923752785,
+        "y": 0.000006244132691790583,
+        "z": 0.00001436476031813072
     },
     "m_DefaultValue": {
         "x": 0.0,

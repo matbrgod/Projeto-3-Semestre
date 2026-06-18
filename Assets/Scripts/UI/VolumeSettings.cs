@@ -17,9 +17,9 @@ public class VolumeSettings : MonoBehaviour
         }
         else
         {
-            SetMasterVolume();
-            SetMusicVolume();
-            SetSfxVolume();
+            SetInicialMasterVolume();
+            SetInicialMusicVolume();
+            SetInicialSfxVolume();
         }
     }
 
@@ -59,5 +59,40 @@ public class VolumeSettings : MonoBehaviour
         float volume = sfxSlider.value;
         audioMix.SetFloat("sfx", Mathf.Log10(volume) * 20);
         PlayerPrefs.SetFloat("sfxVolume", volume);
+    }
+
+    public void SetInicialMasterVolume()
+    {
+        if (masterSlider == null) return;
+        float volume = 1f;
+        audioMix.SetFloat("master", Mathf.Log10(volume) * 20);
+        masterSlider.value = volume;
+        PlayerPrefs.SetFloat("masterVolume", volume);
+    }
+
+    public void SetInicialMusicVolume()
+    {
+        if (musicSlider == null) return;
+        float volume = 1f * 0.75f;
+        audioMix.SetFloat("music", Mathf.Log10(volume) * 20);
+        musicSlider.value = volume;
+        PlayerPrefs.SetFloat("musicVolume", volume);
+    }
+
+    public void SetInicialSfxVolume()
+    {
+        if (sfxSlider == null) return;
+        float volume = 1f * 0.75f;
+        audioMix.SetFloat("sfx", Mathf.Log10(volume) * 20);
+        sfxSlider.value = volume;
+        PlayerPrefs.SetFloat("sfxVolume", volume);
+    }
+
+    public void ResetVolume()
+    {
+        PlayerPrefs.DeleteAll();
+        SetInicialMasterVolume();
+        SetInicialMusicVolume();
+        SetInicialSfxVolume();
     }
 }
