@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf59281a5fd46434d8c838cc0732a7fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoveSpiralPlatform
-  speed: 3
+  speed: 8
 --- !u!65 &5373746618514662487
 BoxCollider:
   m_ObjectHideFlags: 0
