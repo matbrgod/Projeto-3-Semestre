@@ -153,7 +153,7 @@ public class PlayerMovement : MonoBehaviour
         if (TorsoTrigger.instance.isTorsoTriggered)
         {
             inputManager.moveInput = Vector3.zero;
-            playerRb.AddForce(Physics.gravity * inAirTimer * fallingVel);
+            playerRb.AddForce(Physics.gravity * inAirTimer * fallingVel *2);
         }
     }
 
